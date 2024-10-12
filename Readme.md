@@ -1,6 +1,6 @@
 # HireHalo (Job Board)
 
-HireHalo is a platform which connects job seekers to wide range of remote job opportunites. It also creates rooms for startups to pitch their products and create jobs for their potential candidates, and also find the right talent for the posted jobs. Hirehalo is all about connecting job seekers to their dream jobs and Opportunities. I built Hirehalo with Go, NextJs,MongoDB, and Typescript.
+HireHalo is a platform that connects job seekers to a wide range of remote job opportunities. It also creates room for startups to pitch their products, create jobs for potential candidates, and find the right talent for the posted jobs. Hirehalo is all about connecting job seekers to their dream jobs and Opportunities. I built Hirehalo with Go, NextJs, MongoDB, and Typescript.
 
 ![Project Screenshot](/dashboard.jpeg)
 
@@ -26,11 +26,9 @@ HireHalo is a platform which connects job seekers to wide range of remote job op
 - **User Authentication:** Secure login and registration.
 - **Role Management:** Admin, User, and Recruiters roles.
 - **Job Management:** Job can be managed by the recruiters.
-- **Reservation System:** Status management for reservations.
-- **Payment Integration:** Support for multiple payment statuses.
-- **Review System:** Users can leave reviews and ratings.
-- **Social System:** Users can chat with Sellers.
-- **Notification System:** Sellers can receive notifications for every purchase .
+- **Review System:** Users can leave reviews and ratings for a job.
+- **Social System:** Users can chat with Recruiters.
+- **Application Status System:** Users can see their job application status and Recruiters can manage the candidates' job progress.
 
 ## Getting Started
 
