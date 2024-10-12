@@ -1,0 +1,28 @@
+dasgboard_sidebar_color:#161818
+sidebar_hover:#282C2B;
+green_activr:#CDEED3 #347345;
+pending: #DEDDFF 3E3AFF
+delay:#FFEEC3 #A37D18
+delay_2:#F3F3F1
+button_vcolor:#002B31;
+grey_1:#F8F9F7;
+
+dashbaord width:16rem;
+dashoard font-size 13px
+dashboard sidebar color:#e1e3e3
+
+
+    --fonts-default: AngelList, Inter, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --fonts-display: "AngelList Display", Inter, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --fonts-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+    --fonts-defaultBeta: AngelList, Inter, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --fonts-defaultBetaAlt: "Comic Sans MS", "Comic Sans", cursive, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    --fonts-displayBeta: "AngelList Display", Inter,
+
+
+    ///sidebar_hover
+    border: 1px solid var(--primary-red);
+    background-color: var(--accent-soft-red);
+    color: var(--primary-red);
+    box-shadow: 0 0 0 4px #ec2e3a40;
+        transition: all .3s;
