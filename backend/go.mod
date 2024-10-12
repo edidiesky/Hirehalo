@@ -1,4 +1,4 @@
-module github.com/edidiesky/Go_Job_Backend
+module github.com/edidiesky/hirehalo/backend
 
 go 1.23.1
 

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/edidiesky/Go_Job_Backend/dbconfig"
-	"github.com/edidiesky/Go_Job_Backend/routers"
+	"github.com/edidiesky/hirehalo/backend/dbconfig"
+	"github.com/edidiesky/hirehalo/backend/routers"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"

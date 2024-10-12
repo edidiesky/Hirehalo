@@ -5,9 +5,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/edidiesky/Go_Job_Backend/dbconfig"
-	"github.com/edidiesky/Go_Job_Backend/models"
-	"github.com/edidiesky/Go_Job_Backend/utils"
+	"github.com/edidiesky/hirehalo/backend/dbconfig"
+	"github.com/edidiesky/hirehalo/backend/models"
+	"github.com/edidiesky/hirehalo/backend/utils"
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"

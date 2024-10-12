@@ -1,8 +1,8 @@
 package routers
 
 import (
-	"github.com/edidiesky/Go_Job_Backend/controllers"
-	"github.com/edidiesky/Go_Job_Backend/middleware"
+	"github.com/edidiesky/hirehalo/backend/controllers"
+	"github.com/edidiesky/hirehalo/backend/middleware"
 	"github.com/gofiber/fiber/v2"
 )
 

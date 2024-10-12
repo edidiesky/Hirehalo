@@ -2,7 +2,7 @@ package routers
 
 import (
 	// "fmt"
-	"github.com/edidiesky/Go_Job_Backend/controllers"
+	"github.com/edidiesky/hirehalo/backend/controllers"
 	"github.com/gofiber/fiber/v2"
 )
 
