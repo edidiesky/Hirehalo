@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-import Link from "next/link";
 import { FaBookmark } from "react-icons/fa";
 import JobDetailsSidebar from "./JobDetailsSidebar";
 import { useState } from "react";
@@ -9,11 +8,11 @@ type JobCardType = { data: { bgColor: string, company: string, jobtitle: string,
 const JobCard = ({ index, data }: JobCardType) => {
     const [modal, setModal] = useState(false)
     return <>
-        <JobDetailsSidebar setModal={setModal} modal={modal}/>
+        <JobDetailsSidebar setModal={setModal} modal={modal} />
         <li key={index} style={{
             transition: "all .4s"
         }} className="flex w-full bg-[#fffffff6] p-2 pb-4 rounded-xl border shadows">
-            <Link href={`jobs/${index}`} className="flex w-full flex-col gap-4 justify-between">
+            <div className="flex w-full flex-col gap-4 justify-between">
                 <div style={{
                     backgroundColor: `${data?.bgColor}`
                 }} className="flex p-4 gap-4 flex-col rounded-xl">
@@ -61,11 +60,11 @@ const JobCard = ({ index, data }: JobCardType) => {
                     <span className="text-base font-bold">$250 /hr
                         <span className="font-normal block text-xs">San-fransico, United-States</span>
                     </span>
-                    <button className="shadows py-2 rounded-full cursor-pointer px-4 border text-white bg-[#000] text-xs">Details</button>
+                    <button onClick={() => setModal(true)} className="shadows py-2 rounded-full cursor-pointer px-4 border text-white bg-[#000] text-xs">Details</button>
 
                 </div>
 
-            </Link>
+            </div>
         </li>
     </>
 }

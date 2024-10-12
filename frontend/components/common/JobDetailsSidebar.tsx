@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image";
+import { motion } from 'framer-motion'
 import { RxCross1 } from 'react-icons/rx'
 import Link from "next/link";
 import { useState } from "react";
@@ -15,8 +16,10 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
         companyImage: "/images/Zello.png",
     }
     const [tab, setTab] = useState(0)
-    return <div className='w-screen h-[100vh] fixed right-0 z-[600] top-0'>
-        <div className="w-[90%] md:w-[600px] h-full max-h-[100vh] overflow-auto absolute right-0 top-0 bg-white z-30 p-6 sidebar_shadow">
+    return <div className={`${modal ? "opacity-100 right-[0%]" : "opacity-0 -right-[100%]"} w-screen h-[100vh] fixed z-[600] top-0`}>
+        <div style={{
+            transition: "all .7s"
+        }} className={`${modal ? "right-[0%]" : "-right-[100%]"} w-[90%] md:w-[600px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 p-6 sidebar_shadow`}>
             <div onClick={() => setModal(false)} className="w-12 h-12 rounded-full z-20 flex items-center hover:shadow-md border shadow-xl justify-center bg-white absolute cursor-pointer right-12 top-4">
                 <RxCross1 />
             </div>
@@ -107,8 +110,12 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
 
             </div>
         </div>
-        <div onClick={() => setModal(false)} className="w-full top-0 left-0 absolute bg-[rgba(0,0,0,.1)] h-full z-10"></div>
+        <div style={{
+            transition: "all .3s"
+        }} onClick={() => setModal(false)} className={`${modal ? "opacity-100 right-[0%]" : "opacity-0 -right-[100%]"} w-full top-0 absolute bg-[rgba(0,0,0,.1)] h-full z-10`}></div>
     </div>;
 }
 
 export default JobDetailsSidebar;
+
+

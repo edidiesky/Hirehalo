@@ -1,10 +1,8 @@
 "use client"
 import Image from "next/image";
-import { RxCross1 } from 'react-icons/rx'
-import Link from "next/link";
 import React, { useState } from 'react';
 import { BsPen } from "react-icons/bs";
-import { ApplicationFormData } from "@/constants";
+import { ApplicationFormData, ApplicationFormDataType } from "@/constants";
 
 const JobApplicationForm = ({ }) => {
     const data = {
@@ -17,7 +15,7 @@ const JobApplicationForm = ({ }) => {
         companyImage: "/images/Zello.png",
     }
 
-    const [formValue, setFormValue] = useState({
+    const [formValue, setFormValue] = useState<ApplicationFormDataType>({
         name: "",
         username: "",
         email: "",
@@ -58,7 +56,7 @@ const JobApplicationForm = ({ }) => {
             <h4 className="text-base lg:text-xl family2 font-semibold">General Information</h4>
             <form action="" className='w-full flex flex-col gap-6 relative'>
                 {
-                    ApplicationFormData.map((formdata: { id: number, name: string, text: string, label: string, type: string }, index?: any) => {
+                    ApplicationFormData.map((formdata, _?: any) => {
                         return <label key={formdata.id} htmlFor="" className="flex flex-col gap-2 text-base">
                             <span className="font-semibold">
                                 {formdata?.label}
