@@ -9,13 +9,12 @@ export default function Home() {
   return (
     <div className="w-full bg-white min-h-[100vh] py-12 px-4 md:px-8">
       <div className="w-full max-w-custom mx-auto flex flex-col gap-12">
-        <div className="w-full flex flex-col gap-2">
+        <div className="w-full flex flex-col gap-1">
           <h3 className="text-2xl block lg:text-3xl text-dark family2 font-semibold">
-            Welcome 👋
-
+            Dashboard
           </h3>
           <span className="block text-base font-normal">
-            Explore information and activity about your jobs applied
+            Overview of notes regarding HR management
           </span>
         </div>
         <div className="w-full flex flex-col gap-8">
@@ -71,15 +70,6 @@ export default function Home() {
             tableheadList={["Company", "Title", "Date Created", "Application Status", "Actions"]}
             tabledata={jobData.slice(0,5)}
           /> */}
-
-          <ol className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-            {
-              jobData.slice(0, 5)?.map((data, index) => {
-                return <JobCard index={index} key={index} data={data} />
-              })
-            }
-
-          </ol>
         </div>
       </div>
     </div>

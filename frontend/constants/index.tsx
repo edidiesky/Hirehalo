@@ -1,5 +1,5 @@
 import { FiSettings } from "react-icons/fi";
-import { BiMessage, BiSolidDashboard } from "react-icons/bi";
+import { BiMessage, BiSolidDashboard, BiStats } from "react-icons/bi";
 import { BsLuggage } from "react-icons/bs";
 export const userDashboardLinks = [
     {
@@ -44,6 +44,72 @@ export const userDashboardLinks = [
             icon: <BiMessage fontSize={"23px"} />,
             title: "Messages",
             path: "/user/message",
+        },
+        list: [],
+    },
+]
+
+export const recruiterDashboardLinks = [
+    {
+        id: 1,
+        tab: {
+            title: "Dashboard",
+            path: "/recruiter",
+            icon: <BiSolidDashboard fontSize={"24px"} />,
+        },
+        list: [],
+    },
+    {
+        id: 250,
+        tab: {
+            icon: <FiSettings fontSize={"20px"} />,
+            title: "Candidates",
+            path: "/recruiter/candidates",
+        },
+        list: [],
+    },
+    {
+        id: 61,
+        tab: {
+            icon: <BsLuggage fontSize={"22px"} />,
+            title: "Jobs",
+            path: "/recruiter/jobs",
+        },
+        list: [],
+    },
+    {
+        id: 200,
+        tab: {
+            icon: <BsLuggage fontSize={"20px"} />,
+            title: "Interviews",
+            path: "/recruiter/interviews",
+        },
+        list: [],
+    },
+    {
+        id: 210,
+        tab: {
+            icon: <BiStats fontSize={"20px"} />,
+            title: "Stats",
+            path: "/recruiter/stats",
+        },
+        list: [],
+    },
+    {
+        id: 6,
+        tab: {
+            icon: <BiMessage fontSize={"23px"} />,
+            title: "Messages",
+            path: "/recruiter/message",
+        },
+        list: [],
+    },
+    {
+        id: 210,
+        tab: {
+            icon: <FiSettings fontSize={"20px"} />,
+            title: "Profile",
+            path: "/recruiter/profile",
         },
         list: [],
     },
