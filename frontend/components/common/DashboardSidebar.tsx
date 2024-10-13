@@ -4,7 +4,7 @@ import React from 'react';
 import { HiBars3BottomLeft } from "react-icons/hi2";
 const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: { title: string; path: string; icon: React.JSX.Element; }; list: never[]; }[] }) => {
     return (
-        <div className='w-[310px] bg-[#161818] lg:block hidden h-[100vh] overflow-auto sticky top-0'>
+        <div className='w-[310px] bg-[#121212] lg:block hidden h-[100vh] overflow-auto sticky top-0'>
             <div className="w-full h-full px-3 py-3 flex flex-col justify-between">
                 <div className="w-full flex flex-col justify-between">
                     <div className="py-2 rounded-md w-full px-3 text-lg md:text-xl font-normal

@@ -17,7 +17,7 @@ const Charts = () => {
         dataLabels: {
             enabled: false,
         },
-        colors: ["#3e3aff", "var(--primary)"],
+        colors: ["#2E0266", "var(--primary)"],
         stroke: {
             curve: "smooth",
         },

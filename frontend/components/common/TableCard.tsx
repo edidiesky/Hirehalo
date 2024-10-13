@@ -28,7 +28,7 @@ const TableCard = ({ tabledata, type, tableheadList }: {
                 <tbody className="text-sm font-normal">
                     {
                         tabledata?.map((data?: any, _?: any) => {
-                            return <tr className="px-4 hover:bg-[#eee] cursor-pointer text-start py-6" key={data?.id}>
+                            return <tr className="px-4 hover:bg-[#eee] border-b cursor-pointer text-start py-6" key={data?.id}>
 
                                 <td className=" font-normal py-6 text-center">
                                     {/* <Image
@@ -110,7 +110,7 @@ const TableCard = ({ tabledata, type, tableheadList }: {
             <tbody className="text-sm font-normal">
                 {
                     tabledata?.map((data?: any, _?: any) => {
-                        return <tr className="px-4 hover:bg-[#eee] cursor-pointer text-start py-6" key={data?.id}>
+                        return <tr className="px-4 border-b hover:bg-[#eee] cursor-pointer text-start py-6" key={data?.id}>
 
                             <td className=" font-normal py-6 flex items-center justify-center text-center">
                                 <Image
