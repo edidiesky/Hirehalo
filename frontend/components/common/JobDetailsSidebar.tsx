@@ -119,3 +119,4 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
 export default JobDetailsSidebar;
 
 
+cons
