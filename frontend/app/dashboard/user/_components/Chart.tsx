@@ -44,7 +44,7 @@ const Charts = () => {
     ]);
     return <div className='px-6 py-8 border rounded-lg flex flex-col w-full gap-6'>
         <h3 className="text-lg block lg:text-xl text-dark family2 font-semibold">
-            Job Created
+         My Applications
         </h3>
         <div className="w-full">
             <Chart

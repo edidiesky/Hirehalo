@@ -1,14 +1,32 @@
 
 "use client"
-
-import JobCard from "@/components/common/JobCard";
-import TableCard from "@/components/common/TableCard";
-import { jobData, widgetData } from "@/constants";
+import { BsLuggage } from "react-icons/bs";
+import { jobData } from "@/constants";
+import Hirings from "./_components/Hirings";
+import Charts from "./_components/Chart";
+import JobsCreated from "./_components/JobsCreated";
+import Candidates from "./_components/Candidates";
 
 export default function Home() {
+  const widgetData = [
+    {
+      title: "Total Jobs Created",
+      subtext: "Browse your applied jobs here and check their respective progress..",
+      bgColor: "#cdeed3",
+      icon: <BsLuggage fontSize={"24px"} />,
+      color: "#347345"
+    },
+    {
+      title: "Total Applicant",
+      subtext: "Browse your applied jobs here and check their respective progress..",
+      bgColor: "#deddff",
+      icon: <BsLuggage fontSize={"24px"} />,
+      color: "#347345"
+    }
+  ]
   return (
     <div className="w-full bg-white min-h-[100vh] py-12 px-4 md:px-8">
-      <div className="w-full max-w-custom mx-auto flex flex-col gap-12">
+      <div className="w-full max-w-custom mx-auto flex flex-col gap-8">
         <div className="w-full flex flex-col gap-1">
           <h3 className="text-2xl block lg:text-3xl text-dark family2 font-semibold">
             Dashboard
@@ -19,58 +37,56 @@ export default function Home() {
         </div>
         <div className="w-full flex flex-col gap-8">
           {/* widget data listings */}
-          <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {
-              widgetData?.map((data, index) => {
-                return <div key={index} className="w-full p-4 md:p-6 items-start justify-center min-h-[250px] border rounded-md flex flex-col gap-4">
-                  <div style={{
-                    backgroundColor: `${data?.bgColor}`,
-                    color: `${data?.color}`
-                  }} className="w-12 flex items-center justify-center h-12 rounded-md">
-                    {
-                      data?.icon
-                    }
-                  </div>
-                  <div className="w-full pt-3 flex flex-col">
-                    <h3 className="text-3xl md:text-5xl font-semibold">
-                      10
-                    </h3>
-                    <h4 className="text-base md:text-lg font-semibold">
-                      {data?.title}
+          <div className="w-full grid grid-cols-1 md:grid-cols-custom gap-4 md:gap-6">
 
-                      <span className="text-xs md:text-xs pt-1 block font-normal">
-                        {data?.subtext}
-                      </span>
-                    </h4>
-                  </div>
-                  <div className="pt-3">
+
+            <div className="w-full flex flex-col gap-4">
+              <div className="w-full grid grid-cols-2 gap-4">
+                {/* widget */}
+                {
+                  widgetData?.map((data, index) => {
+                    return <div key={index} className="w-full p-4 md:p-6 items-start justify-center min-h-[200px] md:min-h-[250px] 
+                    border rounded-md flex flex-col gap-4">
+                      <div className="flex md:flex-row flex-col md:items-center gap-1 md:gap-4">
+                        <div style={{
+                          backgroundColor: `${data?.bgColor}`,
+                          color: `${data?.color}`
+                        }} className="w-10 md:w-12 flex items-center justify-center h-10 md:h-12 rounded-md">
+                          {
+                            data?.icon
+                          }
+                        </div>
+                        <h4 className="text-sm md:text-base font-semibold">
+                          {data?.title}
+                        </h4>
+                      </div>
+                      <div className="w-full md:pt-3 flex flex-col">
+                        <h3 className="text-3xl md:text-5xl font-semibold">
+                          10
+                        </h3>
+
+                        <span className="text-xs flex-1 pt-2 md:text-sm block font-normal">
+                          {data?.subtext}
+                        </span>
+                      </div>
+                      {/* <div className="pt-3">
                     <div className="shadows py-2 bg-[#fafafa] rounded-md cursor-pointer px-4 border text-dark text-sm">Browse</div>
-                  </div>
-                </div>
-
-              })
-            }
-          </div>
-        </div>
-        {/* job Applied */}
-        <div className="w-full flex flex-col gap-8">
-          <h4 className="text-2xl font-semibold">
-            Jobs Applied
-          </h4>
-          <div className="w-full flex lg:flex-row flex-col gap-4 md:items-center justify-between">
-            <form action="" className='max-w-[500px] md:w-[400px] relative'>
-              <input type="text" placeholder='Search by companies, title, skill, tags' className="text-sm font-normal rounded-full w-full " />
-            </form>
-            <div className="flex items-center md:justify-end">
-              <button className="shadows py-2 rounded-md cursor-pointer px-6 border text-dark bg-[#fafafa] text-base">Filter</button>
-
+                  </div> */}
+                    </div>
+                  })
+                }
+              </div>
+              <Charts />
+            </div>
+            <div className="md:w-[380px] flex flex-col gap-4">
+              <Hirings />
             </div>
           </div>
-          {/* <TableCard
-            tableheadList={["Company", "Title", "Date Created", "Application Status", "Actions"]}
-            tabledata={jobData.slice(0,5)}
-          /> */}
         </div>
+        {/* candidates */}
+        <Candidates />
+        {/* job Applied */}
+        <JobsCreated/>
       </div>
     </div>
   );
