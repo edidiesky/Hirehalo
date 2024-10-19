@@ -45,7 +45,7 @@ export default function Home() {
                 {/* widget */}
                 {
                   widgetData?.map((data, index) => {
-                    return <div key={index} className="w-full p-4 md:p-6 items-start justify-center min-h-[200px] md:min-h-[250px] 
+                    return <div key={index} className="w-full shadows p-4 md:p-6 items-start justify-center min-h-[200px] md:min-h-[250px] 
                     border rounded-md flex flex-col gap-4">
                       <div className="flex md:flex-row flex-col md:items-center gap-1 md:gap-4">
                         <div style={{

@@ -1,14 +1,20 @@
 "use client"
 import Image from "next/image";
 import { FaBookmark } from "react-icons/fa";
-import JobDetailsSidebar from "./JobDetailsSidebar";
+import { AnimatePresence } from 'framer-motion'
+import JobDetailsSidebar from "./jobdetails/JobDetailsSidebar";
 import { useState } from "react";
 type JobCardType = { data: { bgColor: string, company: string, jobtitle: string, companyImage: string }, index: number }
 
 const JobCard = ({ index, data }: JobCardType) => {
     const [modal, setModal] = useState(false)
     return <>
-        <JobDetailsSidebar setModal={setModal} modal={modal} />
+        <AnimatePresence mode='wait'>
+            {
+                modal && <JobDetailsSidebar setModal={setModal} modal={modal} />
+            }
+        </AnimatePresence>
+
         <li key={index} style={{
             transition: "all .4s"
         }} className="flex w-full bg-[#fffffff6] p-2 pb-4 rounded-xl border shadows">

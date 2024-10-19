@@ -21,22 +21,3 @@ type Job struct {
 	AuthorId        primitive.ObjectID `bson:"authorId, noempty"`
 }
 
-type Application struct {
-	ID                primitive.ObjectID
-	ApplicantID       primitive.ObjectID  `bson:"applicantID"`
-	AppliedAt         time.Time           `bson:"postedAt"`
-	ApplicationStatus []ApplicationStatus `bson:"application"`
-	ProgressUpdate    time.Time           `bson:"progressUpdate"`
-}
-
-type ApplicationStatus string
-
-const (
-	StatusApplied     ApplicationStatus = "APPLIED"
-	StatusUnderReview ApplicationStatus = "UNDER_REVIEW"
-	StatusInterview   ApplicationStatus = "INTERVIEW_SCHEDULED"
-	StatusHired       ApplicationStatus = "HIRED"
-	StatusRejected    ApplicationStatus = "REJECTED"
-)
-
-

@@ -153,11 +153,11 @@ export const applicantsData = [
         ApplicationStatus: "PENDING",
         bgColor: "#FFE1CC",
         companyImage: "/images/Proxify.png",
-        applicantName:"Mary Benjamin",
-        applicantLevel:"Senior Developer",
-        dateApplied:"21st November 2024",
-        applicationStatus:"Hiring",
-        applicantImage:"/images/face/avatar_1.jpg"
+        applicantName: "Mary Benjamin",
+        applicantLevel: "Senior Developer",
+        dateApplied: "21st November 2024",
+        applicationStatus: "Hiring",
+        applicantImage: "/images/face/avatar_1.jpg"
     },
     {
         jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
@@ -171,7 +171,7 @@ export const applicantsData = [
         applicantLevel: "Junior Developer",
         dateApplied: "21st November 2024",
         applicationStatus: "Hiring",
-        applicantImage:"/images/face/avatar_2.png"
+        applicantImage: "/images/face/avatar_2.png"
     },
     {
         jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
@@ -185,7 +185,7 @@ export const applicantsData = [
         applicantLevel: "Junior Developer",
         dateApplied: "21st November 2024",
         applicationStatus: "Rejected",
-        applicantImage:"/images/face/avatar_3.png"
+        applicantImage: "/images/face/avatar_3.png"
     },
     {
         jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
@@ -379,6 +379,98 @@ export const jobData = [
     },
 ];
 
+// candidate Mock Data
+export const ApplicantDataList = [
+    {
+        "hired": [
+            {
+                ApplicantName: "Hans Christain",
+                ApplicantImage: "/images/face/avatar_1.jpg",
+                jobtitle: "Entry-level Javascript Developer",
+                company: "Proxify",
+                bgColor: "#FFE1CC",
+            },
+            {
+                ApplicantName: "Vicentius Raggia",
+                ApplicantImage: "/images/face/avatar_2.png",
+                jobtitle: "UI / UX Developer",
+                company: "Proxify",
+                bgColor: "#FFE1CC",
+            },
+          
+        ]
+    },
+    {
+        "pending": [
+            {
+                ApplicantName: "Herola Francis",
+                ApplicantImage: "/images/face/avatar_3.png",
+                jobtitle: "Entry-level Javascript Developer",
+                company: "Proxify",
+                bgColor: "#FFE1CC",
+            },
+            {
+                ApplicantName: "Promise Raggia",
+                ApplicantImage: "/images/face/avatar_1.jpg",
+                jobtitle: "UI / UX Developer",
+                company: "Proxify",
+                bgColor: "#FFE1CC",
+            },
+            {
+                ApplicantName: "Lisa Havrley",
+                ApplicantImage: "/images/face/avatar_3.png",
+                jobtitle: "Frontend Developer",
+                company: "Proxify",
+                bgColor: "#FFE1CC",
+            },
+            {
+                ApplicantName: "Caroline Ziconni",
+                ApplicantImage: "/images/face/avatar_4.png",
+                jobtitle: "UI / UX Developer",
+                company: "Proxify",
+                bgColor: "#FFE1CC",
+            },
+        ]
+    },
+    {
+        "outsourced": [
+            {
+                ApplicantName: "Hans Christain",
+                ApplicantImage: "/images/face/avatar_1.jpg",
+                jobtitle: "Entry-level Javascript Developer",
+                company: "Proxify",
+                bgColor: "#FFE1CC",
+            },
+            {
+                ApplicantName: "Vicentius Raggia",
+                ApplicantImage: "/images/face/avatar_2.png",
+                jobtitle: "UI / UX Developer",
+                company: "Proxify",
+                bgColor: "#FFE1CC",
+            },
+            {
+                ApplicantName: "Lisa Havrley",
+                ApplicantImage: "/images/face/avatar_3.png",
+                jobtitle: "Frontend Developer",
+                company: "Proxify",
+                bgColor: "#FFE1CC",
+            }
+        ]
+    },
+    {
+        "internal interview": [
+            {
+                ApplicantName: "Hans Christain",
+                ApplicantImage: "/images/face/avatar_1.jpg",
+                jobtitle: "Entry-level Javascript Developer",
+                company: "Proxify",
+                bgColor: "#FFE1CC",
+            },
+        ]
+    }
+]
+
+// job filter type data
 export const filterData = [
     "React Developer",
     "Animation",
@@ -396,6 +488,7 @@ export const filterData = [
     "Animation",
 ]
 
+// form value type
 export type FormValueType = {
     name: string;
     username: string;
@@ -404,7 +497,7 @@ export type FormValueType = {
     country: string;
 };
 
-
+// application form data type
 export type ApplicationFormDataType = {
     candidatename: string;
     username: string;
@@ -435,6 +528,8 @@ export type ApplicationFormDataItem = {
     type: string;
     required: boolean;
 };
+
+// Application form data
 export const ApplicationFormData: ApplicationFormDataItem[] = [
     {
         id: 4,

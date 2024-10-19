@@ -115,3 +115,21 @@ export const slide = {
   },
 };
 
+export const slideSidebarLeft = {
+  initial: {
+    right: "-100%",
+  },
+  enter: {
+    right: "0%",
+    transition: {
+      duration: 1,
+      ease: [0.76, 0, 0.24, 1],
+    },
+  },
+  exit: {
+    right: "-100%",
+    transition: {
+      duration:1,
+    },
+  },
+};
