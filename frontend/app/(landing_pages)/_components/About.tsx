@@ -3,39 +3,33 @@ import Link from 'next/link';
 import React from 'react';
 
 const About = () => {
-    return <div className='min-h-[700px] flex w-full py-20 items-center bg-[#001D21] gap-8 justify-center'>
-        <div className="max-w-custom mx-auto w-[90%] flex items-center justify-center flex-col gap-20">
-            <div className="grid lg:grid-cols-3 items-center pb-8 border-b justify-center w-full flex-col gap-4">
-                <h3 className="text-6xl leading-[1.5] text-center md:text-9xl text-white font-normal">
-                    8M+
-                    <span className="block text-lg">
-                        Matches Made
+    return <div className='flex w-full py-20 items-center bg-[#fafafa] gap-8 justify-center'>
+        <div className="max-w-custom mx-auto w-[90%] grid md:grid-cols-custom_2 md:items-center gap-20">
+          <div className=" md:w-[400px]">
+                <h2 className="text-5xl lg:text-6xl family2 text-dark font-semibold">
+                    Experience <br /> With Numbers
+                </h2>
+          </div>
+          <div className="w-full grid md:grid-cols-3 gap-12">
+                <h3 className="text-6xl leading-[1.5] flex-1 border-r pr-4 text-start md:text-8xl font-normal">
+                    90%
+                    <span className="block text-sm">
+                     Many Users found relevant job based their skills levels
                     </span>
                 </h3>
-
-                <h3 className="text-6xl leading-[1.5] text-center md:text-9xl text-white font-normal">
-                    150K+
-                   
-
-                    <span className="block text-lg">
-                        Tech Jobs
-                    </span>
-                </h3> <h3 className="text-6xl leading-[1.5] text-center md:text-9xl text-white font-normal">
-                    10M+
-                    <span className="block text-lg">
-                        Startup Ready Candidates
+                <h3 className="text-6xl leading-[1.5] flex-1 border-r pr-4 text-start md:text-8xl font-normal">
+                    92%
+                    <span className="block text-sm">
+                        Data filtering form companies do not take too long
                     </span>
                 </h3>
-            </div>
-            <div className="w-full py-20 flex flex-col gap-4">
-                <h3 className="text-4xl leading-[1.5] md:text-5xl text-white lg:w-[800px] font-normal">
-                    <span className="block text-lg font-normal pb-4 md:pb-8">
-                        Software for Venture & Private Equity
+                <h3 className="text-6xl leading-[1.5] flex-1 text-start md:text-8xl font-normal">
+                    92%
+                    <span className="block text-sm">
+                       Many top employers can connect with Many users
                     </span>
-
-                    Our software suite amplifies opportunity for venture and private equity firms, regardless of stage or provider.
                 </h3>
-            </div>
+          </div>
         </div>
     </div>;
 }

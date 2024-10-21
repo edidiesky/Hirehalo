@@ -379,6 +379,34 @@ export const jobData = [
     },
 ];
 
+export const whyChooseUs = [
+    {
+        text: "Time Saving Efficiency",
+        subtext: "Hirehalo heps you to Stop wasting time scouting for multiple openings on job board ans company websites. Our comprehensive search enggine can cater for your dream job search listings from a variety of network sources",
+        icon: ""
+    },
+    {
+        text: "Personalized Results",
+        subtext: "We can Tailor your job search based on your unique goals. Save your search filters and receive instant alerts whenever your new job opportunites matching your criteria are being posted",
+        icon: ""
+    }, {
+        text: "Uncover Hidden Gems",
+        subtext: "HireHalo Go beyond basic job boards and access a wider pool of job postings from diverse sources",
+        icon: ""
+    }, {
+        text: "UnMatched Accuracy",
+        subtext: "We know you need advanced search and filter system, so we provide you the ability to target and search for the exact type you need for your job search",
+        icon: ""
+    }, {
+        text: "Save Valuable Time",
+        subtext: "We know you need advanced search and filter system, so we provide you the ability to target and search for the exact type you need for your job search",
+        icon: ""
+    }, {
+        text: "Laser Focus Your  Search",
+        subtext: "We know you need advanced search and filter system, so we provide you the ability to target and search for the exact type you need for your job search",
+        icon: ""
+    },
+]
 // candidate Mock Data
 export const ApplicantDataList = [
     {
@@ -397,7 +425,7 @@ export const ApplicantDataList = [
                 company: "Proxify",
                 bgColor: "#FFE1CC",
             },
-          
+
         ]
     },
     {
