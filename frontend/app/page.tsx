@@ -9,10 +9,11 @@ import Newsletter from "../components/common/Newsletter";
 // Newsletter
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
+import SmoothScroll from "@/constants/SmoothScroll";
 
 export default function Home() {
   return (
-   <div className="w-full">
+   <SmoothScroll>
       <Header />
       <Hero/>
       <About />
@@ -23,6 +24,6 @@ export default function Home() {
       <Achievement />
       <Newsletter/>
       <Footer/>
-   </div>
+   </SmoothScroll>
   );
 }

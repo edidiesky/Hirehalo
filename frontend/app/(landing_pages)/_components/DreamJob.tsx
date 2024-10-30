@@ -4,15 +4,20 @@ import Image from 'next/image';
 import { jobData } from "@/constants";
 import JobCard from "@/components/common/JobCard";
 import { BsSearch } from 'react-icons/bs';
+import AnimateTextWord from '@/components/common/AnimateTextWord';
+
 const DreamJob = () => {
-    return <div className='min-h-[500px] md:min-h-[550px] py-16 flex items-center gap-8 justify-center'>
+    return <div className='min-h-[500px] lg:min-h-[550px] py-16 flex items-center gap-8 justify-center'>
         <div className="max-w-custom mx-auto w-[90%] grid grid-cols-1 gap-12">
-            <div className="w-full flex flex-col md:items-center md:justify-center gap-8">
-                <span className='text-base md:text-lg font-normal lg:text-center max-w-[500px]'>
+            <div className="w-full flex flex-col lg:items-center lg:justify-center gap-8">
+                <span className='text-base lg:text-lg font-normal lg:text-center max-w-[500px]'>
                     Your Dream Job
                 </span>
-                <h2 className="text-5xl lg:text-7xl md:text-center leading-[1.2] family2 text-dark font-semibold">
-                   Explore and Find <br /> your job here
+                <h2 className="text-4xl lg:text-7xl max-w-[600px] lg:text-center leading-[1.2] family2 text-dark family2 lg:mx-auto">
+                    <AnimateTextWord type='bigtext'>
+                        Explore and Find  your job here
+                    </AnimateTextWord>
+                   
                 </h2>
               
                 <div className="w-full flex items-center lg:justify-center gap-4">
@@ -28,14 +33,14 @@ const DreamJob = () => {
                 </div>
                
             </div>
-            <div className="w-full flex flex-col items-center justify-center gap-4">
-                <div className="flex p-4 items-center flex-wrap gap-4">
+            <div className="w-full flex flex-col lg:items-center lg:justify-center gap-4">
+                <div className="flex p-2 md:p-4 items-center flex-wrap gap-4">
                     <button className="text-sm lg:text-sm px-4 lg:px-6 py-4 border rounded-full text-white bg-[#3e3aff] shadows">Popular Company</button>
-                    <button className="text-sm md:text-sm px-4 md:px-6 py-4 rounded-full shadows border">Recommended Jobs</button>
-                    <button className="text-sm md:text-sm px-4 md:px-6 py-4 rounded-full shadows border">New Jobs</button>
+                    <button className="text-sm lg:text-sm px-4 lg:px-6 py-4 rounded-full shadows border">Recommended Jobs</button>
+                    <button className="text-sm lg:text-sm px-4 lg:px-6 py-4 rounded-full shadows border">New Jobs</button>
 
                 </div>
-                <ol className="md:w-[90%] grid mt-4 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                <ol className="lg:w-[90%] grid mt-4 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
                     {
                         jobData.slice(0, 6)?.map((data, index) => {
                             return <JobCard type='home' index={index} key={index} data={data} />
@@ -44,7 +49,7 @@ const DreamJob = () => {
 
                 </ol>
                 <div className="w-full flex flex-col mt-4 items-center justify-center gap-8">
-                    <button className="text-sm md:text-sm px-4 text-[#e28f54] bg-[#ffe1cc5a] md:px-6 py-4 rounded-full shadows border">Show More</button>
+                    <button className="text-sm lg:text-sm px-4 text-[#e28f54] bg-[#ffe1cc5a] lg:px-6 py-4 rounded-full shadows border">Show More</button>
                 </div>
                
 

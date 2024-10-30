@@ -5,13 +5,13 @@ import React from 'react';
 import { jobData, filterData } from '@/constants';
 
 const JobList = () => {
-    return <div className='py-12 md:py-24 flex items-center gap-8 justify-center'>
-        <div className="flex flex-col-reverse lg:grid items-start lg:grid-cols-custom gap-8 mx-auto w-[90%]">
-            <div className="w-full flex flex-col gap-12 md:gap-16">
+    return <div className='py-24 flex items-center gap-8 justify-center'>
+        <div className="flex flex-col-reverse lg:grid items-start lg:grid-cols-custom gap-8 mx-auto max-w-[1200px] w-[90%]">
+            <div className="w-full flex flex-col gap-12 lg:gap-16">
                 <form action="" className='w-full relative'>
                     <input type="text" placeholder='Search by companies, title, skill, tags' className="text-base font-normal w-full " />
                 </form>
-                <h4 className="text-lg family2 lg:text-3xl font-bold">
+                <h4 className="text-lg family2 lg:text-3xl family2">
                     Recent posts
                     <span className="block text-base pt-4 font-normal">
                         20 new opportunities posted today!
@@ -33,13 +33,13 @@ const JobList = () => {
                                             height={20}
                                         />
                                         <div className="flex flex-col">
-                                            <h5 className="text-base md:text-lg font-normal capitalize">{data?.company}</h5>
-                                            <h4 className="text-xl lg:text-2xl family2 font-semibold">{data?.jobtitle}</h4>
+                                            <h5 className="text-base lg:text-lg font-normal capitalize">{data?.company}</h5>
+                                            <h4 className="text-xl lg:text-2xl family2 family2">{data?.jobtitle}</h4>
                                         </div>
                                     </div>
-                                    <div className="flex lg:justify-end lg:items-end gap-2 md:gap-4 flex-col">
+                                    <div className="flex lg:justify-end lg:items-end gap-2 lg:gap-4 flex-col">
                                         <span className="text-base font-normal">Posted About 2 hrs ago</span>
-                                        <span className="text-sm flex items-center font-bold  gap-2">
+                                        <span className="text-sm flex items-center family2  gap-2">
                                             <FaLocationArrow /> {data?.joblocation}
                                         </span>
                                     </div>
@@ -53,7 +53,7 @@ const JobList = () => {
             </div>
             <div className="w-[400px] px-8 py-12 border rounded-lg bg-white top-20 hidden lg:flex flex-col gap-8">
                 <div className="flex pb-6 border-b flex-col gap-4">
-                    <span className="block text-base md:text-lg font-semibold">
+                    <span className="block text-base lg:text-lg family2">
                         Desired Position
                     </span>
                     <ol className="flex flex-col gap-3">
@@ -69,7 +69,7 @@ const JobList = () => {
                 </div>
 
                 <div className="flex pb-6 border-b flex-col gap-4">
-                    <span className="block text-lg md:text-lg font-semibold">
+                    <span className="block text-lg lg:text-lg family2">
                         Desired Location
                     </span>
                     <div className="flex flex-col gap-4">

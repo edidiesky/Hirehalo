@@ -36,7 +36,7 @@ const JobApplicationForm = ({ }) => {
                 height={30}
             />
             <div className="flex flex-col">
-                <h3 className="text-xl md:text-2xl font-semibold family2 capitalize">{data?.company}</h3>
+                <h3 className="text-xl lg:text-2xl family2 family2 capitalize">{data?.company}</h3>
                 <h4 className="text-sm lg:text-base font-normal">{data?.jobtitle}</h4>
                 <h4 className="text-xs lg:text-sm font-normal">{data?.joblocation}</h4>
             </div>
@@ -44,21 +44,21 @@ const JobApplicationForm = ({ }) => {
 
         </div>
         <div className="border p-4 rounded-lg flex items-center justify-between gap-4">
-            <h4 className="text-lg font-semibold  flex-1 gap-2">
+            <h4 className="text-lg family2  flex-1 gap-2">
                 <span className="flex items-center  gap-3"> <BsPen /> Auto fill from resume</span>
                 <span className="block text-sm font-normal">Upload your resume here to autofil key applications fields</span>
             </h4>
-            <button className="shadows py-2 rounded-full cursor-pointer px-4 border font-semibold text-dark bg-[#fafafa] text-sm">Upload File</button>
+            <button className="shadows py-2 rounded-full cursor-pointer px-4 border family2 text-dark bg-[#fafafa] text-sm">Upload File</button>
 
 
         </div>
         <div className="flex flex-col gap-6">
-            <h4 className="text-base lg:text-xl family2 font-semibold">General Information</h4>
+            <h4 className="text-base lg:text-xl family2 family2">General Information</h4>
             <form action="" className='w-full flex flex-col gap-6 relative'>
                 {
                     ApplicationFormData.map((formdata, _?: any) => {
                         return <label key={formdata.id} htmlFor="" className="flex flex-col gap-2 text-base">
-                            <span className="font-semibold">
+                            <span className="family2">
                                 {formdata?.label}
                                 {/* <span className="block text-sm pt-1 font-normal italic">{formdata?.label}</span> */}
                             </span>
@@ -69,11 +69,11 @@ const JobApplicationForm = ({ }) => {
 
                 {/* resume */}
                 <label htmlFor="" className="flex flex-col gap-4 items-startn text-lg">
-                    <span className="font-semibold">Your Resume / CV
+                    <span className="family2">Your Resume / CV
                         <span className="block text-sm pt-1 font-normal italic">Please enter your Resume / CV</span>
                     </span>
                     <div className="flex w-full gap-4 border p-4 rounded-lg  items-center justify-center text-lg">
-                        <button className="shadows py-2 rounded-full flex items-center gap-4 cursor-pointer px-4 border font-semibold
+                        <button className="shadows py-2 rounded-full flex items-center gap-4 cursor-pointer px-4 border family2
                          text-dark bg-[#fafafa] text-sm"><BsPen />  Upload File</button>
                     </div>
 
@@ -82,7 +82,7 @@ const JobApplicationForm = ({ }) => {
             </form>
 
         </div>
-        <button className="text-sm md:text-base btn btn_1">Apply for this position</button>
+        <button className="text-sm lg:text-base btn btn_1">Apply for this position</button>
 
     </div>
 }

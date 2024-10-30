@@ -7,11 +7,11 @@ import MessagesList from "./_components/MessagesList";
 
 export default function Home() {
   return (
-    <div className="w-full bg-white h-[80vh] z-20 sticky top-0 py-4 px-4 md:px-6">
+    <div className="w-full bg-white h-[80vh] z-20 sticky top-0 py-4 px-4 lg:px-6">
       <div className="w-full max-w-custom h-full mx-auto grid grid-cols-custom_2 gap-8">
         <div className="w-[280px] h-[500px] overflow-auto flex flex-col gap-6 px-4 border-r">
           <div className="flex items-center gap-4 justify-between w-full">
-            <h4 className="text-2xl md:text-3xl font-semibold">
+            <h4 className="text-2xl lg:text-3xl family2">
               Inbox
             </h4>
             <div className="h-10 w-10 flex items-center justify-center text-base text-white rounded-md bg-[#161818]">
@@ -40,7 +40,7 @@ export default function Home() {
                 className='rounded-full'
                 alt='Avatar for user'
               />
-              <span className="text-sm family2 font-semibold">
+              <span className="text-sm family2 family2">
                 Edidiong Essien
                 <span className="text-xs block font-normal text-[#969A9A]">essieneddy10@gmail.com</span>
               </span>

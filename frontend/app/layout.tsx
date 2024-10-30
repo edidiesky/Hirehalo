@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import ModalContextLayout from "@/components/common/ModalContextLayout";
 
 export const metadata: Metadata = {
   title: "HireHalo",
@@ -11,14 +12,19 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html lang="en">
       <body
         className={""}
       >
-       {
-        children
-       }
+        <ModalContextLayout>
+          {
+            children
+          }
+        </ModalContextLayout>
+
       </body>
     </html>
   );

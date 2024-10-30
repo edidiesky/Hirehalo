@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import AnimateTextWord from '@/components/common/AnimateTextWord';
 
 const Footer = () => {
     return (
@@ -7,20 +8,25 @@ const Footer = () => {
             className="relative"
         >
             <div className="h-full py-20 flex flex-col gap-8 items-center justify-center w-full bg-[#f8f9f7]">
-                <div className="w-full px-4 flex flex-col md:items-center md:justify-center gap-4">
-                    <h2 className="text-7xl md:text-[250px] family2 md:text-center">HIREHALO</h2>
-                    <div className="w-[95%] mx-auto max-w-custom grid md:grid-cols-custom_2 gap-8">
+                <div className="w-full px-2 md:px-4 flex flex-col lg:items-center lg:justify-center gap-4">
+                    <h2 className="text-7xl lg:text-[250px] family2 lg:text-center">
+                        <AnimateTextWord type='bigtext'>
+                            HIREHALO
+                        </AnimateTextWord>
+
+                    </h2>
+                    <div className="w-[95%] mx-auto max-w-custom grid lg:grid-cols-custom_2 gap-8">
                         <div className="w-[300px] flex flex-col gap-4">
-                            <h4 className="text-base font-semibold">Get started</h4>
+                            <h4 className="text-base family2">Get started</h4>
                             <ul className="flex flex-col gap-4">
                                 <li className="text-sm">Sign In</li>
                                 <li className="text-sm">Sign Up</li>
                             </ul>
                         </div>
 
-                        <div className="w-full grid md:grid-cols-3 gap-8">
+                        <div className="w-full grid lg:grid-cols-3 gap-8">
                             <div className="flex flex-col gap-4">
-                                <h4 className="text-base font-semibold">For Remote Candidates</h4>
+                                <h4 className="text-base family2">For Remote Candidates</h4>
                                 <ul className="flex flex-col gap-4">
                                     <li className="text-sm">Overview</li>
                                     <li className="text-sm">
@@ -40,7 +46,7 @@ const Footer = () => {
                             </div>
 
                             <div className="flex flex-col gap-4">
-                                <h4 className="text-base font-semibold">For Recruiters</h4>
+                                <h4 className="text-base family2">For Recruiters</h4>
                                 <ul className="flex flex-col gap-4">
                                     <li className="text-sm">Overview</li>
                                     <li className="text-sm">
@@ -57,7 +63,7 @@ const Footer = () => {
                             </div>
 
                             <div className="flex flex-col gap-4">
-                                <h4 className="text-base font-semibold">Resources</h4>
+                                <h4 className="text-base family2">Resources</h4>
                                 <ul className="flex flex-col gap-4">
                                     <li className="text-sm">About</li>
                                     <li className="text-sm">

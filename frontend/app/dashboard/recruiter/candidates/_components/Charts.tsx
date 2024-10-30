@@ -42,8 +42,8 @@ const Charts = () => {
             data: [120, 30, 20, 10, 30, 30, 40, 40, 20, 35],
         },
     ]);
-    return <div className='py-4 md:py-8 border rounded-lg flex flex-col w-full gap-4 md:gap-6'>
-        <h3 className="text-lg px-4 block lg:text-xl text-dark family2 font-semibold">
+    return <div className='py-4 lg:py-8 border rounded-lg flex flex-col w-full gap-4 lg:gap-6'>
+        <h3 className="text-lg px-4 block lg:text-xl text-dark family2 family2">
             Applicants Overview
         </h3>
         <div className="w-full">

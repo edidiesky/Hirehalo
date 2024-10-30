@@ -33,7 +33,7 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
                 initial="initial"
                 animate={modal ? "enter" : "exit"}
                 exit="exit"
-                className={`w-[90%] md:w-[600px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 p-6 sidebar_shadow`}>
+                className={`w-[90%] lg:w-[600px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 p-6 sidebar_shadow`}>
                 <div onClick={() => setModal(false)} className="w-12 h-12 rounded-full z-20 flex items-center hover:shadow-md border shadow-xl justify-center bg-white absolute cursor-pointer right-12 top-4">
                     <RxCross1 />
                 </div>
@@ -48,7 +48,7 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
                                     height={30}
                                 />
                                 <div className="flex flex-col">
-                                    <h3 className="text-xl md:text-2xl font-semibold family2 capitalize">{data?.company}</h3>
+                                    <h3 className="text-xl lg:text-2xl family2 family2 capitalize">{data?.company}</h3>
                                     <h4 className="text-sm lg:text-base font-normal">{data?.jobtitle}</h4>
                                     <h4 className="text-xs lg:text-sm font-normal">{data?.joblocation}</h4>
                                 </div>
@@ -58,21 +58,21 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
                             {/* requirement */}
                             <div className="w-full flex items-center justify-between gap-4 p-4 bg-[#fafafa] rounded-lg">
                                 {/* salary */}
-                                <span className="text-xl flex-1 text-center border-r font-bold">
+                                <span className="text-xl flex-1 text-center border-r family2">
                                     $90000
                                     <span className="block text-sm font-normal">
                                         salary
                                     </span>
                                 </span>
                                 {/* salary */}
-                                <span className="text-xl flex-1 text-center border-r font-bold">
+                                <span className="text-xl flex-1 text-center border-r family2">
                                     5 Years
                                     <span className="block text-sm font-normal">
                                         Work experience
                                     </span>
                                 </span>
                                 {/* salary */}
-                                <span className="text-xl flex-1 text-center font-bold">
+                                <span className="text-xl flex-1 text-center family2">
                                     Remote
                                     <span className="block text-sm font-normal">
                                         Job Type
@@ -81,10 +81,10 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
                             </div>
                             <div className="flex flex-col gap-8">
                                 <div className="flex flex-col gap-4">
-                                    <h4 className="text-base family2 lg:text-lg font-bold">
+                                    <h4 className="text-base family2 lg:text-lg family2">
                                         Job Description
                                     </h4>
-                                    <ol className="list-disc pl-6 md:pl-12 flex-col gap-3 flex text-xs md:text-sm">
+                                    <ol className="list-disc pl-6 lg:pl-12 flex-col gap-3 flex text-xs lg:text-sm">
                                         <li>Design effective landing pages that align with our client's goals</li>
                                         <li>Directly and verbally communicating with teams on calls</li>
                                         <li>Work with well-known brands, helping to improve their online aesthetics</li>
@@ -94,10 +94,10 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
                                 </div>
 
                                 <div className="flex flex-col gap-4">
-                                    <h4 className="text-base family2 lg:text-lg font-bold">
+                                    <h4 className="text-base family2 lg:text-lg family2">
                                         What We Offer:
                                     </h4>
-                                    <ol className="list-disc pl-6 md:pl-12 flex-col gap-3 flex text-xs md:text-sm">
+                                    <ol className="list-disc pl-6 lg:pl-12 flex-col gap-3 flex text-xs lg:text-sm">
                                         <li>Fully remote position—work from wherever you feel most creative</li>
                                         <li>Opportunities to work on diverse projects, keeping your work fresh and engaging</li>
                                         <li>A role within a team recognized as a Webflow Premium Enterprise Partner, with a strong reputation in design and SEO</li>
@@ -106,10 +106,10 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
                                     </ol>
                                 </div>
                                 <div className="flex flex-col gap-4">
-                                    <h4 className="text-base family2 lg:text-lg font-bold">
+                                    <h4 className="text-base family2 lg:text-lg family2">
                                         Who You Are:
                                     </h4>
-                                    <ol className="list-disc pl-6 md:pl-12 flex-col gap-3 flex text-xs md:text-sm">
+                                    <ol className="list-disc pl-6 lg:pl-12 flex-col gap-3 flex text-xs lg:text-sm">
                                         <li>Fluent in English</li>
                                         <li>Comfortable working in a fast-paced, challenging environment</li>
                                         <li>Interested in having a say in the creative process and delivering quality work</li>
@@ -117,7 +117,7 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
                                     </ol>
                                 </div>
                             </div>
-                            <button onClick={() => setTab(1)} className="text-sm md:text-base btn btn_1">Apply for this position</button>
+                            <button onClick={() => setTab(1)} className="text-sm lg:text-base btn btn_1">Apply for this position</button>
                         </> : <JobApplicationForm />
                     }
                     {/* companys Image */}

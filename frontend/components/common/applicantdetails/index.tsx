@@ -43,7 +43,7 @@ const ApplicantDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal
                 initial="initial"
                 animate={modal ? "enter" : "exit"}
                 exit="exit"
-                className={`w-[90%] md:w-[700px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 py-6 sidebar_shadow`}>
+                className={`w-[90%] lg:w-[700px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 py-6 sidebar_shadow`}>
 
                 <div className="w-full flex flex-col gap-4">
 
@@ -58,13 +58,13 @@ const ApplicantDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal
                                 className="rounded-full"
                             />
                             <div className="flex flex-col">
-                                <h3 className="text-xl md:text-2xl font-semibold family2 capitalize">{userData?.ApplicantName}</h3>
+                                <h3 className="text-xl lg:text-2xl family2 family2 capitalize">{userData?.ApplicantName}</h3>
                                 <h4 className="text-sm lg:text-base font-normal">{data?.jobtitle}</h4>
                             </div>
 
 
                         </div>
-                        <div className="flex items-center md:pr-4 justify-end gap-2">
+                        <div className="flex items-center lg:pr-4 justify-end gap-2">
                             <div className="w-10 h-10 rounded-full cursor-pointer border flex items-center justify-center text-lg">
                                 <FiMail />
                             </div>
@@ -79,21 +79,21 @@ const ApplicantDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal
                     <div className="px-6 w-full">
                         <div className="w-full flex items-center justify-between gap-4 p-4 bg-[#fafafa] rounded-lg">
                             {/* salary */}
-                            <span className="text-lg md:text-xl flex-1 text-center border-r font-bold">
+                            <span className="text-lg lg:text-xl flex-1 text-center border-r family2">
                                 $90000
                                 <span className="block text-sm font-normal">
                                     salary
                                 </span>
                             </span>
                             {/* salary */}
-                            <span className="text-lg md:text-xl flex-1 text-center border-r font-bold">
+                            <span className="text-lg lg:text-xl flex-1 text-center border-r family2">
                                 5 Years
                                 <span className="block text-sm font-normal">
                                     Work experience
                                 </span>
                             </span>
                             {/* salary */}
-                            <span className="text-lg md:text-xl flex-1 text-center font-bold">
+                            <span className="text-lg lg:text-xl flex-1 text-center family2">
                                 Remote
                                 <span className="block text-sm font-normal">
                                     Job Type
@@ -103,17 +103,17 @@ const ApplicantDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal
                     </div>
                     {/* tabs section of the sidebar*/}
                     <div className="w-full flex family2 items-center cursor-pointer">
-                        <span onClick={() => setTab(0)} className={`${tab === 0 ? "text-[#A1718A] border-b-2 border-[#A1718A]" : "text-[#969A9A] border-b-2 border-[rgba(0,0,0,.08)]"} p-4 text-center flex-1 text-sm font-semibold`}>
+                        <span onClick={() => setTab(0)} className={`${tab === 0 ? "text-[#A1718A] border-b-2 border-[#A1718A]" : "text-[#969A9A] border-b-2 border-[rgba(0,0,0,.08)]"} p-4 text-center flex-1 text-sm family2`}>
                             Resume
                         </span>
-                        <span onClick={() => setTab(1)} className={`${tab === 1 ? "text-[#A1718A] border-b-2 border-[#A1718A]" : "text-[#969A9A] border-b-2 border-[rgba(0,0,0,.08)]"} p-4 text-center flex-1 text-sm font-semibold`}>
+                        <span onClick={() => setTab(1)} className={`${tab === 1 ? "text-[#A1718A] border-b-2 border-[#A1718A]" : "text-[#969A9A] border-b-2 border-[rgba(0,0,0,.08)]"} p-4 text-center flex-1 text-sm family2`}>
                             Documents
                         </span>
-                        <span onClick={() => setTab(2)} className={`${tab === 2 ? "text-[#A1718A] border-b-2 border-[#A1718A]" : "text-[#969A9A] border-b-2 border-[rgba(0,0,0,.08)]"} p-4 text-center flex-1 text-sm font-semibold`}>
+                        <span onClick={() => setTab(2)} className={`${tab === 2 ? "text-[#A1718A] border-b-2 border-[#A1718A]" : "text-[#969A9A] border-b-2 border-[rgba(0,0,0,.08)]"} p-4 text-center flex-1 text-sm family2`}>
                             Applications
                         </span>
                     </div>
-                    <div className="p-4 md:p-6 w-full">
+                    <div className="p-4 lg:p-6 w-full">
                         {tab === 0 ?
                             <ApplicantResume /> : tab === 1 ? <ApplicantDocument /> : <ApplicantActivity />
                         }

@@ -39,7 +39,7 @@ const TableCard = ({ tabledata, type, tableheadList }: {
                                     /> */}
                                     123-134
                                 </td>
-                                <td className=" space-x-3  font-semibold py-6 text-center">
+                                <td className=" space-x-3  family2 py-6 text-center">
                                     <div className="flex justify-center items-center gap-3">
                                         <Image
                                             src={data?.applicantImage}
@@ -61,11 +61,11 @@ const TableCard = ({ tabledata, type, tableheadList }: {
 
                                 <td className="py-6 text-center">
                                     {data?.ApplicationStatus === "HIRED" ? (
-                                        <span className="py-2 font-semibold px-4 rounded-md bg-[#cdeed3] text-[#347345] text-xs family1 success text-center">
+                                        <span className="py-2 family2 px-4 rounded-md bg-[#cdeed3] text-[#347345] text-xs family1 success text-center">
                                             {data?.ApplicationStatus}
                                         </span>
                                     ) : data?.ApplicationStatus === "ACTIVE" ? (
-                                        <span className="py-2 font-semibold px-4 rounded-md bg-[#ffeec3] text-[#a37d18] text-xs family1 success text-center">
+                                        <span className="py-2 family2 px-4 rounded-md bg-[#ffeec3] text-[#a37d18] text-xs family1 success text-center">
                                             {data?.ApplicationStatus}
                                         </span>
                                     ) :
@@ -120,7 +120,7 @@ const TableCard = ({ tabledata, type, tableheadList }: {
                                     alt="Comapny's Logo"
                                 />
                             </td>
-                            <td className="text-base font-semibold py-6 text-center">{data?.company}
+                            <td className="text-base family2 py-6 text-center">{data?.company}
                             </td>
                             <td className=" font-normal py-6 text-center">   {data?.jobtitle} </td>
 
@@ -132,7 +132,7 @@ const TableCard = ({ tabledata, type, tableheadList }: {
                                     View Application
                                 </Link>
                             </td>
-                            <td className=" font-semibold py-6 text-center">
+                            <td className=" family2 py-6 text-center">
                                 <div className="w-full flex items-center  justify-center">
                                     <div className="w-10 h-10 rounded-full hover:bg-[#deddff] flex justify-center items-center">
                                         <BsTrash color={"#c31212"} />

@@ -25,10 +25,10 @@ export default function Home() {
     }
   ]
   return (
-    <div className="w-full bg-white min-h-[100vh] py-12 px-4 md:px-8">
+    <div className="w-full bg-white min-h-[100vh] py-12 px-4 lg:px-8">
       <div className="w-full max-w-custom mx-auto flex flex-col gap-8">
         <div className="w-full flex flex-col gap-1">
-          <h3 className="text-2xl block lg:text-3xl text-dark family2 font-semibold">
+          <h3 className="text-2xl block lg:text-3xl text-dark family2 family2">
             Dashboard
           </h3>
           <span className="block text-base font-normal">
@@ -37,7 +37,7 @@ export default function Home() {
         </div>
         <div className="w-full flex flex-col gap-8">
           {/* widget data listings */}
-          <div className="w-full grid grid-cols-1 md:grid-cols-custom gap-4 md:gap-6">
+          <div className="w-full grid grid-cols-1 lg:grid-cols-custom gap-4 lg:gap-6">
 
 
             <div className="w-full flex flex-col gap-4">
@@ -45,27 +45,27 @@ export default function Home() {
                 {/* widget */}
                 {
                   widgetData?.map((data, index) => {
-                    return <div key={index} className="w-full shadows p-4 md:p-6 items-start justify-center min-h-[200px] md:min-h-[250px] 
+                    return <div key={index} className="w-full shadows p-4 lg:p-6 items-start justify-center min-h-[200px] lg:min-h-[250px] 
                     border rounded-md flex flex-col gap-4">
-                      <div className="flex md:flex-row flex-col md:items-center gap-1 md:gap-4">
+                      <div className="flex lg:flex-row flex-col lg:items-center gap-1 lg:gap-4">
                         <div style={{
                           backgroundColor: `${data?.bgColor}`,
                           color: `${data?.color}`
-                        }} className="w-10 md:w-12 flex items-center justify-center h-10 md:h-12 rounded-md">
+                        }} className="w-10 lg:w-12 flex items-center justify-center h-10 lg:h-12 rounded-md">
                           {
                             data?.icon
                           }
                         </div>
-                        <h4 className="text-sm md:text-base font-semibold">
+                        <h4 className="text-sm lg:text-base family2">
                           {data?.title}
                         </h4>
                       </div>
-                      <div className="w-full md:pt-3 flex flex-col">
-                        <h3 className="text-3xl md:text-5xl font-semibold">
+                      <div className="w-full lg:pt-3 flex flex-col">
+                        <h3 className="text-3xl lg:text-4xl family2">
                           10
                         </h3>
 
-                        <span className="text-xs flex-1 pt-2 md:text-sm block font-normal">
+                        <span className="text-xs flex-1 pt-2 lg:text-sm block font-normal">
                           {data?.subtext}
                         </span>
                       </div>
@@ -78,7 +78,7 @@ export default function Home() {
               </div>
               <Charts />
             </div>
-            <div className="md:w-[380px] flex flex-col gap-4">
+            <div className="lg:w-[380px] flex flex-col gap-4">
               <Hirings />
             </div>
           </div>

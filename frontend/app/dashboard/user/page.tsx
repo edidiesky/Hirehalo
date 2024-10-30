@@ -5,10 +5,10 @@ import Charts from "./_components/Chart";
 import JobsApplied from "./_components/JobsApplied";
 export default function Home() {
   return (
-    <div className="w-full bg-white min-h-[100vh] py-12 px-4 md:px-8">
+    <div className="w-full bg-white min-h-[100vh] py-12 px-4 lg:px-8">
       <div className="w-full max-w-custom mx-auto flex flex-col gap-12">
         <div className="w-full flex flex-col gap-2">
-          <h3 className="text-2xl block lg:text-3xl text-dark family2 font-semibold">
+          <h3 className="text-2xl block lg:text-3xl text-dark family2 family2">
             Welcome 👋
 
           </h3>
@@ -18,10 +18,10 @@ export default function Home() {
         </div>
         <div className="w-full flex flex-col gap-8">
           {/* widget data listings */}
-          <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
             {
               widgetData?.map((data, index) => {
-                return <div key={index} className="w-full p-4 md:p-6 items-start justify-center min-h-[250px] border rounded-md flex flex-col gap-4">
+                return <div key={index} className="w-full p-4 lg:p-6 items-start justify-center min-h-[250px] border rounded-md flex flex-col gap-4">
                   <div style={{
                     backgroundColor: `${data?.bgColor}`,
                     color: `${data?.color}`
@@ -31,13 +31,13 @@ export default function Home() {
                     }
                   </div>
                   <div className="w-full pt-3 flex flex-col">
-                    <h3 className="text-3xl md:text-5xl font-semibold">
+                    <h3 className="text-3xl lg:text-4xl family2">
                       10
                     </h3>
-                    <h4 className="text-base md:text-lg font-semibold">
+                    <h4 className="text-base lg:text-lg family2">
                       {data?.title}
 
-                      <span className="text-xs md:text-xs pt-1 block font-normal">
+                      <span className="text-xs lg:text-xs pt-1 block font-normal">
                         {data?.subtext}
                       </span>
                     </h4>

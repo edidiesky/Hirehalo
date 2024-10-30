@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Kumbh+Sans:wght@100..900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Kumbh+Sans:wght@100..900&display=swap"); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -26,13 +26,23 @@
    --red: #c31212;
   /* --dashboard_sidebar_color: #e1e3e3; */
 }
+@font-face {
+  font-family: "Bold";
+  src: url("../assets/fonts/ClashGrotesk-Medium.otf") format("opentype");
+  font-weight: medium;
+}
+@font-face {
+  font-family: "Regular";
+  src: url("../assets/fonts/ClashGrotesk-Regular.otf") format("opentype");
+  font-weight: normal;
+}
 
 body {
   color: var(--text-dark);
-  font-family: "Karla", Helvetica, sans-serif;
+  font-family: "Regular", Helvetica, sans-serif;
 }
 .family2 {
-  font-family: "Kumbh Sans", Helvetica, sans-serif;
+  font-family: "Bold", Helvetica, sans-serif;
 }
 /* 
 text color style
@@ -129,4 +139,66 @@ input:focus {
   background: #000;
   border-radius: 10px;
   transition: all 0.5s;
+}
+
+
+
+/* Rentals Mobile */
+:root {
+  --grey_1:#F9F7F8;
+  --grey_dark:#BDBDBD;
+  --green_light:#32ADAA;
+  --purple_light:#FF946F;
+  --town_light:#6121FB;
+  --yellow_light:#FFC025;
+  --green_lightwe:#ECF8F6;
+  --red:#EE504F;
+  --dark-1:#1C1C1C;
+  --blue-light:#1D4DFE;
+  --red_light:#F2696B;
+}
+
+
+
+
+.hide {
+  overflow: hidden !important;
+}
+
+.hide {
+  overflow: hidden;
+}
+
+.line {
+  overflow: hidden;
+  text-align: center !important;
+}
+
+@media (max-width: 780px) {
+  .line {
+    overflow: hidden;
+    text-align: start !important;
+    width: fit-content !important;
+    /* display: inline-block; */
+  }
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }

@@ -6,7 +6,7 @@ const MessagesList = () => {
         <div className="w-full flex items-center justify-end">
             <div className="flex w-full justify-end items-end gap-1">
                 <div className="flex-1 flex items-end flex-col justify-end gap-1">
-                    <span className="max-w-[200px] md:max-w-[400px] rounded-[40px] family1 text-sm leading-[1.6] text-dark flex items-center bg-[#deddff] justify-center p-3 px-6">
+                    <span className="max-w-[200px] lg:max-w-[400px] rounded-[40px] family1 text-sm leading-[1.6] text-dark flex items-center bg-[#deddff] justify-center p-3 px-6">
                         Hi the day was really cool, hope u are fine!!
                     </span>
                     <span className="text-xs family1 text-dark">
@@ -31,7 +31,7 @@ const MessagesList = () => {
                 </div>
 
                 <div className="flex-1 flex items-start flex-col justify-start gap-1">
-                    <span className="max-w-[200px] md:max-w-[400px] rounded-[30px] family1 text-white text-xs leading-[1.6] flex items-center bg-[#3e3aff] justify-center p-3 px-6">
+                    <span className="max-w-[200px] lg:max-w-[400px] rounded-[30px] family1 text-white text-xs leading-[1.6] flex items-center bg-[#3e3aff] justify-center p-3 px-6">
                         {/* {message?.body} */} I believe your day went fine
                     </span>
                     <span className="text-xs family1 text-dark">
@@ -44,7 +44,7 @@ const MessagesList = () => {
         <div className="w-full flex items-center justify-end">
             <div className="flex w-full justify-end items-end gap-1">
                 <div className="flex-1 flex items-end flex-col justify-end gap-1">
-                    <span className="max-w-[200px] md:max-w-[400px] rounded-[40px] family1 text-sm leading-[1.6] text-dark flex items-center bg-[#deddff] justify-center p-3 px-6">
+                    <span className="max-w-[200px] lg:max-w-[400px] rounded-[40px] family1 text-sm leading-[1.6] text-dark flex items-center bg-[#deddff] justify-center p-3 px-6">
                         Hi the day was really cool, hope u are fine!!
                     </span>
                     <span className="text-xs family1 text-dark">
@@ -69,7 +69,7 @@ const MessagesList = () => {
                 </div>
 
                 <div className="flex-1 flex items-start flex-col justify-start gap-1">
-                    <span className="max-w-[200px] md:max-w-[400px] rounded-[30px] family1 text-white text-xs leading-[1.6] flex items-center bg-[#3e3aff] justify-center p-3 px-6">
+                    <span className="max-w-[200px] lg:max-w-[400px] rounded-[30px] family1 text-white text-xs leading-[1.6] flex items-center bg-[#3e3aff] justify-center p-3 px-6">
                         {/* {message?.body} */} I believe your day went fine
                     </span>
                     <span className="text-xs family1 text-dark">
@@ -82,7 +82,7 @@ const MessagesList = () => {
         <div className="w-full flex items-center justify-end">
             <div className="flex w-full justify-end items-end gap-1">
                 <div className="flex-1 flex items-end flex-col justify-end gap-1">
-                    <span className="max-w-[200px] md:max-w-[400px] rounded-[40px] family1 text-sm leading-[1.6] text-dark flex items-center bg-[#deddff] justify-center p-3 px-6">
+                    <span className="max-w-[200px] lg:max-w-[400px] rounded-[40px] family1 text-sm leading-[1.6] text-dark flex items-center bg-[#deddff] justify-center p-3 px-6">
                         Hi the day was really cool, hope u are fine!!
                     </span>
                     <span className="text-xs family1 text-dark">
@@ -107,7 +107,7 @@ const MessagesList = () => {
                 </div>
 
                 <div className="flex-1 flex items-start flex-col justify-start gap-1">
-                    <span className="max-w-[200px] md:max-w-[400px] rounded-[30px] family1 text-white text-xs leading-[1.6] flex items-center bg-[#3e3aff] justify-center p-3 px-6">
+                    <span className="max-w-[200px] lg:max-w-[400px] rounded-[30px] family1 text-white text-xs leading-[1.6] flex items-center bg-[#3e3aff] justify-center p-3 px-6">
                         {/* {message?.body} */} I believe your day went fine
                     </span>
                     <span className="text-xs family1 text-dark">
@@ -120,7 +120,7 @@ const MessagesList = () => {
         <div className="w-full flex items-center justify-end">
             <div className="flex w-full justify-end items-end gap-1">
                 <div className="flex-1 flex items-end flex-col justify-end gap-1">
-                    <span className="max-w-[200px] md:max-w-[400px] rounded-[40px] family1 text-sm leading-[1.6] text-dark flex items-center bg-[#deddff] justify-center p-3 px-6">
+                    <span className="max-w-[200px] lg:max-w-[400px] rounded-[40px] family1 text-sm leading-[1.6] text-dark flex items-center bg-[#deddff] justify-center p-3 px-6">
                         Hi the day was really cool, hope u are fine!!
                     </span>
                     <span className="text-xs family1 text-dark">
@@ -145,7 +145,7 @@ const MessagesList = () => {
                 </div>
 
                 <div className="flex-1 flex items-start flex-col justify-start gap-1">
-                    <span className="max-w-[200px] md:max-w-[400px] rounded-[30px] family1 text-white text-xs leading-[1.6] flex items-center bg-[#3e3aff] justify-center p-3 px-6">
+                    <span className="max-w-[200px] lg:max-w-[400px] rounded-[30px] family1 text-white text-xs leading-[1.6] flex items-center bg-[#3e3aff] justify-center p-3 px-6">
                         {/* {message?.body} */} I believe your day went fine
                     </span>
                     <span className="text-xs family1 text-dark">

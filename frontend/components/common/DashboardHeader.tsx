@@ -9,7 +9,7 @@ const DashboardHeader = ({ }) => {
         backdropFilter: "blur(14px)"
     }} className='h-[85px] border-b border-[rgba(0,0,0,.08)] bg-[#ffffff4e] flex z-40 sticky top-0 items-center justify-between'>
         <div className="w-full px-4 max-w-custom mx-auto flex items-center justify-between">
-            <form action="" className='max-w-[250px] md:max-w-[400px] md:w-[300px] flex items-center relative'>
+            <form action="" className='max-w-[250px] lg:max-w-[400px] lg:w-[300px] flex items-center relative'>
                 <span className="w-4 h-4 absolute left-6">
                     <BsSearch />
                 </span>
@@ -25,7 +25,7 @@ const DashboardHeader = ({ }) => {
                         className='rounded-full'
                         alt='Avatar for user'
                     />
-                    <span className="text-base md:block hidden family2 font-semibold">
+                    <span className="text-base lg:block hidden family2 family2">
                         Edidiong Essien
                         <span className="text-xs block font-normal text-[#969A9A]">Candidate Account</span>
                     </span>
@@ -43,7 +43,7 @@ const DashboardHeader = ({ }) => {
                                 className='rounded-full'
                                 alt='Avatar for user'
                             />
-                            <span className="text-base family2 font-semibold">
+                            <span className="text-base family2 family2">
                                 Edidiong Essien
                                 <span className="text-xs block font-normal text-[#969A9A]">essieneddy10@gmail.com</span>
                             </span>
@@ -57,7 +57,7 @@ const DashboardHeader = ({ }) => {
                             <Link href={'/'} className="text-sm block font-normal px-4 py-2 hover:bg-[#fafafa] text-[#000]">My Mode</Link>
                             <Link href={'/'} className="text-sm block font-normal px-4 py-2 hover:bg-[#fafafa] text-[#000]">Account Settings</Link>
                         </div>
-                        <div className="w-full hover:bg-[#fafafa] cursor-pointer text-center py-2 font-semibold text-[#d02828ed]">Sign Out</div>
+                        <div className="w-full hover:bg-[#fafafa] cursor-pointer text-center py-2 family2 text-[#d02828ed]">Sign Out</div>
                     </div>
                 </div>
             </div>

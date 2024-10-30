@@ -10,10 +10,10 @@ import { jobData, widgetData } from "@/constants";
 
 export default function Home() {
   return (
-    <div className="w-full bg-white min-h-[100vh] py-12 px-4 md:px-8">
+    <div className="w-full bg-white min-h-[100vh] py-12 px-4 lg:px-8">
       <div className="w-full max-w-custom mx-auto flex flex-col gap-8">
         <div className="w-full flex flex-col gap-2">
-          <h3 className="text-3xl block lg:text-4xl text-dark family2 font-semibold">
+          <h3 className="text-3xl block lg:text-4xl text-dark family2 family2">
             All Jobs
 
           </h3>
@@ -23,11 +23,11 @@ export default function Home() {
         </div>
         {/* job Applied */}
         <div className="w-full flex flex-col gap-4">
-          <div className="w-full flex flex-wrap md:items-center gap-4">
-            <form action="" className='max-w-[300px] md:w-[200px] relative'>
+          <div className="w-full flex flex-wrap lg:items-center gap-4">
+            <form action="" className='max-w-[300px] lg:w-[200px] relative'>
               <input type="text" placeholder='Search Jobs & Companies' className="text-sm font-normal rounded-full w-full " />
             </form>
-            <div className="flex lg:flex-row flex-wrap md:items-center gap-2">
+            <div className="flex lg:flex-row flex-wrap lg:items-center gap-2">
               {/* role */}
               <div className="relative">
                 <button className="shadows py-3 flex items-center gap-2 rounded-full cursor-pointer px-4 border text-dark bg-[#fafafa] text-sm">
@@ -68,14 +68,14 @@ export default function Home() {
 
           </div>
           <div className="w-full flex items-center justify-between gap-4">
-            <span className="block text-base font-semibold">
+            <span className="block text-base family2">
               196 <span className="font-normal">jobs found</span>
             </span>
             <span className="block text-sm font-normal">
-              Sort by <span className="font-semibold">Newest</span>
+              Sort by <span className="family2">Newest</span>
             </span>
           </div>
-          <ol className="grid mt-4 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          <ol className="grid mt-4 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
             {
               jobData?.map((data, index) => {
                 return <JobCard index={index} key={index} data={data} />

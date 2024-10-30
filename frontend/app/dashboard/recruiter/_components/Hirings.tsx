@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 const Hirings = () => {
     return <div className='px-4 py-8 border rounded-lg flex flex-col w-full gap-6'>
-        <h3 className="text-lg block lg:text-xl text-dark family2 font-semibold">
+        <h3 className="text-lg block lg:text-xl text-dark family2 family2">
             Hiring Interview
         </h3>
         <div className="w-full flex flex-col gap-4">
@@ -20,7 +20,7 @@ const Hirings = () => {
                                 className='rounded-full'
                                 alt="Comapny's Logo"
                             />
-                            <span className="text-base flex-1 font-semibold">
+                            <span className="text-base flex-1 family2">
                                 {data?.applicantName}
                                 <span className="flex font-normal text-xs items-center gap-1">
                                     {data?.jobtitle}
