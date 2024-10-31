@@ -11,13 +11,13 @@ type ModalContextType = {
 export const ModalContext = createContext<ModalContextType>({
     loginmodal: false,
     registermodal: false,
-    OffLoginModal: () => false,
-    OnLoginModal: () => false,
-    OffRegisterModal: () => false,
-    OnRegisterModal: () => false,
+    OffLoginModal: () => {},
+    OnLoginModal: () => {},
+    OffRegisterModal: () => {},
+    OnRegisterModal: () => {},
 })
 const ModalContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const [loginmodal, setLoginModal] = useState<boolean>(true)
+    const [loginmodal, setLoginModal] = useState<boolean>(false)
     const [registermodal, setRegisterModal] = useState<boolean>(false)
     const OnLoginModal = () => { setLoginModal(true) }
     const OnRegisterModal = () => { setRegisterModal(true) }

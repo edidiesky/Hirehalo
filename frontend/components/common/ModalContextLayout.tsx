@@ -5,6 +5,7 @@ import ModalContextProvider, { ModalContext } from "@/context/ModalContext";
 import { useContext } from "react";
 import LoginModal from '../modals/LoginModal';
 import RegisterModal from '../modals/RegisterModal';
+
 const ModalContextLayout = ({ children }: { children: React.ReactNode }) => {
     const { loginmodal, registermodal } = useContext(ModalContext)
 
@@ -12,24 +13,25 @@ const ModalContextLayout = ({ children }: { children: React.ReactNode }) => {
         <React.Fragment>
             {/* animating the login modal */}
             <AnimatePresence mode='wait' >
-                {
-                    <LoginModal />
-                }
-            </AnimatePresence >
+                {loginmodal && <LoginModal />}
+            </AnimatePresence>
+
             {/* animating the register modal */}
             <AnimatePresence mode='wait' >
+                {registermodal && <RegisterModal />}
+            </AnimatePresence>
 
-                {
-                    registermodal && <RegisterModal />
-                }
-            </AnimatePresence >
-            <ModalContextProvider>
-
-                {children}
-            </ModalContextProvider>
+            {children}
         </React.Fragment>
     )
 }
 
-
-export default ModalContextLayout;
+export default function LayoutWithModalContextProvider({ children }: { children: React.ReactNode }) {
+    return (
+        <ModalContextProvider>
+            <ModalContextLayout>
+                {children}
+            </ModalContextLayout>
+        </ModalContextProvider>
+    );
+}
