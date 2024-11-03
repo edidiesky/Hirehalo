@@ -2,11 +2,13 @@
 import Image from "next/image";
 import { motion } from 'framer-motion'
 import { RxCross1 } from 'react-icons/rx'
-import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { slideSidebarLeft } from "@/constants/framer";
 import JobApplicationForm from "./JobApplicationForm";
-const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: React.Dispatch<React.SetStateAction<boolean>> }) => {
+import { ModalContext } from "@/context/ModalContext";
+const JobDetailsSidebar = () => {
+    const { OffJobDetailsSidebar, jobdetailsidebar } = useContext(ModalContext)
+
     const data = {
         jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
         jobtitle: "Entry-level Javascript Developer",
@@ -23,7 +25,7 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
             exit={{
                 opacity: 0,
                 transition: {
-                    duration: 2,
+                    duration: .6,
                 },
             }}
             animate={{ opacity: 1 }}
@@ -31,10 +33,10 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
             <motion.div
                 variants={slideSidebarLeft}
                 initial="initial"
-                animate={modal ? "enter" : "exit"}
+                animate={jobdetailsidebar ? "enter" : "exit"}
                 exit="exit"
-                className={`w-[90%] lg:w-[600px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 p-6 sidebar_shadow`}>
-                <div onClick={() => setModal(false)} className="w-12 h-12 rounded-full z-20 flex items-center hover:shadow-md border shadow-xl justify-center bg-white absolute cursor-pointer right-12 top-4">
+                className={`w-[100%] lg:w-[600px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 p-6 sidebar_shadow`}>
+                <div onClick={() => OffJobDetailsSidebar()} className="w-12 h-12 rounded-full z-20 flex items-center hover:shadow-md border shadow-xl justify-center bg-white absolute cursor-pointer right-12 top-4">
                     <RxCross1 />
                 </div>
                 <div className="w-full flex flex-col gap-8">
@@ -58,21 +60,21 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
                             {/* requirement */}
                             <div className="w-full flex items-center justify-between gap-4 p-4 bg-[#fafafa] rounded-lg">
                                 {/* salary */}
-                                <span className="text-xl flex-1 text-center border-r family2">
+                                <span className="text-lg md:text-xl flex-1 text-center border-r family2">
                                     $90000
                                     <span className="block text-sm font-normal">
                                         salary
                                     </span>
                                 </span>
                                 {/* salary */}
-                                <span className="text-xl flex-1 text-center border-r family2">
+                                <span className="text-lg md:text-xl flex-1 text-center border-r family2">
                                     5 Years
                                     <span className="block text-sm font-normal">
                                         Work experience
                                     </span>
                                 </span>
                                 {/* salary */}
-                                <span className="text-xl flex-1 text-center family2">
+                                <span className="text-lg md:text-xl flex-1 text-center family2">
                                     Remote
                                     <span className="block text-sm font-normal">
                                         Job Type
@@ -126,7 +128,7 @@ const JobDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal: Reac
             </motion.div>
             <div style={{
                 transition: "all .3s"
-            }} onClick={() => setModal(false)} className={`${modal ? "opacity-100 right-[0%]" : "opacity-0 -right-[100%]"} w-full top-0 absolute bg-[rgba(0,0,0,.1)] h-full z-10`}></div>
+            }} onClick={() => OffJobDetailsSidebar()} className={`${jobdetailsidebar ? "opacity-100 right-[0%]" : "opacity-0 -right-[100%]"} w-full top-0 absolute bg-[rgba(0,0,0,.1)] h-full z-10`}></div>
         </motion.div>
     )
 }

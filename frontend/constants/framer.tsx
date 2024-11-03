@@ -134,21 +134,19 @@ export const opacity = {
 
 export const slide = {
   initial: {
+    opacity: 0,
     y: "100vh",
   },
   enter: {
-    y: "100vh",
-    transition: {
-      duration: 1,
-      ease: [0.76, 0, 0.24, 1],
-    },
+    opacity: 1,
+    y: "0",
+    transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
   },
   exit: {
-    y: "-100vh",
-    transition: {
-      duration: 1,
-      ease: [0.76, 0, 0.24, 1],
-    },
+    opacity: 1,
+    y: "100vh",
+
+    transition: { duration: 1, ease: [0.76, 0, 0.24, 1] },
   },
 };
 

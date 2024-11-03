@@ -33,7 +33,7 @@ const ApplicantDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal
             exit={{
                 opacity: 0,
                 transition: {
-                    duration: 2,
+                    duration: 1,
                 },
             }}
             animate={{ opacity: 1 }}
@@ -43,7 +43,7 @@ const ApplicantDetailsSidebar = ({ modal, setModal }: { modal: boolean, setModal
                 initial="initial"
                 animate={modal ? "enter" : "exit"}
                 exit="exit"
-                className={`w-[90%] lg:w-[700px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 py-6 sidebar_shadow`}>
+                className={`w-[100%] lg:w-[700px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 py-6 sidebar_shadow`}>
 
                 <div className="w-full flex flex-col gap-4">
 

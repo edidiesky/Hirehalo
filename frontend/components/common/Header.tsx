@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 const Header = () => {
     const { OnLoginModal, OnRegisterModal, loginmodal } = useContext(ModalContext)
-    console.log(loginmodal);
+    // console.log(loginmodal);
     return <div className=" sticky z-40 top-0">
         <div style={{
             backdropFilter: "blur(14px)"

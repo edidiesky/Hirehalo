@@ -14,7 +14,7 @@ const DreamJob = () => {
                     Your Dream Job
                 </span>
                 <h2 className="text-4xl lg:text-7xl max-w-[600px] lg:text-center leading-[1.2] family2 text-dark family2 lg:mx-auto">
-                    <AnimateTextWord type='bigtext'>
+                    <AnimateTextWord type='bigtext_Center'>
                         Explore and Find  your job here
                     </AnimateTextWord>
                    
@@ -25,7 +25,7 @@ const DreamJob = () => {
                         <span className="w-4 h-4 absolute right-6">
                             <BsSearch />
                         </span>
-                        <input type="text" placeholder='Search by job title, skill, tags' className="text-sm pr-12 font-normal bg-white rounded-full w-full " />
+                        <input type="text" placeholder='Search by job title, skill, tags' className="text-sm input border pr-12 font-normal bg-white rounded-full w-full " />
                     </form>
                     <span className='flex'>
                         <button className="text-sm lg:text-sm px-4 lg:px-6 py-4 border rounded-full text-white bg-[#3e3aff] shadows">Get Started!</button>

@@ -8,7 +8,7 @@ const Footer = () => {
             className="relative"
         >
             <div className="h-full py-20 flex flex-col gap-8 items-center justify-center w-full bg-[#f8f9f7]">
-                <div className="w-full px-2 md:px-4 flex flex-col lg:items-center lg:justify-center gap-4">
+                <div className="w-full px-4 flex flex-col lg:items-center lg:justify-center gap-4">
                     <h2 className="text-7xl lg:text-[250px] family2 lg:text-center">
                         <AnimateTextWord type='bigtext'>
                             HIREHALO

@@ -44,6 +44,9 @@ body {
 .family2 {
   font-family: "Bold", Helvetica, sans-serif;
 }
+.family1 {
+  font-family: "Regular", Helvetica, sans-serif;
+}
 /* 
 text color style
 */
@@ -92,14 +95,19 @@ text color style end
 /* button styles stop */
 
 /* input styles */
-form input {
+.input {
   min-height: 49px;
-  /* min-width: 130px; */
-  border-radius: 5px;
-  background-color: inherit;
   transition: all 0.3s;
   border: 1.5px solid #e7e7e9;
   padding: 0 1rem;
+  background-color: #fff !important;
+}
+form input {
+  min-height: 49px;
+  transition: all 0.3s;
+  border: 1.5px solid #e7e7e9;
+  padding: 0 1rem;
+  background-color: #fff !important;
 }
 
 form input:hover {

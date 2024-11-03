@@ -3,7 +3,7 @@ import React from 'react';
 
 const About = () => {
     return <div className='flex w-full py-12 md:pb-40 items-center bg-[#fafafa] gap-8 justify-center'>
-        <div className="max-w-custom mx-auto w-[90%] grid lg:grid-cols-custom_2 lg:items-center gap-20">
+        <div className="max-w-custom mx-auto w-[90%] grid lg:grid-cols-custom_2 lg:items-center gap-8 lg:gap-20">
             <div className=" lg:w-[400px]">
                 <h2 className="text-4xl lg:text-6xl max-w-[500px] family2 text-dark family2">
                     <AnimateTextWord type='bigtext'>
@@ -12,7 +12,7 @@ const About = () => {
               
                 </h2>
             </div>
-            <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+            <div className="w-full grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                 <h3 className="text-6xl leading-[1.5] flex-1 border-r pr-4 text-start lg:text-8xl font-normal">
                     <AnimateTextWord type='bigtext'>
                         90%

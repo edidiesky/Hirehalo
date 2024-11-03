@@ -47,11 +47,9 @@ func (ac *UserControllerStruct) GetAllUser(c *fiber.Ctx) error {
 	for cursor.Next(context.TODO()) {
 		var user models.User
 		if err := cursor.Decode(&user); err != nil {
-			log.Printf("Error decoding the users form the DB:", err)
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-				"message": "Error decoding the users form the DB",
+				"message": "Error Decoding the users from the database",
 			})
-
 		}
 		users = append(users, user)
 	}
@@ -196,22 +194,22 @@ func (user *UserControllerStruct) DeleteASingleUser(c *fiber.Ctx) error {
 			"message": "Internal server error. Please try again later.",
 		})
 	}
-   deleteResult, err := userCollection.DeleteOne(context.TODO(), bson.M{"id": ObjectId})
-    if err != nil {
-        log.Printf("Error deleting user: %v", err)
-        return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-            "message": "Error deleting the user",
-        })
-    }
+	deleteResult, err := userCollection.DeleteOne(context.TODO(), bson.M{"id": ObjectId})
+	if err != nil {
+		log.Printf("Error deleting user: %v", err)
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"message": "Error deleting the user",
+		})
+	}
 
-    // Check if any document was deleted
-    if deleteResult.DeletedCount == 0 {
-        return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
-            "message": "User not found",
-        })
-    }
+	// Check if any document was deleted
+	if deleteResult.DeletedCount == 0 {
+		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
+			"message": "User not found",
+		})
+	}
 
-    return c.JSON(fiber.Map{
-        "message": "User deleted successfully",
-    })
+	return c.JSON(fiber.Map{
+		"message": "User deleted successfully",
+	})
 }

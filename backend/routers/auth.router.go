@@ -11,9 +11,11 @@ import (
 func AuthRoute(app *fiber.App) {
 	// imported the auth controller file
 	authcontroller := controllers.NewAuthController()
-	authroute := app.Group("/api/v1/auth")
+    authroute := app.Group("/api/v1/auth")
+
 	authroute.Post("login", authcontroller.LoginAUser)
 	authroute.Post("register", authcontroller.RegisterAUser)
 	authroute.Post("logout", authcontroller.LogoutAUser)
 	authroute.Post("verify-email", authcontroller.VerifyMail)
+	
 }

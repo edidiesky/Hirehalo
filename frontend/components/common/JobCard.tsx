@@ -1,22 +1,17 @@
 "use client"
 import Image from "next/image";
 import { FaBookmark } from "react-icons/fa";
-import { AnimatePresence} from 'framer-motion'
-import JobDetailsSidebar from "./jobdetails/JobDetailsSidebar";
-import { useRef, useState } from "react";
+import { useContext } from "react";
+import { ModalContext } from "@/context/ModalContext";
 type JobCardType = { data: { bgColor: string, company: string, jobtitle: string, companyImage: string }, index: number, type?: string }
 
 const JobCard = ({ data, type }: JobCardType) => {
-    const [modal, setModal] = useState(false)
-  
-    return <>
-        <AnimatePresence mode='wait'>
-            {
-                modal && <JobDetailsSidebar setModal={setModal} modal={modal} />
-            }
-        </AnimatePresence>
+    const { OnJobDetailsSidebar } = useContext(ModalContext)
 
-        <li 
+    return <>
+
+
+        <li
             style={{
                 transition: "all .4s"
             }} className="flex w-full bg-[#fffffff6] p-3 pb-4 rounded-2xl border shadows">
@@ -68,7 +63,7 @@ const JobCard = ({ data, type }: JobCardType) => {
                     <span className={`${type === 'home' ? "text-lg lg:text-xl" : "text-sm lg:text-base"}  family2`}>$250 /hr
                         <span className="font-normal block text-xs">San-fransico, United-States</span>
                     </span>
-                    <button onClick={() => setModal(true)} className="shadows py-2 rounded-full cursor-pointer px-4 border text-white bg-[#000] text-xs">Details</button>
+                    <button onClick={() => OnJobDetailsSidebar()} className="shadows py-2 rounded-full cursor-pointer px-4 border text-white bg-[#000] text-xs">Details</button>
 
                 </div>
 

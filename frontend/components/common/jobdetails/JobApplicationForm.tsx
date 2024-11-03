@@ -15,8 +15,8 @@ const JobApplicationForm = ({ }) => {
         companyImage: "/images/Zello.png",
     }
 
-    const [formValue, setFormValue] = useState<ApplicationFormDataType>({
-        name: "",
+    const [formValue, setFormValue] = useState({
+        candidatename: "",
         username: "",
         email: "",
         linkedln: "",

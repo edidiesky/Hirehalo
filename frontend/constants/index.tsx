@@ -499,31 +499,19 @@ export const ApplicantDataList = [
 ]
 
 // job filter type data
-export const filterData = [
-    "React Developer",
-    "Animation",
-    "Phyton Developer",
-    "Full Stack Developer",
-    "Brand / Graphic Design",
-    "Illustration",
-    "Backend Developer",
-    "Flutter Developer",
-    "React Native Developer",
-    "Golang Developer",
-    "UI / Visual Design",
-    "UX Design / Research",
-    "Web Design",
-    "Animation",
+export const JobfilterData = [
+    "Full Time",
+    "Internship",
+    "Freelance",
+    "Volunteer",
 ]
 
-// form value type
-export type FormValueType = {
-    name: string;
-    username: string;
-    email: string;
-    linkedln: string;
-    country: string;
-};
+export const LocationfilterData = [
+    "Remote",
+    "On-site",
+    "Hybrid",
+]
+
 
 // application form data type
 export type ApplicationFormDataType = {
@@ -547,6 +535,47 @@ export type ProfileFormDataItem = {
     type: string;
     required: boolean;
 };
+export type FormValueType = {
+    name: string;
+    username: string;
+    email: string;
+    linkedln: string;
+    country: string;
+    password: string;
+    salary?: string
+};
+
+// -------- Login form Data Type Start ----------------------
+export type LoginValueType = {
+    email: string;
+    password: string;
+};
+export type LoginFormDataItem = {
+    id: number;
+    name: keyof LoginValueType; // It ensures the name corresponds to keys in FormValueType
+    text: string;
+    label: string;
+    type: string;
+    required: boolean;
+};
+// -------- Login form Data Type End ----------------------
+
+// -------- Register form Data Type Start ----------------------
+export type RegisterValueType = {
+    email: string;
+    password: string;
+    name: string;
+    username: string;
+};
+export type RegisterFormDataItem = {
+    id: number;
+    name: keyof RegisterValueType; // It ensures the name corresponds to keys in FormValueType
+    text: string;
+    label: string;
+    type: string;
+    required: boolean;
+};
+// -------- Login form Data Type End ----------------------
 
 export type ApplicationFormDataItem = {
     id: number;
@@ -557,7 +586,23 @@ export type ApplicationFormDataItem = {
     required: boolean;
 };
 
-// Application form data
+export type PasswordFormValueType = {
+    password: string;
+    confirmpassword: string;
+};
+
+export type ProfilePasswordDataItem = {
+    id: number;
+    name: keyof PasswordFormValueType; // It ensures the name corresponds to keys in FormValueType
+    text: string;
+    label: string;
+    type: string;
+    required: boolean;
+};
+
+
+
+// --------------------------- form Data List Start --------------------
 export const ApplicationFormData: ApplicationFormDataItem[] = [
     {
         id: 4,
@@ -601,7 +646,6 @@ export const ApplicationFormData: ApplicationFormDataItem[] = [
     },
 ];
 
-
 export const ProfileFormData: ProfileFormDataItem[] = [
     {
         id: 4,
@@ -636,29 +680,67 @@ export const ProfileFormData: ProfileFormDataItem[] = [
         required: true,
     },
 ];
+export const LoginFormData: LoginFormDataItem[] = [
+    {
+        id: 1,
+        name: "email",
+        type: "email",
+        text: "Email",
+        label: "hello@example.com",
+        required: true,
+    },
+    {
+        id: 4,
+        name: "password",
+        type: "password",
+        text: "Password",
+        label: "my password",
+        required: true,
+    },
+  
+];
+export const RegisterFormData: RegisterFormDataItem[] = [
+    {
+        id: 12,
+        name: "name",
+        type: "text",
+        text: "Name",
+        label: "Jane Doe",
+        required: true,
+    },
+    {
+        id: 12,
+        name: "username",
+        type: "text",
+        text: "UserName",
+        label: "JaneDoe@",
+        required: true,
+    },
+    {
+        id: 1,
+        name: "email",
+        type: "email",
+        text: "Email",
+        label: "hello@example.com",
+        required: true,
+    },
+    {
+        id: 4,
+        name: "password",
+        type: "password",
+        text: "Password",
+        label: "my password",
+        required: true,
+    },
 
-
-export type PasswordFormValueType = {
-    password: string;
-    confirmpassword: string;
-};
-
-export type ProfilePasswordDataItem = {
-    id: number;
-    name: keyof PasswordFormValueType; // It ensures the name corresponds to keys in FormValueType
-    text: string;
-    label: string;
-    type: string;
-    required: boolean;
-};
-
+];
 export const PasswordFormData: ProfilePasswordDataItem[] = [
     {
         id: 4,
         name: "password",
         type: "password",
         text: "Change your Password",
-        label: "my passowrd",
+        label: "my password",
         required: true,
     },
     {
@@ -670,3 +752,5 @@ export const PasswordFormData: ProfilePasswordDataItem[] = [
         required: true,
     },
 ];
+
+// --------------------------- form Data List End --------------------

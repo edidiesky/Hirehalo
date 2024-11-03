@@ -11,13 +11,13 @@ const WhyChoose = () => {
         <div className="max-w-custom mx-auto w-[90%] grid grid-cols-1 gap-12">
             <div className="w-full flex flex-col items-center justify-center gap-8">
                 <span className='text-base lg:text-lg font-normal lg:text-center max-w-[500px]'>
-                    <AnimateTextWord type='bigtext'>
-                        Choose Me
+                    <AnimateTextWord type='bigtext_Center'>
+                        Choose Us
                     </AnimateTextWord>
 
                 </span>
                 <h2 className="text-4xl lg:text-7xl max-w-[600px] mx-auto lg:text-center leading-[1.2] family2 text-dark family2">
-                    <AnimateTextWord type='bigtext'>
+                    <AnimateTextWord type='bigtext_Center'>
                         Why Connect is right for you?
                     </AnimateTextWord>
 

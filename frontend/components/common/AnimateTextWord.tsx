@@ -13,9 +13,32 @@ const AnimateTextWord = ({ children, type }: { children: React.ReactNode, type?:
     return (
       <span
         ref={AnimateTextRef}
-        className="flex gap-[4px] flex-wrap w-full items-center relative"
+        className="flex gap-[5px] flex-wrap w-full items-center relative"
       >
         {children?.split(" ")?.map((data:string, index:number) => {
+          return (
+            <div key={index} className="inline-flex hide relative">
+              <motion.span
+                variants={LargeSlideup}
+                custom={index}
+                initial="initial"
+                animate={inView ? "animate" : "exit"}
+              >
+                {data === " " ? "\u00A0" : data}
+              </motion.span>
+            </div>
+          );
+        })}
+      </span>
+    );
+  }
+  if (type === "bigtext_Center") {
+    return (
+      <span
+        ref={AnimateTextRef}
+        className="flex md:inline-block gap-[5px] flex-wrap w-full items-center md:space-x-4 md:items-center relative"
+      >
+        {children?.split(" ")?.map((data: string, index: number) => {
           return (
             <div key={index} className="inline-flex hide relative">
               <motion.span
