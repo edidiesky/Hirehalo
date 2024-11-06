@@ -1,11 +1,13 @@
 package main
+
 import (
+	"context"
 	"fmt"
 	"log"
-	"context"
 
 	"github.com/edidiesky/hirehalo/backend/data"
 	"github.com/edidiesky/hirehalo/backend/dbconfig"
+	"github.com/edidiesky/hirehalo/backend/models"
 	"github.com/joho/godotenv"
 )
 
@@ -14,6 +16,15 @@ func init() {
 	if err := godotenv.Load(); err != nil {
 		log.Fatal("Error loading .env file")
 	}
+}
+
+// Convert []models.Job to []interface{}
+func toInterfaceSlice(jobData []models.Job) []interface{} {
+	var interfaceSlice []interface{}
+	for _, job := range jobData {
+		interfaceSlice = append(interfaceSlice, job)
+	}
+	return interfaceSlice
 }
 
 func main() {
@@ -32,7 +43,12 @@ func main() {
 
 	fmt.Println("Connected to MongoDB Atlas")
 	jobCollection := client.Database("JOB_API").Collection("job")
-	_, err = jobCollection.InsertMany(context.TODO(), data.JobData)
+	
+	// Convert job data to interface{}
+	convertedJobData := toInterfaceSlice(data.JobData)
+
+	// Insert the data
+	_, err = jobCollection.InsertMany(context.TODO(), convertedJobData)
 	if err != nil {
 		log.Fatalf("Error seeding data: %v", err)
 	}

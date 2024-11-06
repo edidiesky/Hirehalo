@@ -16,7 +16,7 @@ func getAuthorId(id string) primitive.ObjectID {
 	return objid
 }
 
-var jobData = []models.Job{
+var JobData = []models.Job{
 	// CodeWave Solutions start (3)
 	{
 		ID:          primitive.NewObjectID(),
