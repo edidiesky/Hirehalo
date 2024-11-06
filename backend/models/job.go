@@ -13,7 +13,7 @@ type Job struct {
 	Location        string             `bson:"location"`
 	Remote          bool               `bson:"remote"`
 	EmploymentType  string             `bson:"employmentType"`
-	ExperienceLevel string             `bson:"ExperienceLevel"`
+	ExperienceLevel string             `bson:"experienceLevel"`
 	Skills          []string           `bson:"skills"`
 	Application     []Application      `bson:"application, noempty"`
 	PostedAt        time.Time          `bson:"postedAt"`

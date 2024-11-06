@@ -16,10 +16,10 @@ const (
 )
 
 type Application struct {
-	ID              primitive.ObjectID
-	Application     []Application      `bson:"application, noempty"`
-	PostedAt        time.Time          `bson:"postedAt"`
-	UpdatedAt       time.Time          `bson:"updatedAt"`
-	AuthorId        primitive.ObjectID `bson:"authorId, noempty"`
-	JobId           primitive.ObjectID `bson:"authorId, noempty"`
+	ID          primitive.ObjectID
+	Application ApplicationStatus  `bson:"status"`
+	PostedAt    time.Time          `bson:"postedAt"`
+	UpdatedAt   time.Time          `bson:"updatedAt"`
+	AuthorId    primitive.ObjectID `bson:"authorId, noempty"`
+	JobId       primitive.ObjectID `bson:"authorId, noempty"`
 }
