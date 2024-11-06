@@ -1,11 +1,14 @@
 package handlers
 
 import (
+	"log"
 	"strconv"
 
+	"github.com/edidiesky/hirehalo/backend/models"
 	"github.com/edidiesky/hirehalo/backend/services"
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 // @description  Get All Jobs Handler
@@ -13,25 +16,25 @@ import (
 // @access  Public
 func GetAllJobsHandler(c *fiber.Ctx) error {
 	// define the filter parametr
-	fiterParams := bson.M{}
+	filterParams := bson.M{}
 	// filter based on job title
 
 	if title := c.Query("title"); title != "" {
-		fiterParams["title"] = bson.M{
+		filterParams["title"] = bson.M{
 			"$regex":   title,
 			"$options": "i",
 		}
 	}
 	// filter based on company
 	if company := c.Query("company"); company != "" {
-		fiterParams["company"] = bson.M{
+		filterParams["company"] = bson.M{
 			"$regex":   company,
 			"$options": "i",
 		}
 	}
 	// filter based on location
 	if location := c.Query("location"); location != "" {
-		fiterParams["location"] = bson.M{
+		filterParams["location"] = bson.M{
 			"$regex":   location,
 			"$options": "i",
 		}
@@ -39,9 +42,9 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 	if remote := c.Query("remote"); remote != "" {
 		// Convert to bool (assuming "true" means remote)
 		if remote == "true" {
-			fiterParams["remote"] = true
+			filterParams["remote"] = true
 		} else {
-			fiterParams["remote"] = false
+			filterParams["remote"] = false
 		}
 	}
 	page, err := strconv.Atoi(c.Query("page", "1"))
@@ -52,7 +55,7 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 	if err != nil || pageSize <= 0 {
 		pageSize = 10
 	}
-	job, count, err := services.GetAllJobsServices(fiterParams, page, pageSize)
+	job, count, err := services.GetAllJobsService(filterParams, page, pageSize)
 
 	if err != nil {
 		switch err.Error() {
@@ -79,18 +82,72 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 	})
 }
 
+// @description  Get A single Job Handler
+// @route  GET /api/v1/jobs/:jobid
+// @access  Public
 func GetSingleJobsHandler(c *fiber.Ctx) error {
-	// define the filter parametr
+	filterParams := bson.M{}
+	// filter based on job title
+	jobParamId := c.Params("jobid")
+	jobId, err := primitive.ObjectIDFromHex(jobParamId)
+	if err != nil {
+		log.Printf("Invalid Job Id %s, %v", jobParamId, err)
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Invalid Job Id",
+		})
+	}
+	filterParams["id"] = jobId
+	job, err := services.GetSingleJobsService(filterParams)
 
+	if err != nil {
+		switch err.Error() {
+		case "error connecting to the mongodb client":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Error getting the mongodb client",
+			})
+
+		case "error getting the jobs from the database":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Error getting the jobs from the database",
+			})
+
+		}
+	}
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
-		"message": "GetSingleJobsHandler",
+		"job": job,
 	})
 }
 
+// @description  Create A Job Handler
+// @route  POST /api/v1/jobs/:jobid
+// @access  Private
 func CreateJobsHandler(c *fiber.Ctx) error {
-	// define the filter parametr
+	var jobsBodyParameter models.Job
+	recruiterID := c.Locals("userid").(primitive.ObjectID)
+	if err := c.BodyParser(&jobsBodyParameter); err != nil {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Error passing the formdata",
+		})
+	}
+	jobsBodyParameter.AuthorId = recruiterID
+	job, err := services.CreateAJobsService(jobsBodyParameter)
+
+	if err != nil {
+		switch err.Error() {
+		case "error connecting to the mongodb client":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Error getting the mongodb client",
+			})
+
+		case "error in creating the job":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "error in creating the job",
+			})
+
+		}
+	}
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
-		"message": "CreateJobsHandler",
+		"job": job,
 	})
 }
 
