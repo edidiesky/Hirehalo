@@ -6,18 +6,19 @@ import (
 )
 
 type Job struct {
-	ID              primitive.ObjectID
-	Title           string             `bson:"title"`
-	Description     string             `bson:"description"`
-	Company         string             `bson:"company"`
-	Location        string             `bson:"location"`
-	Remote          bool               `bson:"remote"`
-	EmploymentType  string             `bson:"employmentType"`
-	ExperienceLevel string             `bson:"experienceLevel"`
-	Skills          []string           `bson:"skills"`
-	Application     []Application      `bson:"application, noempty"`
-	PostedAt        time.Time          `bson:"postedAt"`
-	UpdatedAt       time.Time          `bson:"updatedAt"`
-	AuthorId        primitive.ObjectID `bson:"authorId, noempty"`
+	ID               primitive.ObjectID
+	CompanyLogo      string             `bson:"companyImage"`
+	Title            string             `bson:"title, noempty"`
+	Responsibility      []string           `bson:"responsibilites, noempty"`
+	Description string             `bson:"description, noempty"`
+	Company          string             `bson:"company"`
+	Location         string             `bson:"location"`
+	Remote           bool               `bson:"remote"`
+	EmploymentType   string             `bson:"employmentType"`
+	ExperienceLevel  string             `bson:"experienceLevel"`
+	Skills           []string           `bson:"skills"`
+	Application      []Application      `bson:"application, noempty"`
+	PostedAt         time.Time          `bson:"postedAt"`
+	UpdatedAt        time.Time          `bson:"updatedAt"`
+	AuthorId         primitive.ObjectID `bson:"authorId, noempty"`
 }
-

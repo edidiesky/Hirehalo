@@ -1,13 +1,11 @@
 package main
-
 import (
 	"fmt"
 	"log"
+	"context"
 
+	"github.com/edidiesky/hirehalo/backend/data"
 	"github.com/edidiesky/hirehalo/backend/dbconfig"
-	"github.com/edidiesky/hirehalo/backend/routers"
-	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/joho/godotenv"
 )
 
@@ -33,17 +31,10 @@ func main() {
 	}
 
 	fmt.Println("Connected to MongoDB Atlas")
-	// .SetupAuthRoutes(app)
-	app := fiber.New()
-	app.Use(cors.New(cors.Config{
-		AllowOrigins: "",
-	}))
-	routers.AuthRoute(app)
-	routers.UserRouter(app)
-	routers.JobRouter(app)
-	app.Listen(":4000")
-
+	jobCollection := client.Database("JOB_API").Collection("job")
+	_, err = jobCollection.InsertMany(context.TODO(), data.JobData)
 	if err != nil {
-		fmt.Println("Error Starting the server")
+		log.Fatalf("Error seeding data: %v", err)
 	}
+	fmt.Println("Data imported successfully!")
 }

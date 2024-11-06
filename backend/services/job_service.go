@@ -8,24 +8,23 @@ import (
 	"github.com/edidiesky/hirehalo/backend/dbconfig"
 	"github.com/edidiesky/hirehalo/backend/models"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/mongo"
 )
 
 // @description  Get All Jobs Services
 // @route  GET /jobs
 // @access  Public
-func GetAllJobs(filter bson.M) ([]models.Job, error) {
+func GetAllJobsServices(filter bson.M) ([]models.Job, error) {
 	client, err := dbconfig.GetMongoDBClient()
 	if err != nil {
 		log.Printf("Database connection error: %v", err)
-		return nil, fmt.Errorf("erorr connecting to the mongodb client")
+		return nil, fmt.Errorf("error connecting to the mongodb client")
 	}
 	jobCollection := client.Database("JOB_API").Collection("job")
 
 	cursor, err := jobCollection.Find(context.TODO(), filter)
 	if err != nil {
 		log.Printf("Error in getting the jobs: %v", err)
-		return nil, fmt.Errorf("erorr getting the jobs from the database")
+		return nil, fmt.Errorf("error getting the jobs from the database")
 
 	}
 	defer cursor.Close(context.TODO())
