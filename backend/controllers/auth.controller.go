@@ -101,21 +101,6 @@ func (ac *AuthController) RegisterAUser(c *fiber.Ctx) error {
 		})
 	}
 
-	UserID, ok := newUser.InsertedID.(primitive.ObjectID)
-	if !ok {
-		log.Println("Error in getting the inserted object id", err)
-		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-			"message": "Error in getting the inserted object id",
-		})
-	}
-
-	if err := utils.GenerateToken(c, UserID.Hex()); err != nil {
-		log.Println("Error in generating the cookies for the user", err)
-		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-			"message": "Error in generating the cookies for the user",
-		})
-	}
-	user.Password = ""
 	return c.Status(fiber.StatusCreated).JSON(fiber.Map{
 		"message": "succesfully generated a user",
 		"user": fiber.Map{
@@ -137,66 +122,58 @@ func (ac *AuthController) RegisterAUser(c *fiber.Ctx) error {
 // @route  POST /auth/login
 // @access  Public
 func (ac *AuthController) LoginAUser(c *fiber.Ctx) error {
-    // Get the MongoDB client
-    client, err := dbconfig.GetMongoDBClient()
-    if err != nil {
-        log.Println("An error occurred while connecting to the database")
-        return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-            "message": "An error occurred while connecting to the database",
-        })
-    }
+	client, err := dbconfig.GetMongoDBClient()
+	if err != nil {
+		log.Println("Database connection error:", err)
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Database connection error",
+		})
+	}
 
-    // Get the user collection
-    userCollection := client.Database("JOB_API").Collection("user")
-    var user models.User
+	userCollection := client.Database("JOB_API").Collection("user")
+	var user models.User
 
-    // Parse the incoming request body into the user struct
-    if err := c.BodyParser(&user); err != nil {
-        log.Println("Error in parsing the form data into the user struct")
-        return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-            "message": "Error in parsing the form data into the user struct",
-        })
-    }
+	if err := c.BodyParser(&user); err != nil {
+		log.Println("Form data parsing error:", err)
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Form data parsing error",
+		})
+	}
 
-    // Find the user by email in the database
-    var existingUser models.User
-    if err = userCollection.FindOne(context.TODO(), bson.M{"email": user.Email}).Decode(&existingUser); err != nil {
-        log.Println("No record found with this email")
-        return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
-            "message": "No record found with this email",
-        })
-    }
+	var existingUser models.User
+	if err = userCollection.FindOne(context.TODO(), bson.M{"email": user.Email}).Decode(&existingUser); err != nil {
+		log.Println("User not found with email:", user.Email)
+		return c.Status(fiber.StatusNotFound).JSON(fiber.Map{
+			"message": "User not found",
+		})
+	}
 
-    // Compare the provided password with the hashed password in the database
-    if err := bcrypt.CompareHashAndPassword([]byte(existingUser.Password), []byte(user.Password)); err != nil {
-        log.Println("Invalid password")
-        return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
-            "message": "Invalid password",
-        })
-    }
+	if err := bcrypt.CompareHashAndPassword([]byte(existingUser.Password), []byte(user.Password)); err != nil {
+		log.Println("Invalid password attempt for user:", user.Email)
+		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+			"message": "Invalid password",
+		})
+	}
 
-    // Generate a JWT token
-    userId := existingUser.ID.Hex()
-    if err := utils.GenerateToken(c, userId); err != nil {
-        log.Println("Error generating token")
-        return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-            "message": "Error generating token",
-        })
-    }
+	userId := existingUser.ID.Hex()
+	if err := utils.GenerateToken(c, userId, string(existingUser.Role)); err != nil {
+		log.Println("Error generating token:", err)
+		return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
+			"message": "Error generating token",
+		})
+	}
 
-    // Return the user information without the password
-    return c.JSON(fiber.Map{
-        "message": "Login successful",
-        "user": fiber.Map{
-            "email":    existingUser.Email,
-            "name":     existingUser.Name,
-            "username": existingUser.Username,
-            "image":    existingUser.Image,
-            "role":     existingUser.Role,
-        },
-    })
+	return c.JSON(fiber.Map{
+		"message": "Login successful",
+		"user": fiber.Map{
+			"email":    existingUser.Email,
+			"name":     existingUser.Name,
+			"username": existingUser.Username,
+			"image":    existingUser.Image,
+			"role":     existingUser.Role,
+		},
+	})
 }
-
 
 // @description  Logout a User
 // @route  POST /auth/logout

@@ -40,6 +40,7 @@ func AuthMiddleware(c *fiber.Ctx) error {
 	if ok && token.Valid {
 		// set to the local machine when passwed or return
 		c.Locals("userid", claims["userid"])
+		c.Locals("role", claims["role"])  
 	} else {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 			"message": "Claims is not valid",

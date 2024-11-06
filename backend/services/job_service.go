@@ -84,7 +84,7 @@ func CreateAJobsService(job models.Job) (models.Job, error) {
 	}
 	jobCollection := client.Database("JOB_API").Collection("job")
 
-insertResult, err := jobCollection.InsertOne(context.TODO(), job)
+	insertResult, err := jobCollection.InsertOne(context.TODO(), job)
 	if err != nil {
 		log.Printf("Error in creating the job: %v", err)
 		return models.Job{}, fmt.Errorf("error in creating the job")

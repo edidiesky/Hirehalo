@@ -338,7 +338,7 @@ export const jobData = [
         joblocation: "remote",
         company: "tenkara",
         ApplicationStatus: "PENDING",
-        bgColor: "#fbe2f4",
+        bgColor: "#e3dbfa",
         companyImage: "/images/tenkara.png",
     },
     {

@@ -20,6 +20,7 @@ var JobData = []models.Job{
 	// CodeWave Solutions start (3)
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "Full Stack Developer",
 		Description: "We’re looking for a Full Stack Developer with expertise in both front-end and back-end technologies to develop dynamic web applications. Your role will include building RESTful APIs, designing front-end features, and managing databases. Ideal candidates have experience with JavaScript, Node.js, and PostgreSQL and are passionate about learning new frameworks and tech stacks.",
 		Responsibility: []string{
@@ -37,10 +38,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#FFE1CC",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  8,
 		Title:       "Senior Backend Developer (Ruby on Rails)",
 		Description: "Join our team as a Senior Backend Developer specializing in Ruby on Rails. This role involves developing and maintaining our eCommerce platform, including payment systems and user accounts",
 		Responsibility: []string{
@@ -58,10 +61,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#D4F6ED",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "React Developer (Healthcare)",
 		Description: "Develop user interfaces for healthcare applications, focusing on user-friendly design and robust data handling for sensitive information.",
 		Company:     "CodeWave Solutions",
@@ -79,10 +84,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#ffe1cc",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  8,
 		Title:       "Senior React Developer",
 		Description: "Lead the development of large-scale applications. This position involves mentoring junior developers and ensuring adherence to industry standards.",
 		Responsibility: []string{
@@ -100,12 +107,14 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#E8F2FC",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	// CodeWave Solutions end(3)
 	// Insight Analytics (4)
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  8,
 		Title:       "Senior React Developer",
 		Description: "Insight Analytics is seeking a Data Scientist to analyze vast amounts of data, deriving actionable insights that drive decision-making. Applicants should have expertise in Python, SQL, and machine learning frameworks like TensorFlow or PyTorch. This role involves data mining, predictive modeling, and presenting findings to stakeholders.",
 		Responsibility: []string{
@@ -123,10 +132,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#D4F6ED",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "Backend Developer (Go)",
 		Description: "ScaleOps is looking for a Backend Developer with expertise in Go to build and scale APIs. This role requires a strong grasp of microservices and distributed systems and familiarity with gRPC.",
 		Responsibility: []string{
@@ -144,10 +155,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#eceff4",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "Full Stack Developer",
 		Description: "We’re looking for a Full Stack Developer with expertise in both front-end and back-end technologies to develop dynamic web applications. Your role will include building RESTful APIs, designing front-end features, and managing databases. Ideal candidates have experience with JavaScript, Node.js, and PostgreSQL and are passionate about learning new frameworks and tech stacks.",
 		Responsibility: []string{
@@ -165,10 +178,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#e3dbfa",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "Backend Developer",
 		Description: "We’re looking for a Backend Developer with expertise in back-end technologies to develop dynamic web applications. Your role will include building RESTful APIs, designing front-end features, and managing databases. Ideal candidates have experience with JavaScript, Node.js, and PostgreSQL and are passionate about learning new frameworks and tech stacks.",
 		Responsibility: []string{
@@ -186,10 +201,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#F9F6FF",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  8,
 		Title:       "Senior Backend Developer",
 		Description: "We’re looking for a Senior Backend Developer with expertise in back-end technologies to develop dynamic web applications. Your role will include building RESTful APIs, designing front-end features, and managing databases. Ideal candidates have experience with JavaScript, Node.js, and PostgreSQL and are passionate about learning new frameworks and tech stacks.",
 		Responsibility: []string{
@@ -207,12 +224,14 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#e3dbfa",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	// Insight Analytics end (4)
 	// CloudVentures start(2)
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "DevOps Engineer",
 		Description: "Join CloudVentures as a DevOps Engineer to help streamline our CI/CD processes and enhance system reliability. You’ll work with cloud platforms like AWS, Docker, and Kubernetes, improving automation and incident management. Candidates should have a strong scripting background in Bash or Python and experience with Jenkins or GitLab CI/CD.",
 		Responsibility: []string{
@@ -230,10 +249,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#d4f6ed",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  8,
 		Title:       "Senior Backend Engineer",
 		Description: "Join CloudVentures as a Senior Backend Engineer to help streamline our CI/CD processes and enhance system reliability. You’ll work with cloud platforms like AWS, Docker, and Kubernetes, improving automation and incident management. Candidates should have a strong scripting background in Bash or Python and experience with Jenkins or GitLab CI/CD.",
 		Responsibility: []string{
@@ -251,12 +272,14 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#d4f6ed",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	// CloudVentures end(2)
 	// TrendyTech start(2)
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "Mobile App Developer (iOS)",
 		Description: "TrendyTech is seeking an iOS Developer to create user-friendly, engaging applications that will shape the future of mobile shopping. This role is perfect for someone with experience in Swift, UIKit, and REST APIs. As a team member, you’ll work closely with designers to ensure a seamless user experience.",
 		Company:     "TrendyTech",
@@ -274,11 +297,13 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#e3dbfa",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
 		Company:     "TrendyTech",
+		Experience:  8,
 		Title:       "Senior Backend Engineer",
 		Description: "Join TrendyTech as a Senior Backend Engineer to help streamline our CI/CD processes and enhance system reliability. You’ll work with cloud platforms like AWS, Docker, and Kubernetes, improving automation and incident management. Candidates should have a strong scripting background in Bash or Python and experience with Jenkins or GitLab CI/CD.",
 		Responsibility: []string{
@@ -295,12 +320,14 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#d4f6ed",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	// TrendyTech end(2)
 	// Creative Innovations start (3)
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "UX/UI Designer",
 		Description: "We’re looking for a UX/UI Designer to craft beautiful and intuitive user interfaces for our clients’ products. This position requires proficiency in design tools such as Figma, Adobe XD, and experience conducting user research to inform design decisions.",
 		Company:     "Creative Innovations",
@@ -318,10 +345,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#e3dbfa",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "Database Administrator (DBA)",
 		Description: "Creative Innovations is searching for a DBA to manage and optimize our database systems, ensuring high performance and availability. Knowledge of MySQL, PostgreSQL, and backup solutions is crucial. The role involves database tuning, data integrity maintenance, and security management.",
 		Company:     "Creative Innovations",
@@ -339,10 +368,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#e3dbfa",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "Cybersecurity Analyst",
 		Description: "Creative Innovation is hiring a Cybersecurity Analyst to protect digital assets and safeguard sensitive data. The ideal candidate has experience in threat analysis, vulnerability management, and knowledge of compliance frameworks (e.g., ISO, NIST). Strong analytical and problem-solving skills are essential.",
 		Company:     "Creative Innovations",
@@ -360,12 +391,14 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#e3dbfa",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	// Creative Innovations end (3)
 	// NJGotham Systems start (4)
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "Backend Developer (Node.js)",
 		Description: "We’re looking for a Node.js Backend Developer to create APIs and backend services for our data processing platform. The ideal candidate should be proficient in Node.js and have experience with MongoDB and Redis.",
 		Responsibility: []string{
@@ -383,10 +416,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#F9F6FF",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  4,
 		Title:       "UI/Frontend Developer (React + Typescript)",
 		Description: "NJGotham seeking a skilled UI/Frontend Developer who can build highly responsive UIs in React and TypeScript. This role involves translating UI/UX designs into code and ensuring the technical feasibility of UI designs.",
 		Responsibility: []string{
@@ -404,10 +439,12 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#F9F6FF",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
 	{
 		ID:          primitive.NewObjectID(),
+		Experience:  8,
 		Title:       "Senior Frontend Developer ",
 		Description: "As a Senior Frontend Developer, you’ll lead the development of healthcare applications using Angular. You will work closely with product teams to create intuitive, user-friendly interfaces. Experience in building large-scale, data-driven apps is a must.",
 		Responsibility: []string{
@@ -426,27 +463,7 @@ var JobData = []models.Job{
 		Application:     []models.Application{}, // Assuming Application is defined in the models package
 		PostedAt:        time.Now(),
 		UpdatedAt:       time.Now(),
+		BgColor:         "#fbe2f4",
 		AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
 	},
-	// {
-	// 	ID:          primitive.NewObjectID(),
-	// 	Title:       "",
-	// 	Description: "",
-	// 	Responsibility: []string{
-	// 		"",
-	// 		"",
-	// 		"",
-	// 	},
-	// 	Company:         "NJGotham",
-	// 	Location:        "Onsite",
-	// 	Remote:          false,
-	// 	CompanyLogo:     "/images/NJGotham.png",
-	// 	EmploymentType:  "Full-time",
-	// 	ExperienceLevel: "Entry-level",
-	// 	Skills:          []string{"JavaScript", "Graphql", "MongoDB", "React", "Node.JS", "HTML", "CSS"},
-	// 	Application:     []models.Application{}, // Assuming Application is defined in the models package
-	// 	PostedAt:        time.Now(),
-	// 	UpdatedAt:       time.Now(),
-	// 	AuthorId:        getAuthorId("66fc4acccb98ee6f5c2203b6"),
-	// },
 }

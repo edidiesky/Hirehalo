@@ -8,6 +8,7 @@ import (
 type Job struct {
 	ID              primitive.ObjectID
 	CompanyLogo     string             `bson:"companyImage"`
+	BgColor         string             `bson:"bgColor"`
 	Title           string             `bson:"title, noempty"`
 	Responsibility  []string           `bson:"responsibilites, noempty"`
 	Description     string             `bson:"description, noempty"`
@@ -16,6 +17,7 @@ type Job struct {
 	Remote          bool               `bson:"remote"`
 	EmploymentType  string             `bson:"employmentType"`
 	ExperienceLevel string             `bson:"experienceLevel"`
+	Experience      int                `bson:"experience"`
 	Skills          []string           `bson:"skills"`
 	Application     []Application      `bson:"application, noempty"`
 	PostedAt        time.Time          `bson:"postedAt"`

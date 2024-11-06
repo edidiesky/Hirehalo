@@ -8,13 +8,14 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 )
 
-func GenerateToken(c *fiber.Ctx, userid string) error {
+func GenerateToken(c *fiber.Ctx, userId string, role string) error {
 	// expiration time
 	expirationTime := time.Now().Add(72 * time.Hour)
 	// claims
 	claims := jwt.MapClaims{
 		"exp":    expirationTime.Unix(),
-		"userid": userid,
+		"userid": userId,
+		"role": role,
 	}
 	// performs newwithclaims method sig hs256 token
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
