@@ -27,9 +27,14 @@ func RegistrationService(user models.User) (*mongo.InsertOneResult, error) {
 	// pagination
 
 	var existingUser models.User
-	if err := userCollection.FindOne(context.TODO(), bson.M{"email": user.Email}).Decode(&existingUser); err == nil {
-		log.Println("You already exist as a user", err)
-		return nil, fmt.Errorf("you already exist as a user %v", err)
+	err = userCollection.FindOne(context.TODO(), bson.M{"email": user.Email}).Decode(&existingUser)
+	if err != nil && err != mongo.ErrNoDocuments {
+		log.Println("Error finding user in database:", err)
+		return nil, fmt.Errorf("error finding user in database %v", err)
+	}
+	if err == nil {
+		log.Println("User already exists")
+		return nil, fmt.Errorf("user already exists")
 	}
 	hashedpassword, err := bcrypt.GenerateFromPassword([]byte(user.Password), bcrypt.DefaultCost)
 	if err != nil {

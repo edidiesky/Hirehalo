@@ -11,15 +11,30 @@ func ApplicationRouter(app *fiber.App) {
 	// defining our application route
 	applicationrouter := app.Group("/api/v1/application")
 
-	applicationrouter.Get("", handlers.GetAllApplicationHandler)
-	applicationrouter.Get(":applicationid", handlers.GetSingleApplicationHandler)
-	applicationrouter.Post("", middlewares.AuthMiddleware, handlers.CreateApplicationHandler)
+	// Get Users Job Application Route
+	applicationrouter.Post(":jobid", middlewares.AuthMiddleware, handlers.CreateApplicationHandler)
+	applicationrouter.Get("jobsapplied", middlewares.AuthMiddleware, handlers.GetUserApplicationHandler)
+	// Get Users Job Application Route END
+
+	// ------------ ADMIN /RECRUITER -----------------------/
+	applicationrouter.Get(":applicationid",
+		middlewares.AuthMiddleware,
+		middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin),
+		handlers.GetSingleApplicationHandler)
+
+	applicationrouter.Get("/admin",
+		middlewares.AuthMiddleware,
+		middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin), handlers.GetAllApplicationHandler)
 
 	applicationrouter.Put(":applicationid",
 		middlewares.AuthMiddleware,
 		middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin),
 		handlers.UpdateApplicationHandler)
+
 	applicationrouter.Delete(":applicationid",
 		middlewares.AuthMiddleware,
-		middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin), handlers.DeleteApplicationHandler)
+		middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin),
+		handlers.DeleteApplicationHandler)
+	// ------------ ADMIN /RECRUITER -----------------------/
+
 }

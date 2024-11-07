@@ -51,7 +51,11 @@ func RegistrationHandler(c *fiber.Ctx) error {
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "error getting the mongodb client",
 			})
-		case "You already exist as a user":
+			case "error finding user in database":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "You do not have a record with Us!",
+			})
+		case "user already exists":
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "you already exist as a user",
 			})
@@ -129,7 +133,14 @@ func LoginHandler(c *fiber.Ctx) error {
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "Error Inserting the user in the db",
 			})
-
+		case "user not found":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "You have no record with Us!",
+			})
+			case "invalid password":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Incorrect password!",
+			})
 		}
 	}
 

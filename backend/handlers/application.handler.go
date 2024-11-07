@@ -3,6 +3,7 @@ package handlers
 import (
 	"log"
 	"strconv"
+	"time"
 
 	"github.com/edidiesky/hirehalo/backend/models"
 	"github.com/edidiesky/hirehalo/backend/services"
@@ -77,8 +78,8 @@ func GetAllApplicationHandler(c *fiber.Ctx) error {
 		}
 	}
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
-		"count": count,
-		"Application":   Application,
+		"count":       count,
+		"Application": Application,
 	})
 }
 
@@ -123,13 +124,24 @@ func GetSingleApplicationHandler(c *fiber.Ctx) error {
 // @access  Private
 func CreateApplicationHandler(c *fiber.Ctx) error {
 	var ApplicationBodyParameter models.Application
-	recruiterID := c.Locals("userid").(primitive.ObjectID)
+	userID := c.Locals("userid").(primitive.ObjectID)
+	jobParamsID := c.Params("jobid")
+	jobID, err := primitive.ObjectIDFromHex(jobParamsID)
+	if err != nil {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Error, Invalide Job ID",
+		})
+	}
 	if err := c.BodyParser(&ApplicationBodyParameter); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"message": "Error passing the formdata",
 		})
 	}
-	ApplicationBodyParameter.AuthorId = recruiterID
+	ApplicationBodyParameter.AuthorId = userID
+	ApplicationBodyParameter.JobId = jobID
+	ApplicationBodyParameter.PostedAt = time.Now()
+	ApplicationBodyParameter.UpdatedAt = time.Now()
+	ApplicationBodyParameter.Application = "APPLIED"
 	Application, err := services.CreateApplicationService(ApplicationBodyParameter)
 
 	if err != nil {
@@ -141,13 +153,72 @@ func CreateApplicationHandler(c *fiber.Ctx) error {
 
 		case "error in creating the Application":
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-				"message": "error in creating the Application",
+				"message": "Error in creating the Application",
 			})
-
+		case "error starting the database session":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Internal Server Error",
+			})
+		case "error starting the database transactions":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Internal Server Error",
+			})
+		case "error updating job":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Internal Server Error",
+			})
+		case "transaction failed":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Internal Server Error",
+			})
+		case "error committing transaction":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Error committing transaction",
+			})
 		}
 	}
 	return c.Status(fiber.StatusOK).JSON(fiber.Map{
 		"Application": Application,
+	})
+}
+
+// @description  Get A User Job Application Handler
+// @route  GET /api/v1/Application/
+// @access  Public
+func GetUserApplicationHandler(c *fiber.Ctx) error {
+	// filter based on Application title
+	UserParamId, ok := c.Locals("userid").(string)
+	if !ok || UserParamId == "" {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Invalid or missing user ID",
+		})
+	}
+	jobs, err := services.GetUserApplicationService(UserParamId)
+
+	if err != nil {
+		switch err.Error() {
+		case "error connecting to the mongodb client":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Error getting the mongodb client",
+			})
+
+		case "error getting the jobs from the database":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Error getting the jobs from the database",
+			})
+		case "error getting the job from the database":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Internal Server Error! we could not get the job",
+			})
+
+		case "error decoding jobs":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Internal Server Error! we could not get the job",
+			})
+		}
+	}
+	return c.Status(fiber.StatusOK).JSON(fiber.Map{
+		"jobs": jobs,
 	})
 }
 

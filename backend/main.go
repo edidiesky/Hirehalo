@@ -41,6 +41,7 @@ func main() {
 	routers.AuthRoute(app)
 	routers.UserRouter(app)
 	routers.JobRouter(app)
+	routers.ApplicationRouter(app)
 	app.Listen(":4000")
 
 	if err != nil {
