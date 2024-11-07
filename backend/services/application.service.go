@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"log"
-
 	"github.com/edidiesky/hirehalo/backend/dbconfig"
 	"github.com/edidiesky/hirehalo/backend/models"
 	"go.mongodb.org/mongo-driver/bson"
