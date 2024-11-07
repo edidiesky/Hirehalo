@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
-
+"os"
 	"github.com/edidiesky/hirehalo/backend/dbconfig"
 	"github.com/edidiesky/hirehalo/backend/routers"
 	"github.com/gofiber/fiber/v2"
@@ -36,7 +36,7 @@ func main() {
 	// .SetupAuthRoutes(app)
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
-		AllowOrigins: "",
+		AllowOrigins:os.Getenv("WEB_ORIGIN") ,
 	}))
 	routers.AuthRoute(app)
 	routers.UserRouter(app)
