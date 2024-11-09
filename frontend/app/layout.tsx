@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ModalContextLayout from "@/components/common/ModalContextLayout";
+import ProviderLayout from "@/components/common/ProviderLayout";
 
 export const metadata: Metadata = {
   title: "HireHalo",
@@ -19,11 +19,11 @@ export default function RootLayout({
       <body
         className={""}
       >
-        <ModalContextLayout>
+        <ProviderLayout>
           {
             children
           }
-        </ModalContextLayout>
+        </ProviderLayout>
 
       </body>
     </html>

@@ -7,8 +7,7 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
         <div className='w-[310px] bg-[#121212] lg:block hidden h-[100vh] overflow-auto sticky top-0'>
             <div className="w-full h-full px-3 py-3 flex flex-col justify-between">
                 <div className="w-full flex flex-col justify-between">
-                    <div className="py-2 rounded-md w-full px-3 text-lg lg:text-xl font-normal
-                     text-white flex items-center cursor-pointer gap-4 hover:bg-[#282c2b]">
+                    <div className="py-2 rounded-md w-full px-3 family2 text-lg lg:text-xl text-white flex items-center cursor-pointer gap-4 hover:bg-[#282c2b]">
                         <HiBars3BottomLeft fontSize={'24px'} />   HireHalo
                     </div>
 
@@ -20,11 +19,11 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
                             <span className="text-xs block font-normal text-[#969A9A]">Candidate Account</span>
                         </span>
                     </div> 
-                    <ol className="pt-3 flex flex-col text-sm family2 gap-1">
+                    <ol className="pt-3 flex flex-col text-sm gap-1">
                         {
                             sidebarlinks?.map((data, index) => {
                                 return <li key={index} className="w-full">
-                                    <Link href={`/dashboard${data.tab.path}`} className='flex py-3 hover:text-white text-[#969a9acb] family2
+                                    <Link href={`/dashboard${data.tab.path}`} className='flex py-3 hover:text-white text-[#969a9acb]
                                  rounded-md px-3 hover:bg-[#282c2b] w-full items-center gap-4'>
                                         <span className=''>
                                             {data?.tab?.icon}

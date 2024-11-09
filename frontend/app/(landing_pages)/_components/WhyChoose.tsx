@@ -35,7 +35,7 @@ const WhyChoose = () => {
                         whyChooseUs?.map((data, index) => {
                             return <div key={index} className="w-full justify-between flex flex-col gap-4 min-h-[260px] lg:min-h-[310px]  border p-6 rounded-2xl">
                                 <div className="w-full flex items-center justify-between"></div>
-                                <h4 className="text-xl lg:text-3xl">
+                                <h4 className="text-2xl lg:text-3xl">
                                     <span className="family2">
                                         <AnimateTextWord type='bigtext'>
                                             {
@@ -44,7 +44,7 @@ const WhyChoose = () => {
                                         </AnimateTextWord>
 
                                     </span>
-                                    <span className="block text-sm pt-3 font-normal">
+                                    <span className="block text-sm md:text-base pt-3 font-normal">
 
                                         <AnimateTextWord>
                                             {data?.subtext}

@@ -6,7 +6,7 @@ const Charts = () => {
         chart: {
             height: 350,
             type: "bar",
-            fontFamily: "Karla",
+            fontFamily: "Regular",
             foreColor: "#333",
             fontSize: "30px",
             textTransform: "capitalize",
@@ -52,7 +52,7 @@ const Charts = () => {
                 series={series}
                 type="bar"
                 width={"100%"}
-                height={"250px"}
+                height={"400px"}
             />
         </div>
     </div>;

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import Header from "@/components/common/Header";
-import ModalContextLayout from "@/components/common/ModalContextLayout";
 import Footer from "@/components/common/Footer";
+import ProviderLayout from "@/components/common/ProviderLayout";
 
 export const metadata: Metadata = {
     title: "HireHalo",
@@ -19,14 +19,12 @@ export default function LandingPageLayout({
             <body
                 className={""}
             >
-                <ModalContextLayout>
-                    <div className="w-full flex relative flex-col">
-                        <Header />
-                        {children}
-                        <Footer />
-                    </div>
-                </ModalContextLayout>
-                
+                <ProviderLayout>
+                    <Header />
+                    {children}
+                    <Footer />
+                </ProviderLayout>
+
 
             </body>
         </html>

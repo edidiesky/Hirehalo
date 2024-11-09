@@ -21,7 +21,7 @@ const TopCompanies = () => {
 
                 </h2>
                 <div className="flex flex-1 flex-col gap-4">
-                    <span className='text-sm lg:text-base font-normal max-w-[500px]'>
+                    <span className='text-base lg:text-lg font-normal max-w-[450px]'>
                         <AnimateTextWord>
                             Unlock your true potential and discover a true world of communities that aligns Job Hunting made Easy: Get instant alerts for job matching your skills and innovative job finder!
                         </AnimateTextWord>
@@ -34,7 +34,7 @@ const TopCompanies = () => {
                             <input type="text" placeholder='Search by job title, skill, tags' className="text-sm pr-12 font-normal bg-white rounded-full w-full " />
                         </form>
                         <span className='flex'>
-                            <button className="text-sm lg:text-sm px-4 lg:px-6 py-4 border rounded-full text-white bg-[#3e3aff] shadows">Get Started!</button>
+                            <button className="text-sm lg:text-base px-4 lg:px-6 py-4 border rounded-full text-white bg-[#3e3aff] shadows">Get Started!</button>
                         </span>
                     </div>
                 </div>
@@ -50,7 +50,7 @@ const TopCompanies = () => {
                             alt='Avatar for user'
                         />
                         <div className="flex flex-col gap-4">
-                            <span className='text-sm lg:text-sm font-normal max-w-[500px]'>
+                            <span className='text-sm lg:text-base font-normal max-w-[500px]'>
                                 <AnimateTextWord type='bigtext'>
                                     Productive
                                 </AnimateTextWord>
@@ -62,7 +62,7 @@ const TopCompanies = () => {
                                 </AnimateTextWord>
 
                             </h2>
-                            <span className='text-sm lg:text-sm font-normal max-w-[500px]'>
+                            <span className='text-sm lg:text-base font-normal max-w-[500px]'>
                                 <AnimateTextWord>
                                     Unlock your true potential and discover a true world of communities that aligns Job Hunting made Easy: Get instant alerts for job matching your skills and innovative job finder!
                                 </AnimateTextWord>
@@ -79,7 +79,7 @@ const TopCompanies = () => {
                 <div className="min-h-[450px] flex relative">
                     <div className="min-h-[100%] z-10 rounded-[40px] w-full bg-[#fff] border flex p-6 pt-8 flex-col justify-between gap-12">
                         <div className="flex flex-col gap-4">
-                            <span className='text-sm lg:text-sm font-normal max-w-[500px]'>
+                            <span className='text-sm lg:text-base font-normal max-w-[500px]'>
                                 <AnimateTextWord type='bigtext'>
                                     NJGotham
                                 </AnimateTextWord>
@@ -91,7 +91,7 @@ const TopCompanies = () => {
                                     NJGotham is a Popular Online Platform
                                 </AnimateTextWord>
                             </h2>
-                            <span className='text-sm lg:text-sm font-normal max-w-[500px]'>
+                            <span className='text-sm lg:text-base font-normal max-w-[500px]'>
                                  <AnimateTextWord >
                                     Unlock your true potential and discover a true world of communities that aligns Job Hunting made Easy: Get instant alerts for job matching your skills and innovative job finder!
 
@@ -122,7 +122,7 @@ const TopCompanies = () => {
                             alt='Avatar for user'
                         />
                         <div className="flex flex-col gap-4">
-                            <span className='text-sm lg:text-sm font-normal max-w-[500px]'>
+                            <span className='text-sm lg:text-base font-normal max-w-[500px]'>
                                 
                                 <AnimateTextWord type='bigtext'>
                                     Tenkara
@@ -136,7 +136,7 @@ const TopCompanies = () => {
                                 </AnimateTextWord>
 
                             </h2>
-                            <span className='text-sm lg:text-sm font-normal max-w-[500px]'>
+                            <span className='text-sm lg:text-base font-normal max-w-[500px]'>
                                 <AnimateTextWord>
                                     Unlock your true potential and discover a true world of communities that aligns Job Hunting made Easy: Get instant alerts for job matching your skills and innovative job finder!
 

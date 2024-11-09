@@ -1,20 +1,51 @@
 "use client"
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion'
 import { RxCross2 } from "react-icons/rx";
 import { LoginFormData } from '@/constants';
-import { ModalContext } from '@/context/ModalContext';
+import { useSelector, useDispatch } from 'react-redux'
+import { offLoginModal, onRegisterModal } from '@/services/modalSlice';
+
 import { slide } from '@/constants/framer';
+import { useLoginMutation } from '@/services/userApi';
+import { setUserCredentials } from '@/services/authSlice';
+import Loader from '../common/loader';
 const LoginModal = () => {
-    const { OffLoginModal, loginmodal } = useContext(ModalContext)
+    const { loginmodal } = useSelector((store: { modal: { loginmodal: boolean } }) => store.modal);
+
+    const dispatch = useDispatch()
+
     const [formValue, setFormValue] = useState({
         password: "",
         email: "",
     })
-    let loginisLoading = false;
+    const [login, { isLoading, isSuccess }] = useLoginMutation();
+
+    const noEntry = formValue.email === "" || formValue.password === "" || isLoading;
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormValue({ ...formValue, [e.target.name]: e.target.value })
     }
+    const handleFormSubmision = async (e: { preventDefault: () => void; }) => {
+        e.preventDefault();
+        try {
+            const { data } = await login(formValue).unwrap();
+            dispatch(setUserCredentials({ data }));
+            // toast.success("Login success");
+        } catch (err) {
+            // toast.error(err?.data?.message || err.error);
+        }
+    };
+
+
+    const handleOnRegistertModal = () => {
+        dispatch(offLoginModal(""))
+        dispatch(onRegisterModal(""))
+    }
+    useEffect(() => {
+        if (isSuccess) {
+            dispatch(offLoginModal(""));
+        }
+    }, [isSuccess]);
     return (
         <motion.div
             initial={{ opacity: 0 }}
@@ -32,7 +63,7 @@ const LoginModal = () => {
                 animate={loginmodal ? "enter" : "exit"}
                 exit={"exit"}
                 className="w-full min-h-full md:w-[400px] md:max-w-[450px]  md:min-h-[580px] justify-center relative items-start md:rounded-[10px] flex flex-col gap-12 p-8 bg-white">
-                <div onClick={OffLoginModal} className="absolute top-4 right-4 text-[#000] cursor-pointer w-12 h-12 flex items-center hover:bg-[#fafafa] rounded-full justify-center text-xl">
+                <div onClick={() => dispatch(offLoginModal(""))} className="absolute top-4 right-4 text-[#000] cursor-pointer w-12 h-12 flex items-center hover:bg-[#fafafa] rounded-full justify-center text-xl">
                     <RxCross2 />
                 </div>
                 <div className="w-full flex flex-col gap-1">
@@ -43,7 +74,7 @@ const LoginModal = () => {
                         Login to your account and check out your bookings
                     </span>
                 </div>
-                <form className="w-full flex flex-col gap-3">
+                <form onSubmit={handleFormSubmision} className="w-full flex flex-col gap-3">
                     {
                         LoginFormData?.map((formdata, index) => {
                             return <label key={index} htmlFor="" className="text-sm flex flex-col gap-2">
@@ -65,13 +96,13 @@ const LoginModal = () => {
                         <button
                             data-test="loginmodal_button"
                             type="submit"
-                            disabled={loginisLoading}
+                            disabled={noEntry}
                             className="p-3 px-8 hover:opacity-[.5] text-[#fff] flex btn items-center justify-center w-full cursor-pointer  bg-[#000] rounded-md regular"
                         >
-                            {loginisLoading ? (
+                            {isLoading ? (
                                 <div className="w-full flex justify-center items-center gap-4">
-                                    {/* <Loader type="dots" /> Login in progress */}
-                                    Login in progress
+                                    <Loader type="dots" /> Login in progress
+                                    {/* Login in progress */}
                                 </div>
                             ) : (
                                 "Sign In"
@@ -81,7 +112,7 @@ const LoginModal = () => {
                             <span className="text-sm font-normal text-dark">
                                 <span className="">Not yet a Member?</span>{" "}
                                 <span
-                                    // onClick={handleLoginModal}
+                                    onClick={handleOnRegistertModal}
                                     style={{ textDecoration: "underline" }}
                                     className="font-booking_font_bold family2 cursor-pointer"
                                 >

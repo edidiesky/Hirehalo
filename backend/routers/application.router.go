@@ -17,7 +17,7 @@ func ApplicationRouter(app *fiber.App) {
 	// Get Users Job Application Route END
 
 	// ------------ ADMIN /RECRUITER -----------------------/
-	applicationrouter.Get(":applicationid",
+	applicationrouter.Get("/admin/:applicationid",
 		middlewares.AuthMiddleware,
 		middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin),
 		handlers.GetSingleApplicationHandler)
@@ -26,12 +26,12 @@ func ApplicationRouter(app *fiber.App) {
 		middlewares.AuthMiddleware,
 		middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin), handlers.GetAllApplicationHandler)
 
-	applicationrouter.Put(":applicationid",
+	applicationrouter.Put("/admin/:applicationid",
 		middlewares.AuthMiddleware,
 		middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin),
 		handlers.UpdateApplicationHandler)
 
-	applicationrouter.Delete(":applicationid",
+	applicationrouter.Delete("/admin/:applicationid",
 		middlewares.AuthMiddleware,
 		middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin),
 		handlers.DeleteApplicationHandler)

@@ -754,3 +754,21 @@ export const PasswordFormData: ProfilePasswordDataItem[] = [
 ];
 
 // --------------------------- form Data List End --------------------
+
+
+// ------------- API REQUEST ROUTE -----------------
+export const BASE_URL =
+    process.env.NODE_ENV === "development" ? "http://localhost:4000" : "";
+
+export const JOB_URL = "/api/v1/job";
+export const USERS_URL = "/api/v1/users";
+export const AUTH_URL = "/api/v1/auth";
+export const UPLOAD_URL = "/api/v1/upload";
+export const APPLICATION_URL = "/api/v1/application";
+
+// ------------- API REQUEST ROUTE END -----------------
+
+
+
+
+

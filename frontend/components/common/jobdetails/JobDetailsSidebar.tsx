@@ -2,13 +2,16 @@
 import Image from "next/image";
 import { motion } from 'framer-motion'
 import { RxCross1 } from 'react-icons/rx'
-import { useContext, useState } from "react";
+import {useState } from "react";
 import { slideSidebarLeft } from "@/constants/framer";
 import JobApplicationForm from "./JobApplicationForm";
-import { ModalContext } from "@/context/ModalContext";
+import {
+    offJobDetailSidebar,
+} from '@/services/modalSlice';
+import { useDispatch, useSelector } from "react-redux";
 const JobDetailsSidebar = () => {
-    const { OffJobDetailsSidebar, jobdetailsidebar } = useContext(ModalContext)
-
+    const { jobDetailSidebar } = useSelector((store) => store.modal);
+    const dispatch = useDispatch();
     const data = {
         jobdescription: "We're looking for a skilled creative to join our team, focusing on creating top-quality landing pages.",
         jobtitle: "Entry-level Javascript Developer",
@@ -33,10 +36,10 @@ const JobDetailsSidebar = () => {
             <motion.div
                 variants={slideSidebarLeft}
                 initial="initial"
-                animate={jobdetailsidebar ? "enter" : "exit"}
+                animate={jobDetailSidebar ? "enter" : "exit"}
                 exit="exit"
                 className={`w-[100%] lg:w-[600px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 p-6 sidebar_shadow`}>
-                <div onClick={() => OffJobDetailsSidebar()} className="w-12 h-12 rounded-full z-20 flex items-center hover:shadow-md border shadow-xl justify-center bg-white absolute cursor-pointer right-12 top-4">
+                <div onClick={() => dispatch(offJobDetailSidebar(""))} className="w-12 h-12 rounded-full z-20 flex items-center hover:shadow-md border shadow-xl justify-center bg-white absolute cursor-pointer right-12 top-4">
                     <RxCross1 />
                 </div>
                 <div className="w-full flex flex-col gap-8">
@@ -128,7 +131,7 @@ const JobDetailsSidebar = () => {
             </motion.div>
             <div style={{
                 transition: "all .3s"
-            }} onClick={() => OffJobDetailsSidebar()} className={`${jobdetailsidebar ? "opacity-100 right-[0%]" : "opacity-0 -right-[100%]"} w-full top-0 absolute bg-[rgba(0,0,0,.1)] h-full z-10`}></div>
+            }} onClick={() => dispatch(offJobDetailSidebar(""))} className={`${jobDetailSidebar ? "opacity-100 right-[0%]" : "opacity-0 -right-[100%]"} w-full top-0 absolute bg-[rgba(0,0,0,.1)] h-full z-10`}></div>
         </motion.div>
     )
 }

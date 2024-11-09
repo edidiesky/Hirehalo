@@ -2,7 +2,7 @@ import Hero from "./(landing_pages)/_components/Hero";
 import About from "./(landing_pages)/_components/About";
 import TopCompanies from "./(landing_pages)/_components/TopCompanies";
 import DreamJob from "./(landing_pages)/_components/DreamJob";
-import Achievement from "./(landing_pages)/_components/Achievement";
+import Reviews from "./(landing_pages)/_components/Reviews";
 import Community from "./(landing_pages)/_components/Community";
 import WhyChoose from "./(landing_pages)/_components/WhyChoose";
 import Newsletter from "../components/common/Newsletter";
@@ -21,7 +21,7 @@ export default function Home() {
       <TopCompanies />
       <Community/>
       <WhyChoose/>
-      <Achievement />
+      <Reviews />
       <Newsletter/>
       <Footer/>
    </SmoothScroll>

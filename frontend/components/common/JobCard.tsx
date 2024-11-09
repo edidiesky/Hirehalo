@@ -1,12 +1,14 @@
 "use client"
 import Image from "next/image";
 import { FaBookmark } from "react-icons/fa";
-import { useContext } from "react";
-import { ModalContext } from "@/context/ModalContext";
+import {
+    onJobDetailSidebar,
+} from '@/services/modalSlice';
+import { useDispatch } from "react-redux";
 type JobCardType = { data: { bgColor: string, company: string, jobtitle: string, companyImage: string }, index: number, type?: string }
 
 const JobCard = ({ data, type }: JobCardType) => {
-    const { OnJobDetailsSidebar } = useContext(ModalContext)
+    const dispatch = useDispatch();
 
     return <>
 
@@ -40,7 +42,7 @@ const JobCard = ({ data, type }: JobCardType) => {
                         />
 
                     </div>
-                    <div className="flex items-center flex-wrap lg:pr-8 gap-2">
+                    <div className="flex items-center flex-wrap pr-8 gap-2">
                         <span className="p-2 rounded-full border text-xs border-[rgba(0,0,0,.4)]">
                             Part-time
                         </span>
@@ -63,7 +65,7 @@ const JobCard = ({ data, type }: JobCardType) => {
                     <span className={`${type === 'home' ? "text-lg lg:text-xl" : "text-sm lg:text-base"}  family2`}>$250 /hr
                         <span className="font-normal block text-xs">San-fransico, United-States</span>
                     </span>
-                    <button onClick={() => OnJobDetailsSidebar()} className="shadows py-2 rounded-full cursor-pointer px-4 border text-white bg-[#000] text-xs">Details</button>
+                    <button onClick={() => dispatch(onJobDetailSidebar(""))} className="shadows py-2 rounded-full cursor-pointer px-4 border text-white bg-[#000] text-xs">Details</button>
 
                 </div>
 

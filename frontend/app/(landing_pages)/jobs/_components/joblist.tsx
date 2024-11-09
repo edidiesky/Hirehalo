@@ -2,12 +2,12 @@
 import Image from 'next/image';
 import { FaLocationArrow } from 'react-icons/fa'
 import Link from 'next/link';
-import React, { useContext } from 'react';
 import { jobData, JobfilterData, LocationfilterData } from '@/constants';
-import { ModalContext } from '@/context/ModalContext';
+import { useDispatch } from 'react-redux';
+import { onJobDetailSidebar } from '@/services/modalSlice';
 
 const JobList = () => {
-    const { OnJobDetailsSidebar } = useContext(ModalContext)
+    const dispatch = useDispatch()
     return <div className='py-20 flex items-center gap-8 justify-center'>
         <div className="flex flex-col-reverse lg:grid items-start lg:grid-cols-custom_2 relative gap-8 mx-auto max-w-[1200px] w-[90%]">
             <div className="w-[350px] px-8 py-8 border sticky rounded-lg bg-white top-20 hidden lg:flex flex-col gap-4">
@@ -73,7 +73,7 @@ const JobList = () => {
                 <ol className="flex flex-col gap-4">
                     {
                         jobData?.map((data, index) => {
-                            return <li onClick={OnJobDetailsSidebar} key={index} className="flex w-full bg-[#fff] p-6 rounded-lg border shadows">
+                            return <li onClick={() => dispatch(onJobDetailSidebar(""))} key={index} className="flex w-full bg-[#fff] p-6 rounded-lg border shadows">
                                 <div className="flex w-full flex-col gap-4 justify-between">
                                     <div className="flex items-start justify-between w-full">
                                         <div className="flex items-center gap-8">

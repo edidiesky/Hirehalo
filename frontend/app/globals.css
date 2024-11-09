@@ -1,4 +1,6 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Kumbh+Sans:wght@100..900&display=swap"); */
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -23,8 +25,11 @@
   --dashbaord_width: 16rem;
   --dashoard_font-size: 13px;
   --shadow_color: #e7e7e9;
-   --red: #c31212;
+  --red: #c31212;
   /* --dashboard_sidebar_color: #e1e3e3; */
+}
+button:disabled {
+  cursor: not-allowed;
 }
 @font-face {
   font-family: "Bold";
@@ -149,25 +154,20 @@ input:focus {
   transition: all 0.5s;
 }
 
-
-
 /* Rentals Mobile */
 :root {
-  --grey_1:#F9F7F8;
-  --grey_dark:#BDBDBD;
-  --green_light:#32ADAA;
-  --purple_light:#FF946F;
-  --town_light:#6121FB;
-  --yellow_light:#FFC025;
-  --green_lightwe:#ECF8F6;
-  --red:#EE504F;
-  --dark-1:#1C1C1C;
-  --blue-light:#1D4DFE;
-  --red_light:#F2696B;
+  --grey_1: #f9f7f8;
+  --grey_dark: #bdbdbd;
+  --green_light: #32adaa;
+  --purple_light: #ff946f;
+  --town_light: #6121fb;
+  --yellow_light: #ffc025;
+  --green_lightwe: #ecf8f6;
+  --red: #ee504f;
+  --dark-1: #1c1c1c;
+  --blue-light: #1d4dfe;
+  --red_light: #f2696b;
 }
-
-
-
 
 .hide {
   overflow: hidden !important;

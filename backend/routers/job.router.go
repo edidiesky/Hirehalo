@@ -15,6 +15,6 @@ func JobRouter(app *fiber.App) {
 	jobrouter.Get(":jobid", handlers.GetSingleJobsHandler)
 	jobrouter.Post("", middlewares.AuthMiddleware, middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin), handlers.CreateJobsHandler)
 
-	jobrouter.Put(":jobid", middlewares.AuthMiddleware, middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin), handlers.UpdateJobHandler)
-	jobrouter.Delete(":jobid", middlewares.AuthMiddleware, middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin), handlers.DeleteJobHandler)
+	jobrouter.Put("/admin/:jobid", middlewares.AuthMiddleware, middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin), handlers.UpdateJobHandler)
+	jobrouter.Delete("/admin/:jobid", middlewares.AuthMiddleware, middlewares.RoleMiddleware(middlewares.RoleRecruiter, middlewares.RoleAdmin), handlers.DeleteJobHandler)
 }

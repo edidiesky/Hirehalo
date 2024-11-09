@@ -1,40 +1,41 @@
 "use client"
+import { store } from '@/store';
 import React from 'react';
 import { AnimatePresence } from "framer-motion";
-import ModalContextProvider, { ModalContext } from "@/context/ModalContext";
-import { useContext } from "react";
 import LoginModal from '../modals/LoginModal';
 import RegisterModal from '../modals/RegisterModal';
+import { Provider, useSelector } from 'react-redux'
 import JobDetailsSidebar from './jobdetails/JobDetailsSidebar';
-
 const ModalContextLayout = ({ children }: { children: React.ReactNode }) => {
-    const { loginmodal, registermodal, jobdetailsidebar } = useContext(ModalContext)
-
+    // const { loginmodal, registermodal, jobdetailsidebar } = usese(ModalContext)
+    const { loginmodal, registermodal, jobDetailSidebar } = useSelector((store) => store.modal);
     return (
         <React.Fragment>
             {/* animating the login modal */}
             <AnimatePresence mode='wait' >
                 {loginmodal && <LoginModal />}
             </AnimatePresence>
-            <AnimatePresence mode='wait' >
-                {jobdetailsidebar && <JobDetailsSidebar />}
-            </AnimatePresence>
             {/* animating the register modal */}
             <AnimatePresence mode='wait' >
                 {registermodal && <RegisterModal />}
             </AnimatePresence>
-
+            {/* animating the register modal */}
+            <AnimatePresence mode='wait' >
+                {jobDetailSidebar && <JobDetailsSidebar />}
+            </AnimatePresence>
+            {/* JobDetailsSidebar */}
             {children}
         </React.Fragment>
     )
 }
-
-export default function LayoutWithModalContextProvider({ children }: { children: React.ReactNode }) {
+export default function ProviderLayout({ children }: { children: React.ReactNode }) {
     return (
-        <ModalContextProvider>
+        <Provider store={store}>
             <ModalContextLayout>
                 {children}
             </ModalContextLayout>
-        </ModalContextProvider>
+
+
+        </Provider>
     );
 }

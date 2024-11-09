@@ -8,7 +8,7 @@ import (
 	"github.com/golang-jwt/jwt/v4"
 )
 
-
+// get the token from cookies, parse it, validate claims, and set user in context
 func AuthMiddleware(c *fiber.Ctx) error {
 	// get the token from the  cookies
 	tokenString := c.Cookies("jwt")
@@ -18,7 +18,7 @@ func AuthMiddleware(c *fiber.Ctx) error {
 			"message": "Not authorized, no toekn has been provided",
 		})
 	}
-	// the get the token by parsing
+	// get the token by parsing the toekn string
 	token, err := jwt.Parse(tokenString, func(t *jwt.Token) (interface{}, error) {
 		_, ok := t.Method.(*jwt.SigningMethodHMAC)
 		if !ok {
@@ -40,7 +40,7 @@ func AuthMiddleware(c *fiber.Ctx) error {
 	if ok && token.Valid {
 		// set to the local machine when passwed or return
 		c.Locals("userid", claims["userid"])
-		c.Locals("role", claims["role"])  
+		c.Locals("role", claims["role"])
 	} else {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
 			"message": "Claims is not valid",
@@ -50,13 +50,12 @@ func AuthMiddleware(c *fiber.Ctx) error {
 	return c.Next()
 }
 
-
 // func AuthMiddleware (c * fiber.Ctx) error {
 // 	// get the cookie
 // 	tokenString := c.Cookies("jwt")
 // 	// get the token parse
 
-// 	// check for errors 
+// 	// check for errors
 // 	// get the signed token
 // 	// check for validity
 // 	// return the c.Local

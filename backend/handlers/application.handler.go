@@ -124,7 +124,18 @@ func GetSingleApplicationHandler(c *fiber.Ctx) error {
 // @access  Private
 func CreateApplicationHandler(c *fiber.Ctx) error {
 	var ApplicationBodyParameter models.Application
-	userID := c.Locals("userid").(primitive.ObjectID)
+	userIDStr, ok := c.Locals("userid").(string)
+	if !ok {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Invalid user ID",
+		})
+	}
+	userID, err := primitive.ObjectIDFromHex(userIDStr)
+	if err != nil {
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+			"message": "Invalid user ID format",
+		})
+	}
 	jobParamsID := c.Params("jobid")
 	jobID, err := primitive.ObjectIDFromHex(jobParamsID)
 	if err != nil {
