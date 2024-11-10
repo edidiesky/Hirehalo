@@ -9,6 +9,7 @@ import (
 	"github.com/edidiesky/hirehalo/backend/dbconfig"
 	"github.com/edidiesky/hirehalo/backend/models"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
@@ -97,32 +98,39 @@ func CreateApplicationService(application models.Application) (*mongo.InsertOneR
 		log.Printf("error starting the database session: %v", err)
 		return nil, fmt.Errorf("error starting the database session")
 	}
-	// start the session transaction
-	err = session.StartTransaction()
-	if err != nil {
-		log.Printf("error starting the database transactions: %v", err)
-		return nil, fmt.Errorf("error starting the database transactions")
-	}
 
+	defer session.EndSession(ctx)
 	// using the session to insert the application and job application update
 	result, err := session.WithTransaction(ctx, func(sessCtx mongo.SessionContext) (interface{}, error) {
 		// Check if the job exists before updating it
 		var job models.Job
-		err = jobCollection.FindOne(sessCtx, bson.M{"_id": application.JobId}).Decode(&job)
+		err = jobCollection.FindOne(sessCtx, bson.M{"id": application.JobId}).Decode(&job)
 		if err != nil {
 			log.Printf("Job with ID %v not found", application.JobId)
 			return nil, fmt.Errorf("job not found")
 		}
 
+		// Check if the usr has already applied for the job
+		if err = applicationCollection.FindOne(sessCtx, bson.M{"authorId": application.AuthorId, "jobId": application.JobId}).Decode(&application); err == nil {
+			log.Printf("error, the user has already applied for the job: %v", application.JobId)
+			return nil, fmt.Errorf("user has already applied for this job")
+		} else if err != mongo.ErrNoDocuments {
+			// If any other error occurred, handle it accordingly
+			log.Printf("error checking existing applications: %v", err)
+			return nil, fmt.Errorf("error checking existing applications")
+		}
+
+		// set the id of the application
+		application.ID = primitive.NewObjectID()
 		// Insert the application document
-		result, err := applicationCollection.InsertOne(sessCtx, application)
+		_, err := applicationCollection.InsertOne(sessCtx, application)
 		if err != nil {
 			log.Printf("error inserting application into application collection: %v", err)
 			return nil, fmt.Errorf("error inserting application")
 		}
 
 		// Update the job document by adding the application to the "applications" array
-		_, err = jobCollection.UpdateOne(sessCtx, bson.M{"_id": application.JobId}, bson.M{
+		_, err = jobCollection.UpdateOne(sessCtx, bson.M{"id": application.JobId}, bson.M{
 			"$push": bson.M{
 				"application": application,
 			},
@@ -133,7 +141,7 @@ func CreateApplicationService(application models.Application) (*mongo.InsertOneR
 		}
 
 		// If both operations succeed, return nil and nil to indicate success
-		return result, nil
+		return job, nil
 	})
 
 	// If any error occurs during the transaction, abort
@@ -194,10 +202,10 @@ func GetUserApplicationService(userID string) ([]models.Job, error) {
 		return nil, fmt.Errorf("error getting the job from the database")
 
 	}
-if err = cursor.All(context.TODO(), &jobs); err != nil {
-        log.Printf("Error decoding jobs: %v", err)
-        return nil, fmt.Errorf("error decoding jobs")
-    }
+	if err = cursor.All(context.TODO(), &jobs); err != nil {
+		log.Printf("Error decoding jobs: %v", err)
+		return nil, fmt.Errorf("error decoding jobs")
+	}
 
-    return jobs, nil
+	return jobs, nil
 }

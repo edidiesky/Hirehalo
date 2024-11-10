@@ -21,5 +21,5 @@ type Application struct {
 	PostedAt    time.Time          `bson:"postedAt"`
 	UpdatedAt   time.Time          `bson:"updatedAt"`
 	AuthorId    primitive.ObjectID `bson:"authorId, noempty"`
-	JobId       primitive.ObjectID `bson:"authorId, noempty"`
+	JobId       primitive.ObjectID `bson:"jobId, noempty"`
 }

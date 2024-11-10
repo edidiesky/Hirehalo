@@ -143,11 +143,7 @@ func CreateApplicationHandler(c *fiber.Ctx) error {
 			"message": "Error, Invalide Job ID",
 		})
 	}
-	if err := c.BodyParser(&ApplicationBodyParameter); err != nil {
-		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-			"message": "Error passing the formdata",
-		})
-	}
+
 	ApplicationBodyParameter.AuthorId = userID
 	ApplicationBodyParameter.JobId = jobID
 	ApplicationBodyParameter.PostedAt = time.Now()
@@ -185,6 +181,32 @@ func CreateApplicationHandler(c *fiber.Ctx) error {
 		case "error committing transaction":
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "Error committing transaction",
+			})
+		case "error checking existing applications":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Error checking existing applications",
+			})
+
+		case "error inserting application":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "Error inserting application",
+			})
+
+		case "expected *mongo.InsertOneResult but got":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "expected *mongo.InsertOneResult but got",
+			})
+		case "job not found":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "job not found",
+			})
+		case "unexpected error: result is nil":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "unexpected error: result is nil",
+			})
+		case "user has already applied for this job":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "User has already applied for this job",
 			})
 		}
 	}
