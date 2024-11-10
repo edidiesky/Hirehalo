@@ -19,8 +19,6 @@ export default function ProviderLayout({ children }: { children: React.ReactNode
             <ModalContextLayout>
                 {children}
             </ModalContextLayout>
-
-
         </Provider>
     );
 }

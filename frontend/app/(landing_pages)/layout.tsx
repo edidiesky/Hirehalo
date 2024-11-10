@@ -16,17 +16,17 @@ export default function LandingPageLayout({
 }) {
     return (
         <html lang="en">
-            <body
-                className={""}
-            >
-                <ProviderLayout>
+            <ProviderLayout>
+                <body
+                    className={""}
+                >
                     <Header />
                     {children}
                     <Footer />
-                </ProviderLayout>
-
-
-            </body>
+                </body>
+            </ProviderLayout>
+           
+            
         </html>
     );
 }
