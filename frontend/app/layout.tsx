@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import ProviderLayout from "@/components/common/ProviderLayout";
 
 export const metadata: Metadata = {
   title: "HireHalo",
@@ -19,11 +18,9 @@ export default function RootLayout({
       <body
         className={""}
       >
-        <ProviderLayout>
           {
             children
           }
-        </ProviderLayout>
 
       </body>
     </html>

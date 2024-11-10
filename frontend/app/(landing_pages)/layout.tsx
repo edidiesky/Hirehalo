@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
-import ProviderLayout from "@/components/common/ProviderLayout";
+import ProviderLayout from "@/Providers/StoreProvider";
 
 export const metadata: Metadata = {
     title: "HireHalo",
