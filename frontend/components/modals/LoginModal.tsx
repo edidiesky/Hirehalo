@@ -8,6 +8,8 @@ import { offLoginModal, onRegisterModal } from '@/services/modalSlice';
 
 import { slide } from '@/constants/framer';
 import { useLoginMutation } from '@/services/userApi';
+import toast from "react-hot-toast";
+
 import { setUserCredentials } from '@/services/authSlice';
 import Loader from '../common/loader';
 const LoginModal = () => {
@@ -30,9 +32,9 @@ const LoginModal = () => {
         try {
             const { data } = await login(formValue).unwrap();
             dispatch(setUserCredentials({ data }));
-            // toast.success("Login success");
+            toast.success("Login success");
         } catch (err) {
-            // toast.error(err?.data?.message || err.error);
+            toast.error(err?.data?.message || err.error);
         }
     };
 
@@ -101,7 +103,7 @@ const LoginModal = () => {
                         >
                             {isLoading ? (
                                 <div className="w-full flex justify-center items-center gap-4">
-                                    <Loader type="dots" /> Login in progress
+                                    <Loader type="dots" loading={isLoading} color={"#fff"} /> Login in progress
                                     {/* Login in progress */}
                                 </div>
                             ) : (

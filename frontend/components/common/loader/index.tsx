@@ -1,8 +1,11 @@
 import React from "react";
 // import { ThreeDots } from "react-loader-spinner";
-const Loader = ({ type }: { type?: string }) => {
+import { PuffLoader } from "react-spinners";
+const Loader = ({ type, loading, color }: { type?: string, loading?: boolean, color?: string }) => {
   if (type === "dots") {
     return (
+      <PuffLoader color={color ? color : "#000"} loading={loading} size={60} />
+
       // <ThreeDots
       //   height="20"
       //   width="20"
@@ -10,10 +13,8 @@ const Loader = ({ type }: { type?: string }) => {
       //   color={"#fff"}
       //   ariaLabel="three-dots-loading"
       //   wrapperStyle={{}}
-      //   wrapperClassName=""
       //   visible={true}
       // />
-      <div className="w-4"></div>
     );
   }
   return (
@@ -26,16 +27,14 @@ const Loader = ({ type }: { type?: string }) => {
         background: "#ffffffc3",
       }}
     >
-      <div className="w-4"></div>
-
+      {/* <div className="w-4"></div> */}
+      <PuffLoader color={color ? color : "#000"} loading={loading} size={150} />
       {/* <ThreeDots
         height="70"
         width="70"
         radius="10"
         color={"#000"}
         ariaLabel="three-dots-loading"
-        wrapperStyle={{}}
-        wrapperClassName=""
         visible={true}
       /> */}
     </div>
