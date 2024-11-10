@@ -148,7 +148,7 @@ func CreateApplicationService(application models.Application) (*mongo.InsertOneR
 	if err != nil {
 		log.Printf("Transaction failed: %v", err)
 		_ = session.AbortTransaction(ctx)
-		return nil, fmt.Errorf("transaction failed")
+		return nil, fmt.Errorf("transaction failed: %v", err)
 	}
 
 	// Commit the transaction after both operations succeed

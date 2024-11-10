@@ -21,7 +21,7 @@ const TopCompanies = () => {
 
                 </h2>
                 <div className="flex flex-1 flex-col gap-4">
-                    <span className='text-base lg:text-lg font-normal max-w-[450px]'>
+                    <span className='text-base lg:text-lg font-normal max-w-[650px]'>
                         <AnimateTextWord>
                             Unlock your true potential and discover a true world of communities that aligns Job Hunting made Easy: Get instant alerts for job matching your skills and innovative job finder!
                         </AnimateTextWord>

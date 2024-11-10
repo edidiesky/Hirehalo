@@ -1,15 +1,14 @@
 package handlers
 
 import (
-	"log"
-	"strconv"
-	"time"
-
 	"github.com/edidiesky/hirehalo/backend/models"
 	"github.com/edidiesky/hirehalo/backend/services"
 	"github.com/gofiber/fiber/v2"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
+	"log"
+	"strconv"
+	"time"
 )
 
 // @description  Get All Application Handler
@@ -166,18 +165,19 @@ func CreateApplicationHandler(c *fiber.Ctx) error {
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "Internal Server Error",
 			})
-		case "error starting the database transactions":
+		case "job not found":
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-				"message": "Internal Server Error",
+				"message": "job not found",
+			})
+		case "transaction failed, user has already applied for this job":
+			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+				"message": "User has already applied for this job",
 			})
 		case "error updating job":
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "Internal Server Error",
 			})
-		case "transaction failed":
-			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-				"message": "Internal Server Error",
-			})
+
 		case "error committing transaction":
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "Error committing transaction",
@@ -196,16 +196,14 @@ func CreateApplicationHandler(c *fiber.Ctx) error {
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "expected *mongo.InsertOneResult but got",
 			})
-		case "job not found":
-			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
-				"message": "job not found",
-			})
+
 		case "unexpected error: result is nil":
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "unexpected error: result is nil",
 			})
-		case "user has already applied for this job":
-			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+
+		default:
+			return c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
 				"message": "User has already applied for this job",
 			})
 		}
