@@ -1,10 +1,24 @@
+"use client"
 import { createSlice } from "@reduxjs/toolkit";
 // const customerData = null;
 
-// let userData = localStorage.getItem("customer") || 'false'
+const getUserData = () => {
+  if (typeof window !== "undefined") {
+    const storedUser = localStorage.getItem("customer");
+    if (storedUser && storedUser !== "undefined") {
+      try {
+        return JSON.parse(storedUser);
+      } catch (error) {
+        console.error("Failed to parse user data:", error);
+        localStorage.removeItem("customer"); // Clear invalid data
+      }
+    }
+  }
+  return null;
+};
+
 const initialState = {
-  currentUser:null,
-  // currentUser: "" ? JSON.parse("") : null,
+  currentUser: getUserData(),
 };
 export const authSlice = createSlice({
   name: "auth",
@@ -16,6 +30,7 @@ export const authSlice = createSlice({
     },
     setUserCredentials: (state, action) => {
       state.currentUser = action.payload.user;
+      // console.log(action.payload)
       localStorage.setItem("customer", JSON.stringify(action.payload.user));
     },
   },

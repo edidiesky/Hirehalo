@@ -1,12 +1,13 @@
 package handlers
 
 import (
-	"log"
-
 	"github.com/edidiesky/hirehalo/backend/models"
 	"github.com/edidiesky/hirehalo/backend/services"
 	"github.com/edidiesky/hirehalo/backend/utils"
 	"github.com/gofiber/fiber/v2"
+	"log"
+	"os"
+	"time"
 )
 
 // @description  Registration Handler
@@ -51,7 +52,7 @@ func RegistrationHandler(c *fiber.Ctx) error {
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "error getting the mongodb client",
 			})
-			case "error finding user in database":
+		case "error finding user in database":
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "You do not have a record with Us!",
 			})
@@ -137,7 +138,7 @@ func LoginHandler(c *fiber.Ctx) error {
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "You have no record with Us!",
 			})
-			case "invalid password":
+		case "invalid password":
 			return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 				"message": "Incorrect password!",
 			})
@@ -162,4 +163,22 @@ func LoginHandler(c *fiber.Ctx) error {
 			"role":     existingUser.Role,
 		},
 	})
+}
+
+// @description  Logout Handler
+// @route  POST /api/v1/auth/logout
+// @access  Public
+func LogoutHandler(c *fiber.Ctx) error {
+	expirationTime := time.Now().Add(0 * time.Hour)
+
+	c.Cookie(&fiber.Cookie{
+		Value:    "",
+		Name:     "jwt",
+		Expires:  expirationTime,
+		SameSite: "None",
+		HTTPOnly: true,
+		Path:     "/",
+		Secure:   os.Getenv("jwt") == "production",
+	})
+	return nil
 }

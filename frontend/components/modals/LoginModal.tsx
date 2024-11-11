@@ -30,9 +30,10 @@ const LoginModal = () => {
     const handleFormSubmision = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         try {
-            const { data } = await login(formValue).unwrap();
-            dispatch(setUserCredentials({ data }));
-            toast.success("Login success");
+            const data = await login(formValue).unwrap();
+            // console.log(data)
+            dispatch(setUserCredentials({ user:data?.user }));
+            toast.success(data?.message);
         } catch (err) {
             toast.error(err?.data?.message || err.error);
         }

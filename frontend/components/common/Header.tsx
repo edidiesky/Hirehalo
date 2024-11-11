@@ -1,15 +1,16 @@
 "use client"
 import {
-    onLoginModal, 
+    onLoginModal,
     onRegisterModal,
 } from '@/services/modalSlice';
 import Link from 'next/link';
 import React from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const Header = () => {
     const dispatch = useDispatch();
-    // console.log(loginmodal);
+    const { currentUser } = useSelector((store: { auth?: any }) => store.auth)
+    // console.log(currentUser);
     return <div className=" sticky z-40 top-0">
         <div style={{
             backdropFilter: "blur(14px)"
@@ -27,11 +28,29 @@ const Header = () => {
 
                 </div>
                 <div className="flex items-center justify-end gap-2 md:gap-4">
-                    <span className=''>
-                        <button onClick={() => dispatch(onLoginModal(""))} className="text-sm lg:text-sm px-4 lg:px-6 py-3 border rounded-full text-white bg-[#3e3aff] shadows">Join with Us</button>
-                    </span>
-                    <button onClick={() => dispatch(onRegisterModal(""))} className="text-sm lg:text-sm px-4 lg:px-6 py-3 rounded-full shadows border">Sign Up</button>
+                    {
+                        currentUser ? (
+
+                            <div className="flex items-center justify-end gap-2 md:gap-4">
+                                <Link href={'/dashboard/user'} className="text-sm lg:text-sm px-4 lg:px-6 py-3 border rounded-full text-white bg-[#3e3aff] shadows">Go to Dashboard</Link>
+
+                                <div className="w-12 h-12 flex items-center text-[#fff] justify-center text-xl rounded-full bg-[#A1718A]">
+                                    {currentUser?.name.slice("")[0]}
+                                </div>
+                            </div>
+
+                        ) : (
+                            <div className="flex items-center justify-end gap-2 md:gap-4">
+                                <span className=''>
+                                    <button onClick={() => dispatch(onLoginModal(""))} className="text-sm lg:text-sm px-4 lg:px-6 py-3 border rounded-full text-white bg-[#3e3aff] shadows">Join with Us</button>
+                                </span>
+                                <button onClick={() => dispatch(onRegisterModal(""))} className="text-sm lg:text-sm px-4 lg:px-6 py-3 rounded-full shadows border">Sign Up</button>
+                            </div>
+                        )
+                    }
+
                 </div>
+
             </div>
         </div>
     </div>;

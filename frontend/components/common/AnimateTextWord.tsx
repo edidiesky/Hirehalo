@@ -8,14 +8,16 @@ const AnimateTextWord = ({ children, type }: { children: React.ReactNode, type?:
   const AnimateTextRef = useRef(null);
   const inView = useInView(AnimateTextRef, {
     margin: "0px 100px -120px 0px",
+    once: true
   });
+  const text = typeof children === "string" ? children : "";
   if (type === "bigtext") {
     return (
       <span
         ref={AnimateTextRef}
         className="flex gap-x-[4px] gap-y-[3px] flex-wrap w-full items-center relative"
       >
-        {children?.split(" ")?.map((data:string, index:number) => {
+        {text?.split(" ")?.map((data: string, index: number) => {
           return (
             <div key={index} className="inline-flex hide relative">
               <motion.span
@@ -38,7 +40,7 @@ const AnimateTextWord = ({ children, type }: { children: React.ReactNode, type?:
         ref={AnimateTextRef}
         className="flex lg:inline-block gap-[4px] flex-wrap w-full items-center lg:space-x-[10px] lg:items-center relative"
       >
-        {children?.split(" ")?.map((data: string, index: number) => {
+        {text?.split(" ")?.map((data: string, index: number) => {
           return (
             <div key={index} className="inline-flex hide relative">
               <motion.span
@@ -60,7 +62,7 @@ const AnimateTextWord = ({ children, type }: { children: React.ReactNode, type?:
       ref={AnimateTextRef}
       className="flex gap-x-[5px] gap-y-[2px] flex-wrap w-full items-center relative"
     >
-      {children?.split(" ")?.map((data:string, index:number) => {
+      {text?.split(" ")?.map((data: string, index: number) => {
         return (
           <div key={index} className="inline-flex  hide relative">
             <motion.span

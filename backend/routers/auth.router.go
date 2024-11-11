@@ -11,7 +11,7 @@ func AuthRoute(app *fiber.App) {
     authroute := app.Group("/api/v1/auth")
 
 	authroute.Post("register", handlers.RegistrationHandler)
-	authroute.Post("logout", handlers.LoginHandler)
+	authroute.Post("logout", handlers.LogoutHandler)
 	authroute.Post("login", handlers.LoginHandler)
 	// authroute.Post("verify-email", authcontroller.VerifyMail)
 	

@@ -38,9 +38,9 @@ const RegisterModal = () => {
     const handleFormSubmision = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         try {
-            const { data } = await register(formValue).unwrap();
+            const data = await register(formValue).unwrap();
             // dispatch(setUserCredentials({ data }));
-            // toast.success("Login success");
+            toast.success(data?.message);
         } catch (err) {
             // toast.error(err?.data?.message || err.error);
         }
@@ -107,7 +107,7 @@ const RegisterModal = () => {
                         >
                             {isLoading ? (
                                 <div className="w-full flex justify-center items-center gap-4">
-                                    <Loader type="dots" /> Login in progress
+                                    <Loader type="dots" /> Registration in progress
                                     {/* Login in progress */}
                                 </div>
                             ) : (
