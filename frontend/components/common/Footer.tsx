@@ -9,13 +9,13 @@ const Footer = () => {
         >
             <div className="h-full py-20 flex flex-col gap-8 items-center justify-center w-full bg-[#f8f9f7]">
                 <div className="w-full px-4 flex flex-col lg:items-center lg:justify-center gap-4">
-                    <h2 className="text-7xl lg:text-[280px] family2 lg:text-center">
+                    <h2 className="text-7xl md:text-[150px] lg:text-[280px] family2 lg:text-center">
                         <AnimateTextWord type='bigtext'>
                             HIREHALO
                         </AnimateTextWord>
 
                     </h2>
-                    <div className="w-[90%] mx-auto max-w-custom grid lg:grid-cols-custom_2 gap-8">
+                    <div className="md:w-[90%] mx-auto max-w-custom grid md:grid-cols-custom_2 gap-8">
                         <div className="w-[300px] flex flex-col gap-4">
                             <h4 className="text-base family2">Get started</h4>
                             <ul className="flex flex-col gap-4">
@@ -24,7 +24,7 @@ const Footer = () => {
                             </ul>
                         </div>
 
-                        <div className="w-full grid lg:grid-cols-3 gap-8">
+                        <div className="w-full grid grid-cols-2 lg:grid-cols-3 gap-8">
                             <div className="flex flex-col gap-4">
                                 <h4 className="text-base family2">For Remote Candidates</h4>
                                 <ul className="flex flex-col gap-4">

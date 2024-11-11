@@ -1,4 +1,4 @@
-import Link from 'next/link';
+
 import React from 'react';
 import Image from 'next/image';
 import { BsSearch } from 'react-icons/bs';
@@ -6,15 +6,15 @@ const Hero = () => {
     return <div className='min-h-[750px] py-12 lg:py-24 flex items-center gap-8 justify-center'>
         <div className="max-w-custom mx-auto w-[90%] grid grid-cols-1 gap-4">
             <div className="w-full flex flex-col lg:items-center lg:justify-center gap-8">
-                <div className="px-6 py-2 max-w-[300px] border bg-[#deddff5b] rounded-full text-sm text-[#3e3aff] family2">
+                <div className="px-6 py-2 max-w-[300px] bg-[#d2d2ed37] rounded-full text-sm text-[#3e3aff] family2">
                     #1 Top greatest on Product Hunt 
                 </div>
-                <h2 className="text-4xl sm:text-5xl max-w-[500px] lg:max-w-[1000px] lg:mx-auto leading-[1] lg:text-[85px] lg:text-center family2 text-dark family2">
+                <h2 className="text-4xl md:text-6xl max-w-[500px] lg:max-w-[1000px] lg:mx-auto leading-[1] lg:text-[85px] lg:text-center family2 text-dark family2">
                     Supporting Job Seekers
                     Every  Step of the Way
 
                 </h2>
-                <span className='text-base lg:text-xl font-normal lg:text-center max-w-[460px] md:max-w-[500px]'>
+                <span className='text-base md:text-xl font-normal lg:text-center max-w-[460px] md:max-w-[500px]'>
                     Unlock your true potential and discover a true world of communities that aligns.
                     Job Hunting made Easy: Get instant alerts for job matching your skills and innovative job finder!
                      {/*Job Hunting made Easy: Get instant alerts for job matching your skills and innovative job finder!  */}

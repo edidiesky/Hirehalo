@@ -37,6 +37,7 @@ func main() {
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
 		AllowOrigins:os.Getenv("WEB_ORIGIN") ,
+		AllowCredentials: true,
 	}))
 	routers.AuthRoute(app)
 	routers.UserRouter(app)

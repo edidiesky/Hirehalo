@@ -9,7 +9,7 @@ const Newsletter = () => {
     return <div className='flex w-full py-20 items-center  gap-8 justify-center'>
         <div className="max-w-custom bg-[#ffe1ccdf] py-16 px-6 md:px-12 rounded-[40px] mx-auto w-[90%] grid lg:grid-cols-2 lg:items-end gap-20">
             <div className="w-full flex flex-col gap-4">
-                <h2 className="text-4xl flex-1 lg:text-6xl max-w-[600px] text-start leading-[1.2] family2 text-dark family2">
+                <h2 className="text-4xl flex-1 md:text-5xl lg:text-6xl max-w-[400px] md:max-w-[600px] text-start leading-[1.2] family2 text-dark family2">
                     <span className="pb-4 block font-normal text-xl">
                         <AnimateTextWord>
                             Let us Find your Dream Job

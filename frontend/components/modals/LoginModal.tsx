@@ -14,12 +14,12 @@ import { setUserCredentials } from '@/services/authSlice';
 import Loader from '../common/loader';
 const LoginModal = () => {
     const { loginmodal } = useSelector((store: { modal: { loginmodal: boolean } }) => store.modal);
-
+ 
     const dispatch = useDispatch()
 
     const [formValue, setFormValue] = useState({
-        password: "",
-        email: "",
+        password: "1234",
+        email: "essienedidiong1000@gmail.com",
     })
     const [login, { isLoading, isSuccess }] = useLoginMutation();
 
@@ -103,7 +103,7 @@ const LoginModal = () => {
                         >
                             {isLoading ? (
                                 <div className="w-full flex justify-center items-center gap-4">
-                                    <Loader type="dots" loading={isLoading} color={"#fff"} /> Login in progress
+                                    <Loader type="dots" color={"#fff"} /> Login in progress
                                     {/* Login in progress */}
                                 </div>
                             ) : (

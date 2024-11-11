@@ -40,7 +40,7 @@ const TopCompanies = () => {
                 </div>
             </div>
             <div className="w-full grid lg:grid-cols-3 gap-8">
-                <div className="min-h-[450px] flex relative">
+                <div className="min-h-[300px] lg:min-h-[450px] flex relative">
                     <div className="min-h-[100%] z-10 rounded-[40px] w-full bg-[#f7f7f7] flex p-6 pt-8 flex-col justify-between gap-12">
                         <Image
                             src={"/images/Productive.jpg"}
@@ -62,7 +62,7 @@ const TopCompanies = () => {
                                 </AnimateTextWord>
 
                             </h2>
-                            <span className='text-sm lg:text-base font-normal max-w-[500px]'>
+                            <span className='text-sm md:text-base font-normal max-w-[400px] lg:max-w-[500px]'>
                                 <AnimateTextWord>
                                     Unlock your true potential and discover a true world of communities that aligns Job Hunting made Easy: Get instant alerts for job matching your skills and innovative job finder!
                                 </AnimateTextWord>
@@ -76,7 +76,7 @@ const TopCompanies = () => {
                     </div> */}
                 </div>
 
-                <div className="min-h-[450px] flex relative">
+                <div className="min-h-[300px] lg:min-h-[450px] flex relative">
                     <div className="min-h-[100%] z-10 rounded-[40px] w-full bg-[#fff] border flex p-6 pt-8 flex-col justify-between gap-12">
                         <div className="flex flex-col gap-4">
                             <span className='text-sm lg:text-base font-normal max-w-[500px]'>
@@ -112,7 +112,7 @@ const TopCompanies = () => {
                         </div>
                     </div> */}
                 </div>
-                <div className="min-h-[450px] flex relative">
+                <div className="min-h-[300px] lg:min-h-[450px] flex relative">
                     <div className="min-h-[100%] z-10 rounded-[40px] w-full bg-[#fff] border flex p-6 pt-8 flex-col justify-between gap-12">
 
                         <Image

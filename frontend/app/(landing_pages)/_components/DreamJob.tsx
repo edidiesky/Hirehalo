@@ -11,7 +11,7 @@ const DreamJob = () => {
                 <span className='text-base lg:text-lg font-normal lg:text-center max-w-[500px]'>
                     Your Dream Job
                 </span>
-                <h2 className="text-4xl lg:text-7xl max-w-[900px] capitalize lg:text-center leading-[1.2] family2 text-dark family2 lg:mx-auto">
+                <h2 className="text-4xl lg:text-7xl max-w-[600px] md:max-w-[900px] capitalize lg:text-center leading-[1.2] family2 text-dark family2 lg:mx-auto">
                     <AnimateTextWord type='bigtext_Center'>
                         We empower job seekers like you to supercharge your Job search
                     </AnimateTextWord>
