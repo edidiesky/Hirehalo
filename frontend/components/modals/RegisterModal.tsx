@@ -9,6 +9,7 @@ import { onLoginModal, offRegisterModal } from '@/services/modalSlice';
 import { slide } from '@/constants/framer';
 import { useRegisterMutation } from '@/services/userApi';
 import Loader from '../common/loader';
+import toast from 'react-hot-toast';
 const RegisterModal = () => {
     const { registermodal } = useSelector((store?:any) => store.modal);
     const dispatch = useDispatch()
@@ -41,8 +42,8 @@ const RegisterModal = () => {
             const data = await register(formValue).unwrap();
             // dispatch(setUserCredentials({ data }));
             toast.success(data?.message);
-        } catch (err) {
-            // toast.error(err?.data?.message || err.error);
+        } catch (err:any) {
+            toast.error(err?.data?.message || err.error);
         }
     };
 

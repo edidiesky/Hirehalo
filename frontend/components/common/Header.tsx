@@ -6,6 +6,7 @@ import {
 import Link from 'next/link';
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
+import UserProfile from './UserProfile';
 
 const Header = () => {
     const dispatch = useDispatch();
@@ -34,9 +35,7 @@ const Header = () => {
                             <div className="flex items-center justify-end gap-2 md:gap-4">
                                 <Link href={'/dashboard/user'} className="text-sm lg:text-sm px-4 lg:px-6 py-3 border rounded-full text-white bg-[#3e3aff] shadows">Go to Dashboard</Link>
 
-                                <div className="w-12 h-12 flex items-center text-[#fff] justify-center text-xl rounded-full bg-[#A1718A]">
-                                    {currentUser?.name.slice("")[0]}
-                                </div>
+                                <UserProfile/>
                             </div>
 
                         ) : (
