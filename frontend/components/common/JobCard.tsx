@@ -63,8 +63,11 @@ const JobCard = ({ data, type }: JobCardType) => {
                 </div>
 
                 <div className="flex gap-2 px-3 lg:gap-4 items-center justify-between">
-                    <span className={`${type === 'home' ? "text-lg lg:text-xl" : "text-sm lg:text-base"}  family2`}>$250 /hr
-                        <span className="font-normal block text-xs">{data?.Location}</span>
+                    <span className={`${type === 'home' ? "text-lg lg:text-xl" : "text-sm lg:text-base"} flex-1`}>
+                        <span className="family2">
+                            ${data?.Price} /hr
+                        </span>
+                        <span className="font-normal block text-xs md:text-base">{data?.Location}</span>
                     </span>
                     <button onClick={() => dispatch(onJobDetailSidebar(""))} className="shadows py-2 rounded-full cursor-pointer px-4 border text-white bg-[#000] text-xs">Details</button>
 

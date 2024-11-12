@@ -4,7 +4,7 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const CardLoader = () => {
     return (
         <SkeletonThemeCard>
-            <div className="w-full flex flex-col gap-8 p-3 border rounded-xl">
+            <div className="w-full flex flex-col gap-6 p-3 border border-[rgba(0,0,0,.08)] rounded-xl">
                 <span className='h-[300px] w-full'>
                     <Skeleton style={
                         {

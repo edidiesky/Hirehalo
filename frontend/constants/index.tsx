@@ -515,7 +515,9 @@ export const LocationfilterData = [
 export type JobType = {
     CompanyLogo: string;
     BgColor: string;
+    Price: number;
     Title: string;
+    JobType: string;
     Description: string;
     Company: string;
     Location: string;
