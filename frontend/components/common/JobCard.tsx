@@ -65,7 +65,7 @@ const JobCard = ({ data, type }: JobCardType) => {
                 <div className="flex gap-2 px-3 lg:gap-4 items-center justify-between">
                     <span className={`${type === 'home' ? "text-lg lg:text-xl" : "text-sm lg:text-base"} flex-1`}>
                         <span className="family2">
-                            ${data?.Price} /hr
+                            ${data?.Salary} /hr
                         </span>
                         <span className="font-normal block text-xs md:text-base">{data?.Location}</span>
                     </span>
