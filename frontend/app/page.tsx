@@ -1,3 +1,4 @@
+"use client"
 import Hero from "./(landing_pages)/_components/Hero";
 import About from "./(landing_pages)/_components/About";
 import TopCompanies from "./(landing_pages)/_components/TopCompanies";
@@ -10,20 +11,23 @@ import Newsletter from "../components/common/Newsletter";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import SmoothScroll from "@/constants/SmoothScroll";
+import { useGetAllJobQuery } from "@/services/jobApi";
 
 export default function Home() {
+  const { isLoading, data: Jobs } = useGetAllJobQuery("")
+  // console.log(Jobs)
   return (
-   <SmoothScroll>
+    <SmoothScroll>
       <Header />
-      <Hero/>
+      <Hero />
       <About />
-      <DreamJob/>
+      <DreamJob isLoading={isLoading} job={Jobs?.job} />
       <TopCompanies />
-      <Community/>
-      <WhyChoose/>
+      <Community />
+      <WhyChoose />
       <Reviews />
-      <Newsletter/>
-      <Footer/>
-   </SmoothScroll>
+      <Newsletter />
+      <Footer />
+    </SmoothScroll>
   );
 }

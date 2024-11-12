@@ -512,6 +512,24 @@ export const LocationfilterData = [
     "Hybrid",
 ]
 
+export type JobType = {
+    CompanyLogo: string;
+    BgColor: string;
+    Title: string;
+    Description: string;
+    Company: string;
+    Location: string;
+    Remote: boolean;
+    EmploymentType: string;
+    ExperienceLevel: string;
+    Experience: number;
+    Skills: string;
+    Application: [];
+    PostedAt: string;
+    UpdatedAt: string;
+    AuthorId: string;
+}
+
 
 // application form data type
 export type ApplicationFormDataType = {
@@ -697,7 +715,7 @@ export const LoginFormData: LoginFormDataItem[] = [
         label: "my password",
         required: true,
     },
-  
+
 ];
 export const RegisterFormData: RegisterFormDataItem[] = [
     {

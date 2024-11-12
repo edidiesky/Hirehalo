@@ -1,10 +1,12 @@
 
 import React from 'react';
-import { jobData } from "@/constants";
+import { jobData, JobType } from "@/constants";
 import JobCard from "@/components/common/JobCard";
 import AnimateTextWord from '@/components/common/AnimateTextWord';
+import CardLoader from '@/components/common/loader/CardLoader';
 
-const DreamJob = () => {
+const DreamJob = ({ isLoading, job }: { isLoading: boolean, job: JobType[] }) => {
+    console.log(job)
     return <div className='min-h-[500px] lg:min-h-[750px] py-20 flex items-center gap-8 justify-center'>
         <div className="max-w-custom mx-auto w-[90%] grid grid-cols-1 gap-12">
             <div className="w-full flex flex-col lg:items-center lg:justify-center gap-8">
@@ -15,7 +17,7 @@ const DreamJob = () => {
                     <AnimateTextWord type='bigtext_Center'>
                         We empower job seekers like you to supercharge your Job search
                     </AnimateTextWord>
-                   
+
                 </h2>
             </div>
             <div className="w-full flex flex-col lg:items-center lg:justify-center gap-4">
@@ -25,18 +27,33 @@ const DreamJob = () => {
                     <button className="text-sm lg:text-sm px-4 lg:px-6 py-4 rounded-full shadows border">New Jobs</button>
 
                 </div>
-                <ol className="lg:w-[90%] grid mt-4 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-6 gap-y-12">
+                <div className="w-full">
                     {
-                        jobData.slice(0, 6)?.map((data, index) => {
-                            return <JobCard type='home' index={index} key={index} data={data} />
-                        })
-                    }
+                        isLoading ? (
+                            <ol className="lg:w-[90%] lg:mx-auto grid mt-4 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-6 gap-y-12">
+                                {
+                                    jobData.slice(0, 6)?.map((_, index) => {
+                                        return <CardLoader key={index} />
+                                    })
+                                }
 
-                </ol>
+                            </ol>
+                        ) : (
+                                <ol className="lg:w-[90%] lg:mx-auto grid mt-4 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-x-6 gap-y-12">
+                                {
+                                        job?.slice(0, 6)?.map((data, index) => {
+                                        return <JobCard type='home' index={index} key={index} data={data} />
+                                    })
+                                }
+
+                            </ol>
+                        )
+                    }
+                </div>
                 <div className="w-full flex flex-col mt-4 items-center justify-center gap-8">
                     <button className="text-sm lg:text-sm px-4 text-[#e28f54] bg-[#ffe1cc5a] lg:px-6 py-4 rounded-full shadows border">Show More</button>
                 </div>
-               
+
 
             </div>
         </div>
