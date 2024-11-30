@@ -15,18 +15,10 @@ export default function LandingPageLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
-            <ProviderLayout>
-                <body
-                    className={""}
-                >
-                    <Header />
-                    {children}
-                    <Footer />
-                </body>
-            </ProviderLayout>
-           
-            
-        </html>
+      <div className="w-full">
+            <Header />
+            {children}
+            <Footer />
+      </div>
     );
 }

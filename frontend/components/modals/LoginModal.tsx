@@ -65,7 +65,7 @@ const LoginModal = () => {
                 initial="initial"
                 animate={loginmodal ? "enter" : "exit"}
                 exit={"exit"}
-                className="w-full min-h-full md:w-[400px] md:max-w-[450px]  md:min-h-[580px] justify-center relative items-start md:rounded-[10px] flex flex-col gap-12 p-8 bg-white">
+                className="w-full min-h-full md:w-[400px] md:max-w-[450px]  md:min-h-[520px] justify-center relative items-start md:rounded-[10px] flex flex-col gap-12 p-8 bg-white">
                 <div onClick={() => dispatch(offLoginModal(""))} className="absolute top-4 right-4 text-[#000] cursor-pointer w-12 h-12 flex items-center hover:bg-[#fafafa] rounded-full justify-center text-xl">
                     <RxCross2 />
                 </div>

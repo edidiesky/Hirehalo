@@ -2,11 +2,12 @@
 import Image from 'next/image';
 import { FaLocationArrow } from 'react-icons/fa'
 import Link from 'next/link';
-import { jobData, JobfilterData, LocationfilterData } from '@/constants';
+import { JobfilterData, JobType, LocationfilterData } from '@/constants';
 import { useDispatch } from 'react-redux';
 import { onJobDetailSidebar } from '@/services/modalSlice';
+import { setJobID } from "@/services/jobSlice";
 
-const JobList = () => {
+const JobList = ({ isLoading, job }: { isLoading: boolean, job: JobType[] }) => {
     const dispatch = useDispatch()
     return <div className='py-20 flex items-center gap-8 justify-center'>
         <div className="flex flex-col-reverse lg:grid items-start lg:grid-cols-custom_2 relative gap-8 mx-auto max-w-[1200px] w-[90%]">
@@ -70,47 +71,59 @@ const JobList = () => {
                         20 new opportunities posted today!
                     </span>
                 </div>
-                <ol className="flex flex-col gap-4">
-                    {
-                        jobData?.map((data, index) => {
-                            return <li onClick={() => dispatch(onJobDetailSidebar(""))} key={index} className="flex w-full bg-[#fff] p-6 rounded-lg border shadows">
-                                <div className="flex w-full flex-col gap-4 justify-between">
-                                    <div className="flex items-start justify-between w-full">
-                                        <div className="flex items-center gap-8">
-                                            <Image
-                                                src={data?.companyImage}
-                                                alt="Job image Logo Content"
-                                                width={60}
-                                                height={20}
-                                            />
-                                            <div className="flex flex-col">
-                                                <h4 className="text-lg lg:text-xl family2 family2">{data?.jobtitle}</h4>
-                                                <h5 className="text-sm lg:text-base font-normal capitalize">{data?.company}</h5>
+                {
+                    isLoading ? "" : (
+                        <ol className="flex flex-col gap-4">
+                            {
+                                job?.map((data, index) => {
+                                    return <li onClick={() => {
+                                        dispatch(onJobDetailSidebar(""))
+                                        dispatch(setJobID(data?.ID))
 
+                                    }} key={index} className="flex w-full bg-[#fff] p-6 rounded-lg border shadows">
+                                        <div className="flex w-full flex-col gap-4 justify-between">
+                                            <div className="flex items-start justify-between w-full">
+                                                <div className="flex items-center gap-8">
+                                                    <Image
+                                                        src={data?.CompanyLogo}
+                                                        alt="Job image Logo Content"
+                                                        width={60}
+                                                        height={20}
+                                                    />
+                                                    <div className="flex flex-col">
+                                                        <h4 className="text-lg lg:text-xl family2 family2">{data?.Title}</h4>
+                                                        <h5 className="text-sm lg:text-base font-normal capitalize">{data?.Company}</h5>
+
+                                                    </div>
+                                                </div>
+                                                <div className="flex lg:justify-end lg:items-end gap-2 flex-col">
+
+                                                    <span className="text-base flex items-center family2  gap-2">
+                                                        <FaLocationArrow />
+                                                        Marina East, SingaPore
+                                                        {/* {data?.joblocation} */}
+                                                    </span>
+                                                    <span className="text-sm font-normal">Posted About 2 hrs ago</span>
+                                                </div>
                                             </div>
+
+                                            <ol className="list-disc px-4 flex-col gap-1 flex text-sm lg:text-base">
+                                                {
+                                                    data?.Responsibility?.map((data: string, index: string) => {
+                                                        return (
+                                                            <li key={index}>{data}</li>
+                                                        )
+                                                    })
+                                                }
+                                            </ol>
                                         </div>
-                                        <div className="flex lg:justify-end lg:items-end gap-2 flex-col">
+                                    </li>
+                                })
+                            }
 
-                                            <span className="text-base flex items-center family2  gap-2">
-                                                <FaLocationArrow />
-                                                Marina East, SingaPore
-                                                {/* {data?.joblocation} */}
-                                            </span>
-                                            <span className="text-sm font-normal">Posted About 2 hrs ago</span>
-                                        </div>
-                                    </div>
-
-                                    <ol className="list-disc px-4 flex-col gap-1 flex text-sm lg:text-base">
-                                        <li>Design effective landing pages that align with our client's goals</li>
-                                        <li>Directly and verbally communicating with teams on calls</li>
-                                        <li>Work with well-known brands, helping to improve their online aesthetics</li>
-                                    </ol>
-                                </div>
-                            </li>
-                        })
-                    }
-
-                </ol>
+                        </ol>
+                    )
+                }
             </div>
 
         </div>

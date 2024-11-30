@@ -518,6 +518,7 @@ export type JobType = {
     Salary: number;
     Title: string;
     JobType: string;
+    Responsibility:string[];
     Description: string;
     Company: string;
     Location: string;

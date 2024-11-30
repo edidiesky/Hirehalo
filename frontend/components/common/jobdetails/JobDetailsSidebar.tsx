@@ -16,7 +16,7 @@ const JobDetailsSidebar = () => {
     const { jobID } = useSelector((store: any) => store.job);
     // 
     const dispatch = useDispatch();
-    let { isLoading, isError, isSuccess, data } = useGetSingleJobQuery(jobID)
+    let { isLoading, data } = useGetSingleJobQuery(jobID)
 
 
     const [tab, setTab] = useState(0)
@@ -38,7 +38,7 @@ const JobDetailsSidebar = () => {
                 animate={jobDetailSidebar ? "enter" : "exit"}
                 exit="exit"
                 className={`w-[100%] lg:w-[600px] h-full max-h-[100vh] overflow-auto absolute  top-0 bg-white z-30 p-6 sidebar_shadow`}>
-                <div onClick={() => dispatch(offJobDetailSidebar(""))} className="w-12 h-12 rounded-full z-20 flex items-center hover:shadow-md border shadow-xl justify-center bg-white absolute cursor-pointer right-12 top-4">
+                <div onClick={() => dispatch(offJobDetailSidebar(""))} className="w-12 h-12 rounded-full z-20 flex items-center hover:bg-[#eee] bg-[#fafafa] justify-center absolute cursor-pointer right-12 top-4">
                     <RxCross1 />
                 </div>
                 {
