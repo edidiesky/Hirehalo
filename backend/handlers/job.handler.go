@@ -39,13 +39,8 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 			"$options": "i",
 		}
 	}
-	if remote := c.Query("remote"); remote != "" {
-		// Convert to bool (assuming "true" means remote)
-		if remote == "true" {
-			filterParams["remote"] = true
-		} else {
-			filterParams["remote"] = false
-		}
+	if jobtype := c.Query("jobtype"); jobtype != "" {
+		filterParams["jobtype"] = jobtype
 	}
 	page, err := strconv.Atoi(c.Query("page", "1"))
 	if err != nil || page <= 0 {

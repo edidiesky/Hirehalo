@@ -8,9 +8,9 @@ import (
 type JobType string
 
 const (
-	ONSITE JobType = "ON SITE"
-	REMOTE JobType = "REMOTE"
-	HRBRID JobType = "HYRBID"
+	OnSite JobType = "OnSite"
+	Remote JobType = "Remote"
+	Hybrid JobType = "Hybrid"
 )
 
 type Job struct {
