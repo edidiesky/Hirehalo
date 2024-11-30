@@ -6,6 +6,7 @@ import {
 } from '@/services/modalSlice';
 import { useDispatch } from "react-redux";
 import { JobType } from "@/constants";
+import { setJobID } from "@/services/jobSlice";
 type JobCardType = { data: JobType, index: number, type?: string }
 
 const JobCard = ({ data, type }: JobCardType) => {
@@ -69,7 +70,10 @@ const JobCard = ({ data, type }: JobCardType) => {
                         </span>
                         <span className="font-normal block text-xs md:text-base">{data?.Location}</span>
                     </span>
-                    <button onClick={() => dispatch(onJobDetailSidebar(""))} className="shadows py-2 rounded-full cursor-pointer px-4 border text-white bg-[#000] text-xs">Details</button>
+                    <button onClick={() => {
+                        dispatch(setJobID(data?.ID))
+                        dispatch(onJobDetailSidebar(""))
+                    }} className="shadows py-2 rounded-full cursor-pointer px-4 border text-white bg-[#000] text-xs">Details</button>
 
                 </div>
 

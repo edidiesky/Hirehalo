@@ -530,6 +530,7 @@ export type JobType = {
     PostedAt: string;
     UpdatedAt: string;
     AuthorId: string;
+    ID?: string;
 }
 
 

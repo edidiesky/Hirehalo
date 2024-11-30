@@ -34,7 +34,7 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 	}
 	// filter based on location
 	if location := c.Query("location"); location != "" {
-		filterParams["location"] = bson.M{
+		filterParams["locaiton"] = bson.M{
 			"$regex":   location,
 			"$options": "i",
 		}
@@ -113,9 +113,7 @@ func GetSingleJobsHandler(c *fiber.Ctx) error {
 
 		}
 	}
-	return c.Status(fiber.StatusOK).JSON(fiber.Map{
-		"job": job,
-	})
+	return c.Status(fiber.StatusOK).JSON(job)
 }
 
 // @description  Create A Job Handler
