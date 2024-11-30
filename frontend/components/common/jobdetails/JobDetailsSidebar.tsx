@@ -59,8 +59,8 @@ const JobDetailsSidebar = () => {
                                         />
                                         <div className="flex flex-col">
                                             <h3 className="text-xl lg:text-2xl family2 family2 capitalize">{data?.Company}</h3>
-                                            <h4 className="text-sm lg:text-base font-normal">{data?.Title}</h4>
-                                            <h4 className="text-xs lg:text-sm font-normal">{data?.Location}</h4>
+                                            <h4 className="text-sm lg:text-lg font-normal">{data?.Title}</h4>
+                                            <h4 className="text-xs lg:text-sm font-normal text-[#777]">{data?.Location}</h4>
                                         </div>
 
 
