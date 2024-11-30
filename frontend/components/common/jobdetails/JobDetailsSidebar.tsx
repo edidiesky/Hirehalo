@@ -68,22 +68,25 @@ const JobDetailsSidebar = () => {
                                     {/* requirement */}
                                     <div className="w-full flex items-center justify-between gap-4 p-4 bg-[#fafafa] rounded-lg">
                                         {/* salary */}
-                                        <span className="text-lg md:text-xl flex-1 text-center border-r family2">
-                                            {data?.Salary}
+                                        <span className="text-lg md:text-xl flex-1 text-center border-r">
+
+                                            <span className="family2">{data?.Salary}</span>
                                             <span className="block text-sm font-normal">
                                                 salary
                                             </span>
                                         </span>
                                         {/* salary */}
-                                        <span className="text-lg md:text-xl flex-1 text-center border-r family2">
-                                            {data?.Experience} Years
+                                        <span className="text-lg md:text-xl flex-1 text-center border-r ">
+                                            <span className="family2">{data?.Experience} Years</span>
                                             <span className="block text-sm font-normal">
                                                 Work experience
                                             </span>
                                         </span>
                                         {/* salary */}
-                                        <span className="text-lg md:text-xl flex-1 text-center family2">
-                                            {data?.JobType}
+                                        <span className="text-lg md:text-xl flex-1 text-center">
+
+                                            <span className="family2">{data?.JobType}</span>
+
                                             <span className="block text-sm font-normal">
                                                 Job Type
                                             </span>
@@ -102,7 +105,7 @@ const JobDetailsSidebar = () => {
                                         </div>
                                         <div className="flex flex-col gap-4">
                                             <h4 className="text-base family2 lg:text-xl family2">
-                                                    Job Responsibility
+                                                Job Responsibility
                                             </h4>
                                             <ol className="list-disc pl-6 lg:pl-8 flex-col gap-3 flex text-xs lg:text-base">
                                                 {

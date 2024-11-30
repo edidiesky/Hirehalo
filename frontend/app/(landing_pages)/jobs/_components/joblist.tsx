@@ -1,11 +1,11 @@
 "use client"
 import Image from 'next/image';
 import { FaLocationArrow } from 'react-icons/fa'
-import Link from 'next/link';
 import { JobfilterData, JobType, LocationfilterData } from '@/constants';
 import { useDispatch } from 'react-redux';
 import { onJobDetailSidebar } from '@/services/modalSlice';
 import { setJobID } from "@/services/jobSlice";
+import CardLoader from '@/components/common/loader/CardLoader';
 
 const JobList = ({ isLoading, job }: { isLoading: boolean, job: JobType[] }) => {
     const dispatch = useDispatch()
@@ -72,7 +72,13 @@ const JobList = ({ isLoading, job }: { isLoading: boolean, job: JobType[] }) => 
                     </span>
                 </div>
                 {
-                    isLoading ? "" : (
+                    isLoading ? <div className="w-full flex flex-col gap-4">
+                        {
+                            Array(8).fill("").map((_, index) => {
+                                return <CardLoader type='search' key={index} />
+                            })
+                        }
+                    </div> : (
                         <ol className="flex flex-col gap-4">
                             {
                                 job?.map((data, index) => {
@@ -109,7 +115,7 @@ const JobList = ({ isLoading, job }: { isLoading: boolean, job: JobType[] }) => 
 
                                             <ol className="list-disc px-4 flex-col gap-1 flex text-sm lg:text-base">
                                                 {
-                                                    data?.Responsibility?.map((data: string, index: string) => {
+                                                    data?.Responsibility?.map((data: any, index: any) => {
                                                         return (
                                                             <li key={index}>{data}</li>
                                                         )
