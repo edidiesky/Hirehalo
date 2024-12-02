@@ -147,8 +147,8 @@ const CardLoader = ({ type }: { type?: string }) => {
                                 } />
                             </span>
                         </div>
-                        <div className='flex-1 justify-end items-end flex flex-col gap-2'>
-                            {/* <span className='h-[25px] w-[80px]'>
+                        <div className=' flex flex-col gap-2'>
+                            <span className='h-[20px] w-[80px]'>
                                 <Skeleton style={
                                     {
                                         borderRadius: "100px",
@@ -156,25 +156,8 @@ const CardLoader = ({ type }: { type?: string }) => {
                                         height: "100%",
                                     }
                                 } />
-                            </span> */}
-                            <span className='h-[10px] w-full'>
-                                <Skeleton style={
-                                    {
-                                        borderRadius: "10px",
-                                        width: "50%",
-                                        height: "100%",
-                                    }
-                                } />
                             </span>
-                            <span className='h-[10px] w-full'>
-                                <Skeleton style={
-                                    {
-                                        borderRadius: "10px",
-                                        width: "40%",
-                                        height: "100%",
-                                    }
-                                } />
-                            </span>
+                           
                         </div>
 
                     </div>
