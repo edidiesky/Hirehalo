@@ -3,6 +3,7 @@ package handlers
 import (
 	"log"
 	"strconv"
+	"strings"
 
 	"github.com/edidiesky/hirehalo/backend/models"
 	"github.com/edidiesky/hirehalo/backend/services"
@@ -40,7 +41,9 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 		}
 	}
 	if jobtype := c.Query("jobtype"); jobtype != "" {
-		filterParams["jobtype"] = jobtype
+		filterParams["jobtype"] = bson.M{
+			"$in": strings.Split(jobtype, ","),
+		}
 	}
 	page, err := strconv.Atoi(c.Query("page", "1"))
 	if err != nil || page <= 0 {

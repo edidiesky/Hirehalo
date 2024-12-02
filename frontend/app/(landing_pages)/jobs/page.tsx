@@ -29,7 +29,8 @@ export default function Home() {
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilters((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
-  const { isLoading, data: Jobs } = useGetAllJobQuery(debouncedfilters)
+  const params = new URLSearchParams(debouncedfilters)
+  const { isLoading, data: Jobs } = useGetAllJobQuery("")
   console.log("debouncedfilters", debouncedfilters)
   return (
     <div className="w-full">
