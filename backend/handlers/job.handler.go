@@ -45,6 +45,11 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 			"$in": strings.Split(jobtype, ","),
 		}
 	}
+	if employmentType := c.Query("employmentType"); employmentType != "" {
+		filterParams["employmentType"] = bson.M{
+			"$in": strings.Split(employmentType, ","),
+		}
+	}
 	page, err := strconv.Atoi(c.Query("page", "1"))
 	if err != nil || page <= 0 {
 		page = 1

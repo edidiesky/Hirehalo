@@ -5,12 +5,19 @@ import (
 	"time"
 )
 
-type JobType string
+type EmploymentType string
+type JobLocation string
 
 const (
-	OnSite JobType = "OnSite"
-	Remote JobType = "Remote"
-	Hybrid JobType = "Hybrid"
+	Volunteer  EmploymentType = "Volunteer"
+	FullTime   EmploymentType = "Full Time"
+	Contract   EmploymentType = "Contract"
+	Internship EmploymentType = "Internship"
+)
+const (
+	Onsite JobLocation = "On-site"
+	Remote JobLocation = "Remote"
+	Hybrid JobLocation = "Hybrid"
 )
 
 type Job struct {
@@ -19,12 +26,12 @@ type Job struct {
 	BgColor         string             `bson:"bgColor" validate:"required"`
 	Salary          int                `bson:"salary" validate:"required"`
 	Title           string             `bson:"title" validate:"required"`
-	JobType         JobType            `bson:"jobtype"`
+	EmploymentType  EmploymentType     `bson:"employmentType"`
+	JobLocation     JobLocation        `bson:"joblocation"`
 	Responsibility  []string           `bson:"responsibilites" validate:"required"`
 	Description     string             `bson:"description" validate:"required"`
 	Company         string             `bson:"company" validate:"required"`
 	Location        string             `bson:"location" validate:"required"`
-	EmploymentType  string             `bson:"employmentType" validate:"required"`
 	ExperienceLevel string             `bson:"experienceLevel" validate:"required"`
 	Experience      int                `bson:"experience" validate:"required"`
 	Skills          []string           `bson:"skills" validate:"required"`

@@ -8,15 +8,16 @@ import { onJobDetailSidebar } from '@/services/modalSlice';
 import { setJobID } from "@/services/jobSlice";
 import CardLoader from '@/components/common/loader/CardLoader';
 import { FilterSearchType } from '../page';
-
+// handleJobTypeChange
 type JobListType = {
     filters: FilterSearchType;
+    handleJobTypeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     isLoading: boolean;
     job: JobType[]
 }
 
-const JobList = ({ isLoading, job, filters, handleFilterChange }: JobListType) => {
+const JobList = ({ isLoading, job, filters, handleFilterChange, handleJobTypeChange }: JobListType) => {
     const dispatch = useDispatch()
 
     return (

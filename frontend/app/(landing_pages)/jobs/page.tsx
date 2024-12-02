@@ -7,7 +7,7 @@ export type FilterSearchType = {
   title: string;
   company: string;
   location: string;
-  jobtype: string;
+  jobtype: string[];
   page: number;
   pageSize: number;
 }
@@ -17,7 +17,7 @@ export default function Home() {
     title: "",
     company: "",
     location: "",
-    jobtype: "",
+    jobtype: [],
     page: 1,
     pageSize: 10,
   });
@@ -29,13 +29,23 @@ export default function Home() {
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilters((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
-  const params = new URLSearchParams(debouncedfilters)
+  const handleJobTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target
+    setFilters((prev) => {
+      const updatedJobType = checked ? [...prev.jobtype, value] :
+        prev.jobtype.filter((type) => type != value)
+      return { ...prev, jobtype: updatedJobType }
+    })
+  }
+
+  // const params = new URLSearchParams(debouncedfilters)
   const { isLoading, data: Jobs } = useGetAllJobQuery("")
   console.log("debouncedfilters", debouncedfilters)
   return (
     <div className="w-full">
       <Hero />
       <JobLists
+        handleJobTypeChange={handleJobTypeChange}
         handleFilterChange={handleFilterChange}
         filters={filters}
         isLoading={isLoading} job={Jobs?.job} />
