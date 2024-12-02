@@ -502,7 +502,7 @@ export const ApplicantDataList = [
 export const JobfilterData = [
     "Full Time",
     "Internship",
-    "Freelance",
+    "Contract",
     "Volunteer",
 ]
 

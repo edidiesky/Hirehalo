@@ -16,7 +16,7 @@ HireHalo is a platform that connects job seekers to a wide range of remote job o
 
 ## Technologies Used
 
-- **Backend:** Golang, MongoDB, Socket.IO, Jest, Redis for Caching, 
+- **Backend:** Golang, MongoDB, Socket.IO, Redis for Caching, 
 - **Frontend:** Next.Js, Typescript, React.js, Cypress, Framer-motion, Gsap, Tailwind.CSS.
 - **Database:** MongoDB
 - **Hosting:** Vercel

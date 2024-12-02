@@ -7,7 +7,8 @@ export type FilterSearchType = {
   title: string;
   company: string;
   location: string;
-  jobtype: string[];
+  joblocation: string[];
+  employmentType: string[];
   page: number;
   pageSize: number;
 }
@@ -17,7 +18,8 @@ export default function Home() {
     title: "",
     company: "",
     location: "",
-    jobtype: [],
+    joblocation: [],
+    employmentType: [],
     page: 1,
     pageSize: 10,
   });
@@ -29,23 +31,38 @@ export default function Home() {
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilters((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
-  const handleJobTypeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleJobLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target
     setFilters((prev) => {
-      const updatedJobType = checked ? [...prev.jobtype, value] :
-        prev.jobtype.filter((type) => type != value)
-      return { ...prev, jobtype: updatedJobType }
+      const updatedJobType = checked ? [...prev.joblocation, value] :
+        prev.joblocation.filter((type) => type != value)
+      return { ...prev, joblocation: updatedJobType }
     })
   }
 
-  // const params = new URLSearchParams(debouncedfilters)
-  const { isLoading, data: Jobs } = useGetAllJobQuery("")
-  console.log("debouncedfilters", debouncedfilters)
+  const handleJobEmploymentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target
+    setFilters((prev) => {
+      const updatedEmploymentType = checked ? [...prev.employmentType, value] :
+        prev.employmentType.filter((type) => type != value)
+      return { ...prev, employmentType: updatedEmploymentType }
+    })
+  }
+
+  const params = new URLSearchParams(Object.fromEntries(
+    Object.entries({
+      ...debouncedfilters,
+      joblocation: debouncedfilters.joblocation.join(','),
+    }).map(([key, value]) => [key, String(value)])
+  )).toString()
+  const { isLoading, data: Jobs } = useGetAllJobQuery(params ? params : "")
+  console.log("params", params)
   return (
     <div className="w-full">
       <Hero />
       <JobLists
-        handleJobTypeChange={handleJobTypeChange}
+        handleJobEmploymentChange={handleJobEmploymentChange}
+        handleJobLocationChange={handleJobLocationChange}
         handleFilterChange={handleFilterChange}
         filters={filters}
         isLoading={isLoading} job={Jobs?.job} />

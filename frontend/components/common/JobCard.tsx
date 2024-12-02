@@ -1,20 +1,62 @@
 "use client"
 import Image from "next/image";
-import { FaBookmark } from "react-icons/fa";
+import { FaBookmark, FaLocationArrow } from "react-icons/fa";
 import {
     onJobDetailSidebar,
 } from '@/services/modalSlice';
 import { useDispatch } from "react-redux";
 import { JobType } from "@/constants";
 import { setJobID } from "@/services/jobSlice";
-type JobCardType = { data: JobType, index: number, type?: string }
+type JobCardType = { createdAt?: string, data: JobType, type?: string }
 
-const JobCard = ({ data, type }: JobCardType) => {
+const JobCard = ({ data, type, createdAt }: JobCardType) => {
     const dispatch = useDispatch();
+    if (type === 'large') {
+        return (
+            <li onClick={() => {
+                dispatch(onJobDetailSidebar(""))
+                dispatch(setJobID(data?.ID))
 
+            }} className="flex w-full bg-[#fff] p-6 rounded-lg border shadows">
+                <div className="flex w-full flex-col gap-4 justify-between">
+                    <div className="flex items-start lg:flex-row flex-col gap-3 justify-between w-full">
+                        <div className="flex items-center gap-8">
+                            <Image
+                                src={data?.CompanyLogo}
+                                alt="Job image Logo Content"
+                                width={60}
+                                height={20}
+                            />
+                            <div className="flex flex-col">
+                                <h4 className="text-lg lg:text-xl family2 family2">{data?.Title}</h4>
+                                <h5 className="text-sm lg:text-base font-normal capitalize">{data?.Company}</h5>
+
+                            </div>
+                        </div>
+                        <div className="flex lg:justify-end lg:items-end gap-1 flex-col">
+
+                            <span className="text-base flex items-center family2  gap-2">
+                                <FaLocationArrow />
+                                {data?.Location}
+                            </span>
+                            <span className="text-sm font-normal">Posted on {createdAt}</span>
+                        </div>
+                    </div>
+
+                    <ol className="list-disc px-4 flex-col gap-1 flex text-sm lg:text-base">
+                        {
+                            data?.Responsibility?.map((data: any, index: any) => {
+                                return (
+                                    <li key={index}>{data}</li>
+                                )
+                            })
+                        }
+                    </ol>
+                </div>
+            </li>
+        )
+    }
     return <>
-
-
         <li
             style={{
                 transition: "all .4s"

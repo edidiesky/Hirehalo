@@ -6,11 +6,10 @@ export const jobApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllJob: builder.query({
       query: (filters) => {
-        const params = new URLSearchParams(filters).toString()
         return {
           method: "GET",
           credentials: "include",
-          url: `${JOB_URL}?${params}`,
+          url: `${JOB_URL}?${filters}`,
         }
       }
     }),

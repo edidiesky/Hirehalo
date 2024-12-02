@@ -1,24 +1,21 @@
 "use client"
-import Image from 'next/image';
 import moment from 'moment'
-import { FaLocationArrow } from 'react-icons/fa'
 import { JobfilterData, JobType, LocationfilterData } from '@/constants';
 import { useDispatch } from 'react-redux';
-import { onJobDetailSidebar } from '@/services/modalSlice';
-import { setJobID } from "@/services/jobSlice";
 import CardLoader from '@/components/common/loader/CardLoader';
 import { FilterSearchType } from '../page';
-// handleJobTypeChange
+import JobCard from '@/components/common/JobCard';
+// handleJobEmploymentChange
 type JobListType = {
     filters: FilterSearchType;
-    handleJobTypeChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleJobLocationChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    handleJobEmploymentChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     isLoading: boolean;
     job: JobType[]
 }
 
-const JobList = ({ isLoading, job, filters, handleFilterChange, handleJobTypeChange }: JobListType) => {
-    const dispatch = useDispatch()
+const JobList = ({ isLoading, job, filters, handleFilterChange, handleJobEmploymentChange, handleJobLocationChange }: JobListType) => {
 
     return (
         <div className='py-20 flex items-center gap-8 justify-center'>
@@ -41,32 +38,37 @@ const JobList = ({ isLoading, job, filters, handleFilterChange, handleJobTypeCha
                         <span className="block text-base lg:text-lg family2">
                             Job Type
                         </span>
-                        <ol className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-3">
+
                             {
                                 JobfilterData?.map((data, index) => {
-                                    return <li key={index} className="flex text-sm md:text-base font-normal items-center gap-3">
-                                        <input type="checkbox" name="" id="" />
-                                        {data}
-                                    </li>
+                                    return (
+                                        <label key={index} className="flex text-sm md:text-base font-normal items-center gap-3">
+                                            <input onChange={handleJobEmploymentChange} type="checkbox" checked={filters.employmentType.includes(data)} value={data} />
+                                            {data}
+                                        </label>
+                                    )
                                 })
                             }
-                        </ol>
+                        </div>
                     </div>
                     {/* location */}
                     <div className="flex pb-6 border-b flex-col gap-3">
                         <span className="block text-base lg:text-lg family2">
                             Job Location
                         </span>
-                        <ol className="flex flex-wrap gap-3">
+                        <div className="flex flex-wrap gap-3">
                             {
                                 LocationfilterData?.map((data, index) => {
-                                    return <li key={index} className="flex text-sm md:text-base font-normal items-center gap-3">
-                                        <input type="checkbox" name="" id="" />
-                                        {data}
-                                    </li>
+                                    return (
+                                        <label key={index} className="flex text-sm md:text-base font-normal items-center gap-3">
+                                            <input onChange={handleJobLocationChange} type="checkbox" checked={filters.joblocation.includes(data)} value={data} />
+                                            {data}
+                                        </label>
+                                    )
                                 })
                             }
-                        </ol>
+                        </div>
                     </div>
 
                     <button className="btn btn_1 text-lg">
@@ -95,7 +97,7 @@ const JobList = ({ isLoading, job, filters, handleFilterChange, handleJobTypeCha
                     {
                         isLoading ? <div className="w-full flex flex-col gap-4">
                             {
-                                Array(8).fill("").map((_, index) => {
+                                Array(10).fill("").map((_, index) => {
                                     return <CardLoader type='search' key={index} />
                                 })
                             }
@@ -104,47 +106,7 @@ const JobList = ({ isLoading, job, filters, handleFilterChange, handleJobTypeCha
                                 {
                                     job?.map((data, index) => {
                                         const createdAt = moment(data?.PostedAt).format("DD MMM YYYY")
-                                        return <li onClick={() => {
-                                            dispatch(onJobDetailSidebar(""))
-                                            dispatch(setJobID(data?.ID))
-
-                                        }} key={index} className="flex w-full bg-[#fff] p-6 rounded-lg border shadows">
-                                            <div className="flex w-full flex-col gap-4 justify-between">
-                                                <div className="flex items-start justify-between w-full">
-                                                    <div className="flex items-center gap-8">
-                                                        <Image
-                                                            src={data?.CompanyLogo}
-                                                            alt="Job image Logo Content"
-                                                            width={60}
-                                                            height={20}
-                                                        />
-                                                        <div className="flex flex-col">
-                                                            <h4 className="text-lg lg:text-xl family2 family2">{data?.Title}</h4>
-                                                            <h5 className="text-sm lg:text-base font-normal capitalize">{data?.Company}</h5>
-
-                                                        </div>
-                                                    </div>
-                                                    <div className="flex lg:justify-end lg:items-end gap-2 flex-col">
-
-                                                        <span className="text-base flex items-center family2  gap-2">
-                                                            <FaLocationArrow />
-                                                            {data?.Location}
-                                                        </span>
-                                                        <span className="text-sm font-normal">Posted on {createdAt}</span>
-                                                    </div>
-                                                </div>
-
-                                                <ol className="list-disc px-4 flex-col gap-1 flex text-sm lg:text-base">
-                                                    {
-                                                        data?.Responsibility?.map((data: any, index: any) => {
-                                                            return (
-                                                                <li key={index}>{data}</li>
-                                                            )
-                                                        })
-                                                    }
-                                                </ol>
-                                            </div>
-                                        </li>
+                                        return <JobCard data={data} createdAt={createdAt} key={index} type='large' />
                                     })
                                 }
 
