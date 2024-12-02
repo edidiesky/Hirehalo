@@ -511,7 +511,7 @@ export const LocationfilterData = [
     "On-site",
     "Hybrid",
 ]
-
+// Job Type
 export type JobType = {
     CompanyLogo: string;
     BgColor: string;

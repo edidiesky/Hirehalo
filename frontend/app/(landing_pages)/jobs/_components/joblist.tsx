@@ -23,7 +23,7 @@ const JobList = ({ isLoading, job, filters, handleFilterChange, handleJobEmploym
                 <div className="w-[350px] px-8 py-8 border sticky rounded-lg bg-white top-20 hidden lg:flex flex-col gap-4">
                     <div className="flex pb-6 border-b flex-col gap-2">
                         <span className="block text-lg lg:text-lg family2">
-                            Date Posted
+                         Job Location
                         </span>
                         <div className="flex flex-col gap-4">
                             <input

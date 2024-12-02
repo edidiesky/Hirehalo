@@ -35,7 +35,7 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 	}
 	// filter based on location
 	if location := c.Query("location"); location != "" {
-		filterParams["locaiton"] = bson.M{
+		filterParams["location"] = bson.M{
 			"$regex":   location,
 			"$options": "i",
 		}
