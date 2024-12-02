@@ -6,9 +6,63 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { MdLocationOn } from "react-icons/md";
 import { MdOutlineWork } from "react-icons/md";
 import JobCard from "@/components/common/JobCard";
-import { jobData, widgetData } from "@/constants";
-
+import { JobType } from "@/constants";
+import CardLoader from '@/components/common/loader/CardLoader';
+import { useState, useEffect } from 'react';
+import { useGetAllJobQuery } from "@/services/jobApi";
+export type FilterSearchType = {
+  title: string;
+  company: string;
+  location: string;
+  joblocation: string[];
+  employmentType: string[];
+  page: number;
+  pageSize: number;
+}
 export default function Home() {
+  const [filters, setFilters] = useState<FilterSearchType>({
+    title: "",
+    company: "",
+    location: "",
+    joblocation: [],
+    employmentType: [],
+    page: 1,
+    pageSize: 10,
+  });
+  const [debouncedfilters, setDebouncedFilters] = useState<FilterSearchType>(filters)
+  useEffect(() => {
+    const timer = setTimeout(() => setDebouncedFilters(filters), 500)
+    return () => clearTimeout(timer)
+  }, [filters])
+  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFilters((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+  const handleJobLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target
+    setFilters((prev) => {
+      const updatedJobType = checked ? [...prev.joblocation, value] :
+        prev.joblocation.filter((type) => type != value)
+      return { ...prev, joblocation: updatedJobType }
+    })
+  }
+
+  const handleJobEmploymentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target
+    setFilters((prev) => {
+      const updatedEmploymentType = checked ? [...prev.employmentType, value] :
+        prev.employmentType.filter((type) => type != value)
+      return { ...prev, employmentType: updatedEmploymentType }
+    })
+  }
+
+  const params = new URLSearchParams(Object.fromEntries(
+    Object.entries({
+      ...debouncedfilters,
+      joblocation: debouncedfilters.joblocation.join(','),
+    }).map(([key, value]) => [key, String(value)])
+  )).toString()
+  const { isLoading, data } = useGetAllJobQuery(params ? params : "")
+  console.log(data)
   return (
     <div className="w-full bg-white min-h-[100vh] py-12 px-4 lg:px-8">
       <div className="w-full max-w-custom mx-auto flex flex-col gap-8">
@@ -64,7 +118,7 @@ export default function Home() {
                 </button>
               </div>
             </div>
-          
+
 
           </div>
           <div className="w-full flex items-center justify-between gap-4">
@@ -75,16 +129,28 @@ export default function Home() {
               Sort by <span className="family2">Newest</span>
             </span>
           </div>
-          <ol className="grid mt-4 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-            {
-              jobData?.map((data, index) => {
-                return <JobCard index={index} key={index} data={data} />
-              })
-            }
+          {
+            !isLoading ? <div className="w-full grid mt-4 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {
+                Array(10).fill("").map((_, index) => {
+                  return <CardLoader key={index} />
+                })
+              }
+              </div>
+              : <ol className="grid mt-4 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+              {
+  data?.job?.map((data: JobType, index: any) => {
+    return <JobCard key={index} data={data} />
+  })
+}
 
-          </ol>
+              </ol>
+          }
+         
         </div>
       </div>
     </div>
   );
 }
+
+

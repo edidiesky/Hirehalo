@@ -1,7 +1,6 @@
 "use client"
 import moment from 'moment'
 import { JobfilterData, JobType, LocationfilterData } from '@/constants';
-import { useDispatch } from 'react-redux';
 import CardLoader from '@/components/common/loader/CardLoader';
 import { FilterSearchType } from '../page';
 import JobCard from '@/components/common/JobCard';

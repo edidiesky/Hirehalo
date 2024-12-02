@@ -106,38 +106,90 @@ const CardLoader = ({ type }: { type?: string }) => {
     }
     return (
         <SkeletonThemeCard>
-            <div className="w-full flex flex-col gap-3 rounded-xl">
-                <span className='h-[200px] w-full'>
+            <div className="w-full flex flex-col ">
+                <span className='h-[200px] rounded-t-xl w-full'>
                     <Skeleton style={
                         {
-                            borderRadius: "10px",
                             width: "100%",
                             height: "100%",
                         }
                     } />
                 </span>
-                <div className="w-full p-3 flex items-center gap-4 justify-between">
-                    <div className='w-full flex flex-col gap-2'>
+                <div className="w-full px-3 border rounded-b-xl py-6 flex flex-col gap-4">
+                    <div className="w-full flex items-center gap-2 justify-between">
+                        <div className='flex-1 flex flex-col gap-2'>
+                            <span className='h-[10px] w-full'>
+                                <Skeleton style={
+                                    {
+                                        borderRadius: "10px",
+                                        width: "70%",
+                                        height: "100%",
+                                    }
+                                } />
+                            </span>
+                            <span className='h-[10px] w-full'>
+                                <Skeleton style={
+                                    {
+                                        borderRadius: "10px",
+                                        width: "50%",
+                                        height: "100%",
+                                    }
+                                } />
+                            </span>
+                            <span className='h-[10px]'>
+                                <Skeleton style={
+                                    {
+                                        borderRadius: "10px",
+                                        width: "30%",
+                                        height: "100%",
+
+                                    }
+                                } />
+                            </span>
+                        </div>
+                        <div className='flex-1 justify-end flex flex-col gap-2'>
+                            {/* <span className='h-[25px] w-[80px]'>
+                                <Skeleton style={
+                                    {
+                                        borderRadius: "100px",
+                                        width: "100%",
+                                        height: "100%",
+                                    }
+                                } />
+                            </span> */}
+                            <span className='h-[10px] w-full'>
+                                <Skeleton style={
+                                    {
+                                        borderRadius: "10px",
+                                        width: "50%",
+                                        height: "100%",
+                                    }
+                                } />
+                            </span>
+                            <span className='h-[10px] w-full'>
+                                <Skeleton style={
+                                    {
+                                        borderRadius: "10px",
+                                        width: "40%",
+                                        height: "100%",
+                                    }
+                                } />
+                            </span>
+                        </div>
+
+                    </div>
+                    <div className='flex-1 flex flex-col gap-2'>
                         <span className='h-[10px] w-full'>
                             <Skeleton style={
                                 {
                                     borderRadius: "10px",
-                                    width: "70%",
+                                    width: "60%",
                                     height: "100%",
                                 }
                             } />
                         </span>
-                        <span className='h-[10px] w-full'>
+                        <span className='h-[10px]'>
                             <Skeleton style={
-                                {
-                                    borderRadius: "10px",
-                                    width: "50%",
-                                    height: "100%",
-                                }
-                            } />
-                        </span>
-                        <span className='h-[6px]'>
-                            <Skeleton height={6} style={
                                 {
                                     borderRadius: "10px",
                                     width: "30%",
@@ -147,16 +199,8 @@ const CardLoader = ({ type }: { type?: string }) => {
                             } />
                         </span>
                     </div>
-                    <span className='h-[30px] w-[70px]'>
-                        <Skeleton style={
-                            {
-                                borderRadius: "100px",
-                                width: "100%",
-                                height: "100%",
-                            }
-                        } />
-                    </span>
                 </div>
+                
 
             </div>
 

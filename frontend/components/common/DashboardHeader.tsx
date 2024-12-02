@@ -8,7 +8,7 @@ const DashboardHeader = ({ }) => {
     return <div style={{
         backdropFilter: "blur(14px)"
     }} className='h-[85px] border-b border-[rgba(0,0,0,.08)] bg-[#ffffff4e] flex z-40 sticky top-0 items-center justify-between'>
-        <div className="w-full px-4 max-w-custom mx-auto flex items-center justify-between">
+        <div className="w-full px-4 flex items-center justify-between">
             <form action="" className='max-w-[140px] lg:max-w-[170px] lg:w-[150px] flex items-center relative'>
                 <span className="w-4 h-4 absolute left-6">
                     <BsSearch />
