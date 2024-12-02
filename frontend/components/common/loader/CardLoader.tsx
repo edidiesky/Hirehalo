@@ -147,7 +147,7 @@ const CardLoader = ({ type }: { type?: string }) => {
                                 } />
                             </span>
                         </div>
-                        <div className='flex-1 justify-end flex flex-col gap-2'>
+                        <div className='flex-1 justify-end items-end flex flex-col gap-2'>
                             {/* <span className='h-[25px] w-[80px]'>
                                 <Skeleton style={
                                     {
