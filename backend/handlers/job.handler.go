@@ -34,9 +34,9 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 		}
 	}
 	// filter based on location
-	if location := c.Query("location"); location != "" {
+	if joblocation := c.Query("joblocation"); joblocation != "" {
 		filterParams["locaiton"] = bson.M{
-			"$regex":   location,
+			"$regex":   joblocation,
 			"$options": "i",
 		}
 	}
