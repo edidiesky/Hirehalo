@@ -1,24 +1,12 @@
 
 "use client"
-import { IoDiamondSharp } from "react-icons/io5";
-import { LuBadgePlus } from "react-icons/lu";
-import { GiReceiveMoney } from "react-icons/gi";
-import { MdLocationOn } from "react-icons/md";
-import { MdOutlineWork } from "react-icons/md";
 import JobCard from "@/components/common/JobCard";
-import { JobType } from "@/constants";
+import { FilterSearchType, JobType } from "@/constants";
 import CardLoader from '@/components/common/loader/CardLoader';
 import { useState, useEffect } from 'react';
 import { useGetAllJobQuery } from "@/services/jobApi";
-export type FilterSearchType = {
-  title: string;
-  company: string;
-  location: string;
-  joblocation: string[];
-  employmentType: string[];
-  page: number;
-  pageSize: number;
-}
+import Filter from "./_components/Filter";
+
 export default function Home() {
   const [filters, setFilters] = useState<FilterSearchType>({
     title: "",
@@ -62,7 +50,7 @@ export default function Home() {
     }).map(([key, value]) => [key, String(value)])
   )).toString()
   const { isLoading, data } = useGetAllJobQuery(params ? params : "")
-  console.log(data)
+  // console.log(data)
 
 
   return (
@@ -79,50 +67,7 @@ export default function Home() {
         </div>
         {/* job Applied */}
         <div className="w-full flex flex-col gap-4">
-          <div className="w-full flex flex-wrap lg:items-center gap-4">
-            <form action="" className='max-w-[300px] lg:w-[200px] relative'>
-              <input type="text" placeholder='Search Jobs & Companies' className="text-sm font-normal rounded-full w-full " />
-            </form>
-            <div className="flex lg:flex-row flex-wrap lg:items-center gap-2">
-              {/* role */}
-              <div className="relative">
-                <button className="shadows py-3 flex items-center gap-2 rounded-full cursor-pointer px-4 border text-dark bg-[#fafafa] text-sm">
-                  <IoDiamondSharp fontSize={'20px'} />
-                  Role
-                </button>
-              </div>
-              {/* skills */}
-              <div className="relative">
-                <button className="shadows py-3 flex items-center gap-2 rounded-full cursor-pointer px-4 border text-dark bg-[#fafafa] text-sm">
-                  <LuBadgePlus fontSize={'20px'} />
-                  Skills
-                </button>
-              </div>
-              {/* Rate */}
-              <div className="relative">
-                <button className="shadows py-3 flex items-center gap-2 rounded-full cursor-pointer px-4 border text-dark bg-[#fafafa] text-sm">
-                  <GiReceiveMoney fontSize={'20px'} />
-                  Rate
-                </button>
-              </div>
-              {/* // Location */}
-              <div className="relative">
-                <button className="shadows py-3 flex items-center gap-2 rounded-full cursor-pointer px-4 border text-dark bg-[#fafafa] text-sm">
-                  <MdLocationOn fontSize={'20px'} />
-                  Location
-                </button>
-              </div>
-              {/*Job Type */}
-              <div className="relative">
-                <button className="shadows py-3 flex items-center gap-2 rounded-full cursor-pointer px-4 border text-dark bg-[#fafafa] text-sm">
-                  <MdOutlineWork fontSize={'20px'} />
-                  Job Type
-                </button>
-              </div>
-            </div>
-
-
-          </div>
+          <Filter />
           <div className="w-full flex items-center justify-between gap-4">
             <span className="block text-base family2">
               196 <span className="font-normal">jobs found</span>

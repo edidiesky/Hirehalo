@@ -511,15 +511,52 @@ export const LocationfilterData = [
     "On-site",
     "Hybrid",
 ]
+export const positionFilterData = [
+    "Full Stack Developer",
+    "Backend Developer ",
+    "Junior React Developer",
+    "Senior React Developer",
+    "DevOps Engineer",
+    "UI/Frontend Developer ",
+    "Mobile App Developer (iOS)",
+    "UX/UI Designer",
+    "Database Administrator (DBA)",
+    "Cybersecurity Analyst"
+]
+
+export const skillsFilterData = [
+    "JavaScript", "Graphql", "MongoDB", "React", "Node.JS", "HTML",
+    "CSS",
+    "GitLab CI/CD", "Jenkins", "Bash", "Kubernetes", "Docker", "AWS",
+    "MySQL", "PostgreSQL", "Database",
+    "Graphql", "Swift", "REST API'S", "UIKit",
+    "Ruby", "Rails", "PyTorch", "Phyton", "TensorFlow", "SQL", "Sidekiw", "Redis", "Docker", "CI/CD"
+]
+export const payFilterData = [
+    '50',
+    '75',
+    '100',
+    '125',
+    '150',
+]
+
+export const regionFilterData = [
+    "Remote",
+    "South-America",
+    "Europe",
+    "North America",
+    "Asia",
+    "Africa",
+]
 // Job Type
 export type JobType = {
     CompanyLogo: string;
     BgColor: string;
     Salary: number;
     Title: string;
-    JobLocation:string;
+    JobLocation: string;
     JobType: string;
-    Responsibility:string[];
+    Responsibility: string[];
     Description: string;
     Company: string;
     Location: string;
@@ -549,7 +586,15 @@ export type ApplicationFormDataType = {
     englishFluency: boolean;
     noticePeriod: boolean;
 };
-
+export type FilterSearchType = {
+    title: string;
+    company: string;
+    location: string;
+    joblocation: string[];
+    employmentType: string[];
+    page: number;
+    pageSize: number;
+}
 export type ProfileFormDataItem = {
     id: number;
     name: keyof FormValueType; // It ensures the name corresponds to keys in FormValueType
