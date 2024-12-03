@@ -517,6 +517,7 @@ export type JobType = {
     BgColor: string;
     Salary: number;
     Title: string;
+    JobLocation:string;
     JobType: string;
     Responsibility:string[];
     Description: string;

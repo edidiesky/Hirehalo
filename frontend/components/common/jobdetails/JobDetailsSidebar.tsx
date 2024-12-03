@@ -70,24 +70,24 @@ const JobDetailsSidebar = () => {
                                         {/* salary */}
                                         <span className="text-lg md:text-xl flex-1 text-center border-r">
 
-                                            <span className="family2">{data?.Salary}</span>
-                                            <span className="block text-sm font-normal">
+                                            <span className="family2">${data?.Salary} / month</span>
+                                            <span className="block text-sm capitalize font-normal">
                                                 salary
                                             </span>
                                         </span>
                                         {/* salary */}
                                         <span className="text-lg md:text-xl flex-1 text-center border-r ">
                                             <span className="family2">{data?.Experience} Years</span>
-                                            <span className="block text-sm font-normal">
+                                            <span className="block text-sm capitalize font-normal">
                                                 Work experience
                                             </span>
                                         </span>
                                         {/* salary */}
                                         <span className="text-lg md:text-xl flex-1 text-center">
 
-                                            <span className="family2">{data?.JobType}</span>
+                                                <span className="family2">{data?.EmploymentType}</span>
 
-                                            <span className="block text-sm font-normal">
+                                            <span className="block text-sm capitalize font-normal">
                                                 Job Type
                                             </span>
                                         </span>

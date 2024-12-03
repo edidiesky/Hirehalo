@@ -18,11 +18,18 @@ dashboard sidebar color:#e1e3e3
     --fonts-defaultBeta: AngelList, Inter, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --fonts-defaultBetaAlt: "Comic Sans MS", "Comic Sans", cursive, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --fonts-displayBeta: "AngelList Display", Inter,
+🔧 - skills
+👋 - about
+💼 - work bistory
+✏️
+💬- Offers
 
-
+💼 - jobs
     ///sidebar_hover
     border: 1px solid var(--primary-red);
     background-color: var(--accent-soft-red);
     color: var(--primary-red);
     box-shadow: 0 0 0 4px #ec2e3a40;
         transition: all .3s;
+
+        [{"device_id":"46rC4UkT1snW0ePBR9nkcn","user_id":"1244210","timestamp":1733227971673,"event_id":24,"session_id":1733227971027,"event_type":"view_jobs","version_name":null,"platform":"Web","os_name":"Chrome","os_version":"131","device_model":"Nexus 5","device_manufacturer":"LG","language":"en-US","api_properties":{},"event_properties":{"hyperlink":"/jobs/"},"user_properties":{},"uuid":"8b9c2165-2b33-429f-a7f1-e97470b678d7","library":{"name":"amplitude-js","version":"8.21.9"},"sequence_number":25,"groups":{},"group_properties":{},"user_agent":"Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36","partner_id":null}]

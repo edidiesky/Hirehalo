@@ -18,7 +18,7 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
                             Edidiong Essien
                             <span className="text-xs block font-normal text-[#969A9A]">Candidate Account</span>
                         </span>
-                    </div> 
+                    </div>
                     <ol className="pt-3 flex flex-col text-sm gap-1">
                         {
                             sidebarlinks?.map((data, index) => {
@@ -44,7 +44,7 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
                             Edidiong Essien
                             <span className="text-xs block font-normal text-[#969A9A]">Candidate Account</span>
                         </span>
-                    </div> 
+                    </div>
                 </div>
             </div>
         </div>

@@ -15,19 +15,19 @@ type JobListType = {
 }
 
 const JobList = ({ isLoading, job, filters, handleFilterChange, handleJobEmploymentChange, handleJobLocationChange }: JobListType) => {
-
+   
     return (
         <div className='py-20 flex items-center gap-8 justify-center'>
             <div className="flex flex-col-reverse lg:grid items-start lg:grid-cols-custom_2 relative gap-8 mx-auto max-w-[1200px] w-[90%]">
                 <div className="w-[350px] px-8 py-8 border sticky rounded-lg bg-white top-20 hidden lg:flex flex-col gap-4">
                     <div className="flex pb-6 border-b flex-col gap-2">
                         <span className="block text-lg lg:text-lg family2">
-                         Job Location
+                            Country
                         </span>
                         <div className="flex flex-col gap-4">
                             <input
                                 onChange={handleFilterChange}
-                                name={'location'}
+                                name={'Search for country'}
                                 value={filters?.location}
                                 type="text" placeholder='Enter your location' className="text-sm border input rounded-xl font-normal w-full " />
 
@@ -89,8 +89,8 @@ const JobList = ({ isLoading, job, filters, handleFilterChange, handleJobEmploym
                             Recent posts
 
                         </h4>
-                        <span className="block text-base pt-3 font-normal">
-                            20 new opportunities posted today!
+                        <span className="block text-base pt-1 font-normal">
+                            Check our new opportunities of jobs posted today!
                         </span>
                     </div>
                     {
@@ -101,7 +101,7 @@ const JobList = ({ isLoading, job, filters, handleFilterChange, handleJobEmploym
                                 })
                             }
                         </div> : (
-                            <ol className="flex flex-col gap-4">
+                            <ol className="flex flex-col gap-4 mt-2">
                                 {
                                     job?.map((data, index) => {
                                         const createdAt = moment(data?.PostedAt).format("DD MMM YYYY")

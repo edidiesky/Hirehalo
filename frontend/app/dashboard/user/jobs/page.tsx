@@ -63,6 +63,8 @@ export default function Home() {
   )).toString()
   const { isLoading, data } = useGetAllJobQuery(params ? params : "")
   console.log(data)
+
+
   return (
     <div className="w-full bg-white min-h-[100vh] py-12 px-4 lg:px-8">
       <div className="w-full max-w-custom mx-auto flex flex-col gap-8">
@@ -130,23 +132,23 @@ export default function Home() {
             </span>
           </div>
           {
-            isLoading ? <div className="w-full grid mt-4 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            isLoading ? <div className="w-full grid mt-4 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 lg:gap-y-12 lg:gap-x-8">
               {
                 Array(10).fill("").map((_, index) => {
                   return <CardLoader key={index} />
                 })
               }
-              </div>
-              : <ol className="grid mt-4 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-              {
-  data?.job?.map((data: JobType, index: any) => {
-    return <JobCard key={index} data={data} />
-  })
-}
+            </div>
+              : <ol className="grid mt-4 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-8 lg:gap-y-12 lg:gap-x-8">
+                {
+                  data?.job?.map((data: JobType, index: any) => {
+                    return <JobCard key={index} data={data} />
+                  })
+                }
 
               </ol>
           }
-         
+
         </div>
       </div>
     </div>

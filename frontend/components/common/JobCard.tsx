@@ -30,6 +30,7 @@ const JobCard = ({ data, type, createdAt }: JobCardType) => {
                             <div className="flex flex-col">
                                 <h4 className="text-lg lg:text-xl family2 family2">{data?.Title}</h4>
                                 <h5 className="text-sm lg:text-base font-normal capitalize">{data?.Company}</h5>
+                                <h5 className="text-xs lg:text-sm font-normal capitalize">{data?.EmploymentType} - {data?.JobLocation}</h5>
 
                             </div>
                         </div>
@@ -40,6 +41,7 @@ const JobCard = ({ data, type, createdAt }: JobCardType) => {
                                 {data?.Location}
                             </span>
                             <span className="text-sm font-normal">Posted on {createdAt}</span>
+
                         </div>
                     </div>
 
