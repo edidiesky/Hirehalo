@@ -12,14 +12,13 @@ import {
     PopoverTrigger,
 } from "@/components/ui/popover";
 type JobListType = {
-    filters?: FilterSearchType;
-    handleJobLocationChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    filters: FilterSearchType;
+    handleJobRoleChange: (payload: string) => void;
     handleJobEmploymentChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleFilterChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     isLoading?: boolean;
-    job?: JobType[];
 }
-export default function Filter({ isLoading, job, filters, handleFilterChange, handleJobEmploymentChange, handleJobLocationChange }: JobListType) {
+export default function Filter({ isLoading, filters, handleFilterChange, handleJobEmploymentChange, handleJobRoleChange }: JobListType) {
 
     return (
         <div className="w-full flex flex-wrap lg:items-center gap-4">
@@ -40,8 +39,10 @@ export default function Filter({ isLoading, job, filters, handleFilterChange, ha
                         <div className="max-w-[480px] shadow-lg px-4 py-6 rounded-xl bg-white flex flex-col gap-4">
                             <div className="w-full pb-4 border-b max-h-[170px] overflow-auto flex items-center flex-wrap gap-2">
                                 {
-                                    positionFilterData?.map((data, index) => {
-                                        return <span key={index} className="py-2 px-3 family2 border rounded-full text-base">{data}</span>
+                                    positionFilterData?.map((data:string, index:number) => {
+                                        const isIncluded = filters.role.includes(data)
+                                        return <span onClick={() => handleJobRoleChange(data)} key={index} 
+                                            className={`py-2 ${isIncluded ?"bg-[#eceff4b9]":""} cursor-pointer px-3 family2 border rounded-full text-base`}>{data}</span>
                                     })
                                 }
                             </div>
@@ -73,7 +74,7 @@ export default function Filter({ isLoading, job, filters, handleFilterChange, ha
                                 <div className="w-full border-b pb-4 max-h-[170px] overflow-auto flex items-center flex-wrap gap-2">
                                     {
                                         skillsFilterData?.map((data, index) => {
-                                            return <span key={index} className="py-2 px-3 family2 border rounded-full text-base">{data}</span>
+                                            return <span onClick={() => handleJobRoleChange(data)} key={index} className="py-2 cursor-pointerpx-3 family2 border rounded-full text-base">{data}</span>
                                         })
                                     }
                                 </div>
@@ -153,7 +154,7 @@ export default function Filter({ isLoading, job, filters, handleFilterChange, ha
                                     JobfilterData?.map((data, index) => {
                                         return <span key={index} className="py-2 px-3 family2 border rounded-full text-base">{data}</span>
                                     })
-                                }   
+                                }
                             </div>
                             <div className="flex items-center justify-end">
                                 <button className="shadows py-3 rounded-full cursor-pointer px-6 border text-white bg-[#000] text-sm">Apply</button>

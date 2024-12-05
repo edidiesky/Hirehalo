@@ -45,6 +45,12 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 			"$in": strings.Split(joblocation, ","),
 		}
 	}
+
+	if role := c.Query("role"); role != "" {
+		filterParams["title"] = bson.M{
+			"$in": strings.Split(role, ","),
+		}
+	}
 	if employmentType := c.Query("employmentType"); employmentType != "" {
 		filterParams["employmentType"] = bson.M{
 			"$in": strings.Split(employmentType, ","),

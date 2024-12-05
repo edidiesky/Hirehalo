@@ -16,7 +16,9 @@ export default function Home() {
     employmentType: [],
     page: 1,
     pageSize: 10,
+    role: []
   });
+
   const [debouncedfilters, setDebouncedFilters] = useState<FilterSearchType>(filters)
   useEffect(() => {
     const timer = setTimeout(() => setDebouncedFilters(filters), 500)
@@ -25,12 +27,12 @@ export default function Home() {
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilters((prev) => ({ ...prev, [e.target.name]: e.target.value }))
   }
-  const handleJobLocationChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value, checked } = e.target
+  const handleJobRoleChange = (payload: string) => {
     setFilters((prev) => {
-      const updatedJobType = checked ? [...prev.joblocation, value] :
-        prev.joblocation.filter((type) => type != value)
-      return { ...prev, joblocation: updatedJobType }
+      const payloadIsIncluded = !prev.role.includes(payload) ? [...prev.role, payload] :
+        prev.role.filter((type) => type != payload)
+
+      return { ...prev, role: payloadIsIncluded }
     })
   }
 
@@ -50,7 +52,7 @@ export default function Home() {
     }).map(([key, value]) => [key, String(value)])
   )).toString()
   const { isLoading, data } = useGetAllJobQuery(params ? params : "")
-  // console.log(data)
+  // console.log("filters", filters)
 
 
   return (
@@ -67,7 +69,7 @@ export default function Home() {
         </div>
         {/* job Applied */}
         <div className="w-full flex flex-col gap-4">
-          <Filter />
+          <Filter filters={filters} handleJobRoleChange={handleJobRoleChange} />
           <div className="w-full flex items-center justify-between gap-4">
             <span className="block text-base family2">
               196 <span className="font-normal">jobs found</span>

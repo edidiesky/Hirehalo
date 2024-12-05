@@ -592,6 +592,7 @@ export type FilterSearchType = {
     location: string;
     joblocation: string[];
     employmentType: string[];
+    role: string[];
     page: number;
     pageSize: number;
 }
