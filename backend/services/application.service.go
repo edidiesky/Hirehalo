@@ -113,7 +113,7 @@ func CreateApplicationService(application models.Application) (*mongo.InsertOneR
 		// Check if the usr has already applied for the job
 		if err = applicationCollection.FindOne(sessCtx, bson.M{"authorId": application.AuthorId, "jobId": application.JobId}).Decode(&application); err == nil {
 			log.Printf("error, the user has already applied for the job: %v", application.JobId)
-			return nil, fmt.Errorf("user has already applied for this job")
+			return nil, fmt.Errorf("you have already applied for this job")
 		} else if err != mongo.ErrNoDocuments {
 			// If any other error occurred, handle it accordingly
 			log.Printf("error checking existing applications: %v", err)
