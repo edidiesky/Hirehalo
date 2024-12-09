@@ -102,7 +102,7 @@ func CreateApplicationService(application models.Application) (*mongo.InsertOneR
 	defer session.EndSession(ctx)
 	// using the session to insert the application and job application update
 	result, err := session.WithTransaction(ctx, func(sessCtx mongo.SessionContext) (interface{}, error) {
-		// Check if the job exists before updating it
+		// Checking, if the job exists before updating it
 		var job models.Job
 		err = jobCollection.FindOne(sessCtx, bson.M{"id": application.JobId}).Decode(&job)
 		if err != nil {
@@ -110,12 +110,12 @@ func CreateApplicationService(application models.Application) (*mongo.InsertOneR
 			return nil, fmt.Errorf("job not found")
 		}
 
-		// Check if the usr has already applied for the job
+		// Checking, if the usr has already applied for the job
 		if err = applicationCollection.FindOne(sessCtx, bson.M{"authorId": application.AuthorId, "jobId": application.JobId}).Decode(&application); err == nil {
 			log.Printf("error, the user has already applied for the job: %v", application.JobId)
 			return nil, fmt.Errorf("you have already applied for this job")
 		} else if err != mongo.ErrNoDocuments {
-			// If any other error occurred, handle it accordingly
+			
 			log.Printf("error checking existing applications: %v", err)
 			return nil, fmt.Errorf("error checking existing applications")
 		}

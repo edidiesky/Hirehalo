@@ -26,6 +26,9 @@ func GetAllJobsHandler(c *fiber.Ctx) error {
 			"$options": "i",
 		}
 	}
+	if rate := c.Query("rate"); rate != "" {
+		filterParams["salary"] = rate
+	}
 	// filter based on company
 	if company := c.Query("company"); company != "" {
 		filterParams["company"] = bson.M{

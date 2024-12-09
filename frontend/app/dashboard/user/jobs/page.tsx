@@ -14,9 +14,11 @@ export default function Home() {
     location: "",
     joblocation: [],
     employmentType: [],
+    skills: [],
     page: 1,
     pageSize: 10,
-    role: []
+    role: [],
+    rate: [],
   });
 
   const [debouncedfilters, setDebouncedFilters] = useState<FilterSearchType>(filters)
@@ -35,7 +37,14 @@ export default function Home() {
       return { ...prev, role: payloadIsIncluded }
     })
   }
+  const handleJobSkillChange = (payload: string) => {
+    setFilters((prev) => {
+      const payloadIsIncluded = !prev.skills.includes(payload) ? [...prev.skills, payload] :
+        prev.skills.filter((type) => type != payload)
 
+      return { ...prev, skills: payloadIsIncluded }
+    })
+  }
   const handleJobEmploymentChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = e.target
     setFilters((prev) => {
