@@ -1,21 +1,20 @@
 "use client"
 import { createSlice } from "@reduxjs/toolkit";
-// const customerData = null;
 
 const getUserData = () => {
   if (typeof window !== "undefined") {
-    const storedUser = localStorage.getItem("customer");
+    let storedUser = localStorage.getItem("customer")
     if (storedUser && storedUser !== "undefined") {
       try {
-        return JSON.parse(storedUser);
+        return JSON.parse(storedUser)
       } catch (error) {
-        console.error("Failed to parse user data:", error);
-        localStorage.removeItem("customer"); // Clear invalid data
+        console.log(error)
       }
     }
   }
-  return null;
+  return null
 };
+
 
 const initialState = {
   currentUser: getUserData(),

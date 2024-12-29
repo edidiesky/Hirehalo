@@ -11,14 +11,14 @@ const DashboardSidebar = ({ sidebarlinks }: { sidebarlinks?: { id: number; tab: 
                         <HiBars3BottomLeft fontSize={'24px'} />   HireHalo
                     </div>
 
-                    <div className="py-2 rounded-md w-full px-4 font-normal
+                    {/* <div className="py-2 rounded-md w-full px-4 font-normal
                      text-white flex items-center cursor-pointer gap-4 hover:bg-[#282c2b]">
                         <div className="w-6 h-6 rounded-md bg-[#A1718A]"></div>
                         <span className="text-sm family2 family2">
                             Edidiong Essien
                             <span className="text-xs block font-normal text-[#969A9A]">Candidate Account</span>
                         </span>
-                    </div>
+                    </div> */}
                     <ol className="pt-3 flex flex-col text-sm gap-1">
                         {
                             sidebarlinks?.map((data, index) => {

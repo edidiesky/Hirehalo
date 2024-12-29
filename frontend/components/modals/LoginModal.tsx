@@ -73,7 +73,7 @@ const LoginModal = () => {
                     <h3 className="text-3xl md:text-3xl family2">
                         Sign In
                     </h3>
-                    <span className="block text-sm md:text-sm max-w-[250px] pt-1">
+                    <span className="block text-base md:text-base max-w-[250px] pt-1">
                         Login to your account and check out your bookings
                     </span>
                 </div>
